@@ -62,6 +62,8 @@
 \RequirePackage{url}
 \RequirePackage{xkeyval}
 \RequirePackage{xspace}
+\RequirePackage{xcolor}
+
 
 %--------------------------------------
 % PdfTeX specific configuration

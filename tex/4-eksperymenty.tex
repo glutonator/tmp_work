@@ -3,6 +3,8 @@
    
 W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach. 
 
+% \colorbox{yellow}{highlight}\\
+
 Na potrzeby analizy wykorzystano wiele różnych modeli sieci neuronowych, bazujących głownie na trzech typach warstw: 
 
 \begin{itemize}
@@ -32,7 +34,8 @@ Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfi
 
 Poniżej przedstawiono tabele z wynikami obliczeń. 
 
-%todo: 
+%todo:
+\colorbox{yellow}{todo:}\\ 
 //tabelka 25 -> zbior2 000/ zbior20 000 
 
 //tabelka 300-> zbior2 000/ zbior20 000 
@@ -46,15 +49,18 @@ Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia si�
 
 Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy w pełni połączone. Natomiast sieci wykorzystujące CNN oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach typu LSTM oraz CNN. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o częściach mowy, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji. 
 
+\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\ 
 %todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
 \subsection{Uczenie modelu na zbiorze B i testowanie jakoś klasyfikacji na zbiorze A }
 
 W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy. Wyniki zawierają tabele poniżej. 
 
 %todo:
+\colorbox{yellow}{todo:}\\
 //tabela dla różnych embedingów pokazująca, że CNN mają najlepszą zdolnośc do generalizacji 
 
 %todo:
+\colorbox{yellow}{todo:}\\ 
 //Wymyślić wnioski dla teakiej sytuacji 
 
 
@@ -63,6 +69,7 @@ W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został pod
 W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent. Wyniki zawierają tabele poniżej. 
 
 %todo:
+\colorbox{yellow}{todo:}\\ 
 //tabela dla roznych embedingow pokazujaca, że CNN jest o 5 procent gorsze od LSTM 
 
 W oparciu o uzyskane wyniki można zauważyć: 
