@@ -1,0 +1,102 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Eksperymenty}
+   
+W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach. 
+
+Na potrzeby analizy wykorzystano wiele różnych modeli sieci neuronowych, bazujących głownie na trzech typach warstw: 
+
+\begin{itemize}
+    \item W pełni połączonych;
+    \item CNN;
+    \item LSTM;
+\end{itemize}
+
+
+\subsection{POSTAGS}
+
+Aby możliwe było wykorzystanie przez sieć neuronową informacji na temat typu części mowy danego słowa konieczne są następujące kroki: 
+
+\begin{enumerate}
+    \item Rozpoznanie części mowy w kontekście zdania i przypisanie do niego odpowiedniego tagu,
+    \item Konwersja wykrytego tagu do liczbowej reprezentacji wektorowej,
+    \item Dołączenie utworzonego wektora do przetrenowanego wektora embedingów.  
+\end{enumerate}
+
+\hfill \break % to dodaje pustą linie po czymść dziwnym -lista, tabela
+Do rozpoznania części mowy zostało wykorzystane narzędzie z pakietu NLTK, które pozwala na oznaczenie każdego słowa w zdaniu jednym z 46 tagów, każdy odpowiadający innej części mowy. Następnie wykryty tag został przetworzony do postaci “one-hot encoding” i dodany do istniejącego embedingu słowa, zwiększając tym samy jego rozmiar o długość 46. 
+
+
+\subsection{Wyniki}
+
+Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent. 
+
+Poniżej przedstawiono tabele z wynikami obliczeń. 
+
+%todo: 
+//tabelka 25 -> zbior2 000/ zbior20 000 
+
+//tabelka 300-> zbior2 000/ zbior20 000 
+
+//tabelka 1024-> zbior2 000/ zbior20 000 
+
+W oparciu o wyniki zamieszczone w powyższych tabelkach można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach embeddingu jest już niepotrzebna. 
+
+Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy embedding pozwala na zachowanie większej liczby informacji na temat słowa. 
+
+
+Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy w pełni połączone. Natomiast sieci wykorzystujące CNN oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach typu LSTM oraz CNN. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o częściach mowy, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji. 
+
+%todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
+\subsection{Uczenie modelu na zbiorze B i testowanie jakoś klasyfikacji na zbiorze A }
+
+W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy. Wyniki zawierają tabele poniżej. 
+
+%todo:
+//tabela dla różnych embedingów pokazująca, że CNN mają najlepszą zdolnośc do generalizacji 
+
+%todo:
+//Wymyślić wnioski dla teakiej sytuacji 
+
+
+\subsection{Uczenie i testowanie modelu na fragmencie zbioru dużego B tak by był równoliczny ze zbiorem małym A}
+
+W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent. Wyniki zawierają tabele poniżej. 
+
+%todo:
+//tabela dla roznych embedingow pokazujaca, że CNN jest o 5 procent gorsze od LSTM 
+
+W oparciu o uzyskane wyniki można zauważyć: 
+
+\begin{itemize}
+    \item Wyższą średnią jakoś klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}
+    \item Lepszą jakość klasyfikacji dla sieci opartych o warstwy typu LSTM
+\end{itemize}
+ 
+
+Wyższa jakoś klasyfikacji może wskazywać na to, że zbiór oznaczony jako \textbf{A} posiada dużo bardziej zróżnicowane dane, przy czym zbiór posiada zbyt małą liczbą próbek by sieć, w procesie nauki, odpowiednio je wychwyciła. Problem ten może być najprawdopodobniej wyeliminowany poprzez dostarczenie większej liczby próbek danych o zróżnicowanym charakterze. 
+
+Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wnioskami płynącymi z innych publikacji badających podobne zagadnienia. Trudności z obserwacji tej zależności w poprzednich eksperymentach mogła wynikać między innymi z: 
+
+
+\begin{itemize}
+
+    \item Dla zbioru A: 
+    \begin{itemize}
+        \item Małej liczby próbek 
+        \item Dużej różnorodności prezentowanej ironii w próbkach
+    \end{itemize}        
+
+    \item Dla zbioru B: 
+    \begin{itemize}
+        \item Małej różnorodności prezentowanej ironii w próbkach 
+        \item Na tyle duża liczba próbek, by sieci o teoretycznie gorszych zdolnościach do rozwiązywania danego zadania klasyfikacji mogły wychwycić cechy tekstu pozwalające, przy odpowiednio długim procesie uczenia, na poprawną klasyfikację.
+    \end{itemize} 
+
+\end{itemize}
+
+
+ 
+
+
+
+ 
