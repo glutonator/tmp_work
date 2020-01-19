@@ -1,0 +1,46 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Zbiory danych}
+
+
+W ramach pracy zostały wykorzystane dwa zbiory danych. Pierwszy zbiór danych został udostępniony w ramach inicjatywy SemEval //add url. Inicjatywa ta ma na celu rozwój szeroko pojętej analizy i przetwarzania języka naturalnego. Zbiór ten składa się 4618 próbek oznaczonych tagiem o klasyfikującym rekord jako ironiczny lub nie. Dane pochodzą z Twittera i reprezentują trzy różne typy ironii:
+\begin{itemize}
+    \item Słowną ironię stworzoną poprzez wykorzystaniu przeciwnej biegunowości słów (polarity contrast):
+          \begin{itemize}
+              \item Przykład: I love waking up with migraines \#not :'(
+          \end{itemize}
+
+    \item Słowną ironię stworzoną bez wykorzystania przeciwnej biegunowości:
+          \begin{itemize}
+              \item Przykład: Human brains disappear every day. Some of them have never even appeared. \#brain \#humanbrain \#Sarcasm
+          \end{itemize}
+
+    \item Ironia sytuacyjna:
+          \begin{itemize}
+              \item Przykład: Most of us didn't focus in the \#ADHD lecture. \#irony
+          \end{itemize}
+\end{itemize}
+
+
+
+Drugi zbiór także pochodzi z Twittera i został zebrany w ramach publikacji …...//todo: uzupełnić  , badacze zebrane dane podzielili na 4 zbiory, każdy o zawierający 30 tysięcy próbek,  reprezentujące poniższe kategorie:
+\begin{itemize}
+    \item Ironiczny
+    \item Sarkastyczny
+    \item Zmieszany zbiór ironiczny i sarkastyczny
+    \item Niezawierający ani ironii, ani sarkazmu
+
+\end{itemize}
+
+Każdy rekord w ramach zbioru danych posiadał następujące informacje:
+
+%todo
+//todo: lista paramterów
+
+Ze względu na to, że wiadomość zawarta w ramach Tweetu nie była podana wprost, tylko sprecyzowany był jej unikalny ID, konieczne było dokonanie dodatkowego mapowania między rekordami, a postami wykorzystując udostępnione przez Tweeter API. Podczas procesu mapowania nie udało się uzyskać wszystkich treści postów, część z nich była nie osiągalna ze względu na różne czynniki losowe takie jak usuniecie konta użytkownika, zablokowanie Tweetu ze względu na naruszenie regulaminu portalu oraz usunięcie Tweetu przez użytkownika. Dlatego uzyskany zbiór postów był mniejszy od 30 tysięcy.  
+Na potrzeby pracy zostały wykorzystane 2 zbiory z wcześniej wymienionych:
+\begin{itemize}
+    \item Zmieszany zbiór ironiczny i sarkastyczny -> zbiór posiadał XXX próbek
+    \item Niezawierający ani ironii, ani sarkazmu -> zbiór posiadł YYY próbek
+\end{itemize}
+
+
