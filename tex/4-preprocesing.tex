@@ -1,0 +1,44 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Preprocessing}
+
+Aby zapewnić jak najlepszą jakość klasyfikacji konieczne jest obrobienie danych do postaci pozbawionej zbędnych szumów. Na potrzeby tej pracy zostały podjęte następujące kroki obróbki danych:
+
+%MOżna napisać czyimi pracami się sugerowałem pisząc preprocessing
+
+\begin{enumerate}
+    \item Zastąpienie linków tagiem “<url>”.
+    \item Usunięcie znaków końca linii.
+    \item Zastąpienie wystąpień nazw użytkowników tagiem  “<username>”.
+    \item Zamiana emotikon z formatu “:XX\_YY:” na format “<emote> XX YY” .
+    \item Rozbicie hasztagów na mniejsze słowa, oznaczenie go tagiem “<hashtag>”.
+    \item Zastąpienie oznaczeń odnoszących się do czasu tagiem “<time>”.
+    \item Zastąpienie liczb tagiem “<number>”.
+    \item Usunięcie znaków  '' | ''  oraz wielokropków.
+    \item Konwersja do małych liter.
+    \item Rozwinięcie form skróconych do ich pełnych form.
+\end{enumerate}
+
+\begin{table}[!h] \label{tab:tabela2} \centering
+    \caption{Tabela przedstawiająca efekt preprocessingu.}
+    \begin{tabular} {| c | c | c |} \hline
+        Numer operacji preprocessingu & Przed konwersją                                          & Po konwersji                   \\ \hline\hline
+        1                             & www.google.pl                                            & <url>                          \\ \hline
+        2                             & \textbackslash n \quad \textbackslash r \textbackslash n &                                \\ \hline
+        3                             & @mike                                                    & <username>                     \\ \hline
+        4                             & :face\_screaming\_in\_fear:                              & <emote> face screaming in fear \\ \hline
+        5                             & \#trueFriend                                             & <hashtag> true Friend          \\ \hline
+        6                             & 14:58                                                    & <time>                         \\ \hline
+        7                             & 1234                                                     & <number>                       \\ \hline
+        8                             & | ...                                                    & .                              \\ \hline
+        9                             & Kazimierz Wielki                                         & kazimierz wielki               \\ \hline
+        10                            & I'll \quad | \quad He's                                  & I will \quad | \quad He has    \\ \hline
+    \end{tabular}
+\end{table}
+
+%todo:
+% być może warto opisać w jaki sposób robię te operacje usuwania ?? -> że regexxy
+% być może warto opisać o tych formach skróconych, że to model dodakowy wychwytuje
+% można teżnapisać czemu nie wykorzystuję stremingu i lematyzacji
+%
+
+
