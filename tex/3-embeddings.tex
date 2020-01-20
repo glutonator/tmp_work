@@ -1,0 +1,65 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Embeddingi}
+
+\subsection{Co to jest embedding słów}
+% zrodło https://towardsdatascience.com/neural-network-embeddings-explained-4d028e6f0526
+% zrodlo 2 https://www.tensorflow.org/tutorials/text/word_embeddings
+% -----  https://developers.google.com/machine-learning/crash-course/embeddings/video-lecture
+
+% ---- https://en.wikipedia.org/wiki/Word_embedding
+
+% https://pathmind.com/wiki/glossary#cosine
+
+% https://machinelearningmastery.com/what-are-word-embeddings/
+
+
+Embedding słów jest to zbiorcza nazwa na techniki i narzędzia wykorzystane w ramach przetwarzania języka naturalnego pozwalające na dokonanie mapowania słów, ze zbioru znanych pojęć, na wektor liczb rzeczywistych. Z matematycznego punktu widzenia sprowadza się to do transformacji z dyskretnej przestrzeni o wielu wymiarach do ciągłej przestrzeni ze znacznie mniejszą liczbą wymiarów. 
+% zrodlo ----> https://en.wikipedia.org/wiki/Word_embedding
+
+%Word embedding is the collective name for a set of language modeling and feature learning techniques in natural language processing (NLP) where words or phrases from the vocabulary are mapped to vectors of real numbers. Conceptually it involves a mathematical embedding from a space with many dimensions per word to a continuous vector space with a much lower dimension.
+
+
+Takie podejście powoduje, że możliwe jest badanie podobieństwa słów wykorzystując cosinusowe podobieństwo. Jeśli dwa słowa mają podobne znaczenia lub wykorzystywane są w podobnym kontekście  wartość podobieństwa będzie bliższa jednemu. Jeśli słowa rzadko ze sobą występują wartość podobieństwa będzie bliższa zera. 
+
+%todo: można dodać wzór na liczenie...
+
+
+
+%zrodlo -> https://www.tensorflow.org/tutorials/text/word_embeddings
+
+%Word embeddings give us a way to use an efficient, dense representation in which similar words have a similar encodin
+
+
+
+\subsection{Wykorzystane embeddingi}
+W ramach pracy są wykorzystywane trzy rodzaje embeddingów, każdy z nich różni się długością wektora i sposobem jego uzyskania. Wykorzystane w pracy embeddingi to:
+\begin{itemize}
+    % \item Word2vec
+    \item Glove
+    \item FastText
+    \item ELMo
+\end{itemize}
+
+
+
+\subsubsection{Word2vec}
+Metoda ta nie została wykorzystana w pracy, jednak jest ona kluczowy do zrzumienia podstaw działania i tworzenia ebeddingów dlatego zostanie omówiony w tej sekcji. Występuje w dwóch odmianach: 
+
+\begin{itemize}
+    \item CBOW
+    \item skip grams 
+\end{itemize}
+
+
+
+Tworzenie embeddingu w oparciu o model typu CBOW polega na trenowaniu prostej sieci neuronowej. Sieć ta składa się z warstwy wejściowej, jednej warstwy ukrytej (w pełni połączonej) oraz warstwy wyjściowej. Trening modelu polega na podawaniu na wejście słów mieszczących się w ramach pewnego założonego okna, przewidując słowo będące w środku tego okna. Jako okno rozumie się tutaj stałą liczbę słów przed i po aktualnie przewidywanym słowie. Słowa, by mogły być przewidywane przez model, są wcześniej konwertowane do przestrzeni wektorowej poprzez wykorzystanie one-hot encodingu. Proces uczenia polega na systematycznym przesuwaniu okna o jedno słowo i trenowanie wag w warstwie ukrytej. Po zakończonym procesie uczenia należy usunąć ostatnią warstwę wyjściową, a wagi z warstwy ukrytej pozwalają na uzyskanie embeddingu słów.  
+
+Odmiana ‘skip grams’ jest analogiczna do metody CBOW, tylko zamiast przewidywania jednego słowa w kontekście jego otoczenia, przewidywane jest otoczenie w kontekście słowa. 
+
+
+\subsubsection{Glove}
+
+
+
+\subsubsection{FastText}
+\subsubsection{ELMo}

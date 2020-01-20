@@ -74,13 +74,18 @@
 \cleardoublepage % Zaczynamy od nieparzystej strony
 \pagestyle{headings}
 
-\input{tex/1-wstep}         % Wygodnie jest trzymać każdy rozdział w osobnym pliku.
-\input{tex/2-de-finibus}    % Umożliwia to również łatwą migrację do nowej wersji szablonu:
-\input{tex/3-code-listings} % wystarczy podmienić swoje pliki main.tex i eiti-thesis.cls
-                            % na nowe wersje, a cały tekst pracy pozostaje nienaruszony.
-\input{tex/3-dane} 
-\input{tex/4-preprocesing} 
-\input{tex/5-eksperymenty} 
+% Wygodnie jest trzymać każdy rozdział w osobnym pliku.
+% Umożliwia to również łatwą migrację do nowej wersji szablonu:
+% wystarczy podmienić swoje pliki main.tex i eiti-thesis.cls
+% na nowe wersje, a cały tekst pracy pozostaje nienaruszony.
+\input{tex/2-dane}
+\input{tex/3-embeddings}
+\input{tex/4-preprocesing}
+\input{tex/5-eksperymenty}
+
+\input{tex/91-wstep}
+\input{tex/92-de-finibus}
+\input{tex/93-code-listings}
 
 \newpage % Rozdziały zaczynamy od nowej strony
 \section{Summatio}          % Można też pisać rozdziały w jednym pliku.
