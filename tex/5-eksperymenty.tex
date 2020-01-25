@@ -13,8 +13,34 @@ Na potrzeby analizy wykorzystano wiele różnych modeli sieci neuronowych, bazuj
     \item LSTM;
 \end{itemize}
 
+W ramach różnych architektur testowany był wpływ kilku hiperparametrów na jakość klasyfikacji. Oto lista niektórych z nich:
+\begin{itemize}
+    \item W pełni połączonych:
+          \begin{itemize}
+              \item  1/2/3 warstwy
+              \item Z dropoutem / bez dropoutu
+              \item Wielkość wartwy ukrytej 30-200
+          \end{itemize}
+
+    \item CNN;
+          \begin{itemize}
+              \item  1/2/3 warstwy
+              \item Wielkość okna 3-15
+              \item Z dropoutem / bez dropoutu
+              \item Wielkość wartwy ukrytej 30-200
+          \end{itemize}
+    \item LSTM;
+    \begin{itemize}
+        \item Wykorzystanie warsty pojedynczej (LSTM) oraz podwójnej (Bi-LSTM)
+        \item  1/2/3 warstwy
+        \item Z dropoutem / bez dropoutu
+        \item Wielkość wartwy ukrytej 30-200
+    \end{itemize}
+\end{itemize}
 
 \subsection{POSTAGS}
+%todo:
+//todo: zmergować z dugim rozdiałem o postagach
 
 Aby możliwe było wykorzystanie przez sieć neuronową informacji na temat typu części mowy danego słowa konieczne są następujące kroki: 
 
