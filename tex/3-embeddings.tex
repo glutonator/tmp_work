@@ -105,3 +105,20 @@ Przetwarzanie zdania wejściowego odbywa się zgodnie z następującymi krokami:
  
 
 % //todo: dodać rysunek arch -> bo jest duża fajnych 
+
+
+%todo: opisać czym są postagi
+\subsection{Uwzględnienie POS tagów w ramach embeddingu}
+
+
+POS tag (Part-of-speach tag) zawiera informacje na temat cech morfosyntatycznych słowa. Najbardziej podstawową kategorią są powszechnie znane części mowy, takie jak czasownik, rzeczownik, przymiotnik. Jednak nie jest to jedyna informacja zawarta w ramach takiego tagu, przechowuje on bowiem także informację o czasie w jakim jest użyty czasownik, w której liczbie jest wykorzystany rzeczownik i wiele innych.  
+
+%todo:
+//todo: można by dorzucić pełną listę, ale to może być problematyczne 
+
+ 
+
+Aby umieścić informacje na temat części mowy tak by była ona możliwa do interpretacji w ramach embeddingu konieczne jest konwertowanie jej do postaci wektorowej. Ze względu na brak dużego podobieństwa między poszczególnymi częściami mowy zdecydowano się na zakodowanie tej informacji w formie one-hot encoding. Tak utworzony wektor był doklejany do istniejącego już embeddingu uzyskanego innymi metodami tworząc wektor dłuższy o 46 elementów. 
+
+%todo:
+//todo: dodać rysunek to obrazujący
