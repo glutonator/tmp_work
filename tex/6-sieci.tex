@@ -1,0 +1,90 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Eksperymenty}
+
+
+Conv1D(n,k) ->
+- n -> liczba neuronów
+- k -> wielkość filtru
+
+\begin{longtable}{| c | m{0.58\linewidth} | r | m{0.1\linewidth} |}
+    \caption{Lista sieci}                                      \\
+    \hline
+    Nazwa sieci                    & \multicolumn{1}{c|}{Sieć} \\ \hline\hline \endfirsthead
+
+    \endfoot
+    \hline \endlastfoot
+
+
+
+    $give_model_8000_cnn$          & Conv1D(50,3)              \\
+                                   & Flatten                   \\
+                                   & Dense(50)                 \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn$          & Conv1D(300,3)             \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn_5$        & Conv1D(300,5)             \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn_7$        & Conv1D(300,7)             \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn_9$        & Conv1D(300,9)             \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn_15$       & Conv1D(300,15)            \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn_15_pool$  & Conv1D(300,15)            \\
+                                   & MaxPooling1D(2)           \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    $give_model_8001_cnn_15_pool2$ & Conv1D(300,15)            \\
+                                   & MaxPooling1D(8)           \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+    %give_model_8001_cnn_2_layers
+    $XXX$                          & Conv1D(300,3)             \\
+                                   & MaxPooling1D(2)           \\
+                                   & Conv1D(300,3)             \\
+                                   & MaxPooling1D(2)           \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+
+    %$give_model_8001_cnn_3_layers$ 
+    $XXXX$                         & Conv1D(300,3)             \\
+                                   & MaxPooling1D(2)           \\
+                                   & Conv1D(300,3)             \\
+                                   & MaxPooling1D(2)           \\
+                                   & Conv1D(300,3)             \\
+                                   & MaxPooling1D(2)           \\
+                                   & Flatten                   \\
+                                   & Dense(300)                \\
+                                   & Dense(1)                  \\ \hline
+
+    $give_model_8002_cnn$          & Conv1D(500,3)             \\
+                                   & Flatten                   \\
+                                   & Dense(500)                \\
+                                   & Dense(1)                  \\ \hline
+
+
+
+
+
+                                   
+
+    % $give_model_8000_cnn$      & qqqq                       \\ \hline
+    % $give_model_8000_cnn$      & qqqq                       \\ \hline
+
+
+
+    \label{table:sieci}
+\end{longtable}
