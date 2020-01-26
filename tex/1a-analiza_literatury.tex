@@ -1,0 +1,23 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Analiza literatury}
+
+
+
+Zagadnienie klasyfikacji ironii jest dość popularnym problemem wśród badaczy z zajmujących się analizą języka naturalnego ze względu na konieczność wychwycenia nie tylko dosłownego znaczenia danej wypowiedzi, ale także detekcję i analizy ewentualnego podtekstu.  
+
+//analiza sentymentu = analiza wydzwięku emeocjonalnego 
+
+Pierwsze prace z tej dziedziny opierały się na analizie sentymentu poszczególnych słów. Opierały się na przeświadczeniu, że jeśli wypowiedź utrzymuje stały charakter emocjonalny w postaci pozytywnego lub negatywnego wdzięku nie zawiera ono w sobie ironii. Natomiast jeśli pojawiały się fragmenty o przeciwnej polaryzacji, to zdanie z dużym prawdopodobieństwem można było klasyfikować jako ironiczne. Metody te jednak były dość zawodne ze względu na brak uwzględniania znaczenia poszczególnych słów, pozwalające na …//todo 
+
+//Odnieśc się ->  Sarcasm as Contrast between a Positive Sentiment and Negative Situation 
+
+//todo: opisać systemy regułowe 
+
+ 
+
+Ze względu na obserwowaną lepszą skuteczność klasyfikacji, późniejsze prace skupiały się przede wszystkim na wykorzystaniu sieci neuronowych do zagadnienia rozpoznawania ironii.  
+
+Kluczowym elementem w przypadku wykorzystania sieci neuronowych jest preprocessing danych. Dlatego prace z tej dziedziny skupiały się w pierwszej kolejności na usunięciu lub zastąpieniu specjalnymi oznaczeniami takich informacji jak linki do zewnętrznych portali oraz oznaczenie użytkownika. Ponadto tekst często był normalizowany poprzez wykorzystanie lematyzacji i stemmingu co miało na celu zmniejszenie liczby unikalnych słów. Kolejnym istotnym elementem w ramach przetwarzania testu wykorzystującego sieci neuronowe był sposób konwersji słów do przestrzeni liczbowej. W publikacjach autorzy wykorzystywali różne metody, między innymi powszechnie znany word2vec, czy też zyskujący coraz większa popularność ELMo. Tak przetworzone dane były wprowadzane do sieci zarówno opartych o warstwy CNN, jak i warstwy typu LSTM. Jakość klasyfikacji dla różnych architekrur opartych o te warstwy była dość podobna z nieznaczną przewagą sieci opartych na warstwach LSTM. 
+
+ 
+
