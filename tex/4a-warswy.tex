@@ -2,7 +2,22 @@
 \section{Warstwy}
 
 \subsection{DENSE}
+%todo:
+// todo: opisać
 \subsection{CNN}
+
+% https://towardsdatascience.com/text-classification-rnns-or-cnn-s-98c86a0dd361
+% https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53
+
+% http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/
+
+Sieci używające CNN z reguły wykorzystywane są w ramach analizy obrazu. Działają one w oparciu o różne filtry przemieszczające się systematycznie po macierzy obrazu. Dany obraz może być jednocześnie analizowany przez wiele filtrów przemieszczających się z różnym skokiem. Pozwala to na naukę rozpoznawania różnych cech obrazu umożliwiających zagadnienia klasyfikacji. Kolejne warstwy CNN można ze sobą łączyć pozwalając na rozpoznawanie coraz bardziej zaawansowanych cech obrazu. 
+
+W przypadku analizy tekstu macierzą wejściową dla warstwy CNN jest macierz o wymiarze AxB, gdzie A to liczba słów w zdaniu, a B to rozmiar embeddingu. Natomiast, ze względu na strukturę danych, sama ekstrakcja cech dokonywana przez filtr może przebiegać tylko w ramach wymiaru A, gdyż dane wzdłuż wymiaru B reprezentują unikalne cechy danego słowa i nie powinny być agregowane. 
+
+%todo: opsiać max pooling ?
+//todo: opsiać max pooling ? 
+
 \subsection{RNN}
 
 % http://colah.github.io/posts/2015-08-Understanding-LSTMs/ 
