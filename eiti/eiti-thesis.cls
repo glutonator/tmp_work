@@ -63,6 +63,8 @@
 \RequirePackage{xkeyval}
 \RequirePackage{xspace}
 \RequirePackage{xcolor}
+\RequirePackage{collcell}
+\RequirePackage{xfp}
 
 
 %--------------------------------------
@@ -502,3 +504,16 @@
 }
 
 \makeatother
+
+
+\newcommand{\fmtnum}[1]{%
+  \ifnum\fpeval{#1 < 0} = 1
+    \textcolor{red}{$#1$}%
+  \else
+    \ifnum\fpeval{#1 < 0.5} = 1
+      \textcolor{green}{$#1$}%
+    \else
+      \textcolor{blue}{$#1$}%
+    \fi
+  \fi
+}

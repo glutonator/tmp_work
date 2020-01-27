@@ -1,11 +1,11 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
 \section{Eksperymenty}
-   
-W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach. 
+
+W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach.
 
 % \colorbox{yellow}{highlight}\\
 
-Na potrzeby analizy wykorzystano wiele różnych modeli sieci neuronowych, bazujących głownie na trzech typach warstw: 
+Na potrzeby analizy wykorzystano wiele różnych modeli sieci neuronowych, bazujących głownie na trzech typach warstw:
 
 \begin{itemize}
     \item W pełni połączonych;
@@ -30,106 +30,203 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
               \item Wielkość wartwy ukrytej 30-200
           \end{itemize}
     \item LSTM;
-    \begin{itemize}
-        \item Wykorzystanie warsty pojedynczej (LSTM) oraz podwójnej (Bi-LSTM)
-        \item  1/2/3 warstwy
-        \item Z dropoutem / bez dropoutu
-        \item Wielkość wartwy ukrytej 30-200
-    \end{itemize}
+          \begin{itemize}
+              \item Wykorzystanie warsty pojedynczej (LSTM) oraz podwójnej (Bi-LSTM)
+              \item  1/2/3 warstwy
+              \item Z dropoutem / bez dropoutu
+              \item Wielkość wartwy ukrytej 30-200
+          \end{itemize}
 \end{itemize}
 
 \subsection{POSTAGS}
 %todo:
 //todo: zmergować z dugim rozdiałem o postagach
 
-Aby możliwe było wykorzystanie przez sieć neuronową informacji na temat typu części mowy danego słowa konieczne są następujące kroki: 
+Aby możliwe było wykorzystanie przez sieć neuronową informacji na temat typu części mowy danego słowa konieczne są następujące kroki:
 
 \begin{enumerate}
     \item Rozpoznanie części mowy w kontekście zdania i przypisanie do niego odpowiedniego tagu,
     \item Konwersja wykrytego tagu do liczbowej reprezentacji wektorowej,
-    \item Dołączenie utworzonego wektora do przetrenowanego wektora embedingów.  
+    \item Dołączenie utworzonego wektora do przetrenowanego wektora embedingów.
 \end{enumerate}
 
 \hfill \break % to dodaje pustą linie po czymść dziwnym -lista, tabela
-Do rozpoznania części mowy zostało wykorzystane narzędzie z pakietu NLTK, które pozwala na oznaczenie każdego słowa w zdaniu jednym z 46 tagów, każdy odpowiadający innej części mowy. Następnie wykryty tag został przetworzony do postaci “one-hot encoding” i dodany do istniejącego embedingu słowa, zwiększając tym samy jego rozmiar o długość 46. 
+Do rozpoznania części mowy zostało wykorzystane narzędzie z pakietu NLTK, które pozwala na oznaczenie każdego słowa w zdaniu jednym z 46 tagów, każdy odpowiadający innej części mowy. Następnie wykryty tag został przetworzony do postaci “one-hot encoding” i dodany do istniejącego embedingu słowa, zwiększając tym samy jego rozmiar o długość 46.
 
 
 \subsection{Wyniki}
 
-Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent. 
+Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Poniżej przedstawiono tabele z wynikami obliczeń. 
-
-%todo:
-\colorbox{yellow}{todo:}\\ 
-//tabelka 25 -> zbior2 000/ zbior20 000 
-
-//tabelka 300-> zbior2 000/ zbior20 000 
-
-//tabelka 1024-> zbior2 000/ zbior20 000 
-
-W oparciu o wyniki zamieszczone w powyższych tabelkach można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach embeddingu jest już niepotrzebna. 
-
-Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy embedding pozwala na zachowanie większej liczby informacji na temat słowa. 
-
-
-Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy w pełni połączone. Natomiast sieci wykorzystujące CNN oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach typu LSTM oraz CNN. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o częściach mowy, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji. 
-
-\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\ 
-%todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
-\subsection{Uczenie modelu na zbiorze B i testowanie jakoś klasyfikacji na zbiorze A }
-
-W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy. Wyniki zawierają tabele poniżej. 
+Poniżej przedstawiono tabele z wynikami obliczeń.
 
 %todo:
 \colorbox{yellow}{todo:}\\
-//tabela dla różnych embedingów pokazująca, że CNN mają najlepszą zdolnośc do generalizacji 
+
+% \begin{table}[!h] \label{tab:wyniki_XXX} \centering
+%     \begin{tabular} {| c | c | r |} \hline
+%         Sieć  & Accuracy & Liczba \\ \hline\hline
+%               & Accuracy & Liczba \\ \hline\hline
+%         cell1 & cell2    & 60     \\ \hline
+%         cell4 & cell5    & 43     \\ \hline
+%         cell7 & cell8    & 20,45  \\ \hline
+%     \end{tabular}
+% \end{table}
 
 %todo:
-\colorbox{yellow}{todo:}\\ 
-//Wymyślić wnioski dla teakiej sytuacji 
+\colorbox{yellow}{todo: poprawić nawy i dodać poróœnanie wartośći w tabelkach}\\
+
+\begin{table}[!h] \label{tab:wyniki_glove_A} \centering
+    \caption{Embedding Glove o długości 25, zbiór A}
+
+    \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
+                                          & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
+        X                                 & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
+        sieć                              & N                             & P                              & N                           & P                       & N      & P      & N      & P      \\ \hline
+        give\_model\_00                   & 0.6327                        & 0.6372                         & 0.6074                      & 0.6210                  & 0.6853 & 0.6456 & 0.6440 & 0.6331 \\ \hline
+        give\_model\_00\_1                & 0.6022                        & 0.5943                         & 0.5790                      & 0.5732                  & 0.6573 & 0.6386 & 0.6157 & 0.6041 \\ \hline
+        give\_model\_00\_2                & 0.6192                        & 0.6079                         & 0.5946                      & 0.5748                  & 0.6736 & 0.7342 & 0.6316 & 0.6448 \\ \hline
+        give\_model\_00\_3                & 0.6395                        & 0.6169                         & 0.6095                      & 0.5978                  & 0.7132 & 0.6410 & 0.6573 & 0.6186 \\ \hline
+        give\_model\_10                   & 0.6440                        & 0.6677                         & 0.6446                      & 0.6261                  & 0.5920 & 0.7808 & 0.6172 & 0.6950 \\ \hline
+        give\_model\_10\_1                & 0.6655                        & 0.6271                         & 0.6394                      & 0.5932                  & 0.7109 & 0.7342 & 0.6732 & 0.6562 \\ \hline
+        give\_model\_10\_2                & 0.6632                        & 0.6598                         & 0.6276                      & 0.6624                  & 0.7505 & 0.6083 & 0.6836 & 0.6342 \\ \hline
+        give\_model\_10\_3                & 0.6598                        & 0.6644                         & 0.6151                      & 0.6325                  & 0.7972 & 0.7342 & 0.6944 & 0.6796 \\ \hline
+        give\_model\_10\_4                & 0.6711                        & 0.6587                         & 0.6347                      & 0.6191                  & 0.7575 & 0.7692 & 0.6907 & 0.6860 \\ \hline
+        give\_model\_10\_5                & 0.6677                        & 0.6632                         & 0.6470                      & 0.6541                  & 0.6923 & 0.6480 & 0.6689 & 0.6510 \\ \hline
+        give\_model\_10\_6                & 0.6700                        & 0.6531                         & 0.6395                      & 0.6150                  & 0.7319 & 0.7599 & 0.6826 & 0.6798 \\ \hline
+        give\_model\_20                   & 0.6429                        & 0.6474                         & 0.6506                      & 0.6291                  & 0.5687 & 0.6643 & 0.6069 & 0.6462 \\ \hline
+        give\_model\_30                   & 0.6485                        & 0.6644                         & 0.6006                      & 0.6823                  & 0.8205 & 0.5757 & 0.6935 & 0.6245 \\ \hline
+        give\_model\_40                   & 0.6644                        & 0.6531                         & 0.6460                      & 0.6150                  & 0.6806 & 0.7599 & 0.6628 & 0.6798 \\ \hline
+        give\_model\_41                   & 0.6361                        & 0.6610                         & 0.6389                      & 0.6267                  & 0.5734 & 0.7435 & 0.6044 & 0.6801 \\ \hline
+        give\_model\_50                   & 0.6689                        & 0.6689                         & 0.6497                      & 0.6387                  & 0.6876 & 0.7296 & 0.6681 & 0.6811 \\ \hline
+        give\_model\_50000                & 0.6519                        & 0.6497                         & 0.6170                      & 0.6178                  & 0.7435 & 0.7272 & 0.6744 & 0.6680 \\ \hline
+        give\_model\_50001                & 0.6610                        & 0.6632                         & 0.6532                      & 0.6367                  & 0.6410 & 0.7109 & 0.6470 & 0.6718 \\ \hline
+        give\_model\_60                   & 0.6576                        & 0.6598                         & 0.6211                      & 0.6385                  & 0.7529 & 0.6876 & 0.6807 & 0.6621 \\ \hline
+        give\_model\_61                   & 0.6677                        & 0.6677                         & 0.6464                      & 0.6496                  & 0.6946 & 0.6829 & 0.6696 & 0.6659 \\ \hline
+        give\_model\_8000\_cnn            & 0.6519                        & 0.6485                         & 0.6416                      & 0.6189                  & 0.6386 & 0.7156 & 0.6401 & 0.6637 \\ \hline
+        give\_model\_8001\_cnn            & 0.6316                        & 0.6485                         & 0.6107                      & 0.6365                  & 0.6620 & 0.6410 & 0.6353 & 0.6387 \\ \hline
+        give\_model\_8001\_cnn\_15        & 0.6203                        & 0.6384                         & 0.5954                      & 0.6326                  & 0.6759 & 0.6060 & 0.6331 & 0.6190 \\ \hline
+        give\_model\_8001\_cnn\_15\_pool  & 0.6440                        & 0.6508                         & 0.6515                      & 0.6345                  & 0.5710 & 0.6596 & 0.6086 & 0.6468 \\ \hline
+        give\_model\_8001\_cnn\_15\_pool2 & 0.6327                        & 0.6395                         & 0.6125                      & 0.6200                  & 0.6596 & 0.6620 & 0.6352 & 0.6403 \\ \hline
+        give\_model\_8001\_cnn\_2\_layers & 0.6395                        & 0.6598                         & 0.6238                      & 0.6422                  & 0.6456 & 0.6736 & 0.6345 & 0.6575 \\ \hline
+        give\_model\_8001\_cnn\_3\_layers & 0.6225                        & 0.6237                         & 0.5975                      & 0.5810                  & 0.6783 & 0.8018 & 0.6353 & 0.6738 \\ \hline
+        give\_model\_8001\_cnn\_5         & 0.6305                        & 0.6485                         & 0.6153                      & 0.6347                  & 0.6340 & 0.6480 & 0.6245 & 0.6412 \\ \hline
+        give\_model\_8001\_cnn\_7         & 0.6406                        & 0.6338                         & 0.6241                      & 0.6143                  & 0.6503 & 0.6573 & 0.6369 & 0.6351 \\ \hline
+        give\_model\_8001\_cnn\_9         & 0.6293                        & 0.6440                         & 0.6150                      & 0.6350                  & 0.6293 & 0.6247 & 0.6221 & 0.6298 \\ \hline
+        give\_model\_8002\_cnn            & 0.6395                        & 0.6327                         & 0.6227                      & 0.6111                  & 0.6503 & 0.6666 & 0.6362 & 0.6376 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[!h] \label{tab:wyniki_fastext_A} \centering
+    \caption{Embedding FastText o długości 300, zbiór A}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}    \hline
+
+                                          & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
+        X                                 & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
+        sieć                              & N                             & P                              & N                           & P                       & N      & P      & N      & P      \\ \hline
+        give\_model\_00                   & 0.6598                        & 0.6497                         & 0.6355                      & 0.6307                  & 0.6993 & 0.6689 & 0.6659 & 0.6493 \\ \hline
+        give\_model\_00\_1                & 0.6677                        & 0.6576                         & 0.6490                      & 0.6334                  & 0.6853 & 0.6969 & 0.6666 & 0.6637 \\ \hline
+        give\_model\_00\_2                & 0.6440                        & 0.6327                         & 0.6126                      & 0.6                     & 0.7226 & 0.7272 & 0.6631 & 0.6575 \\ \hline
+        give\_model\_00\_3                & 0.6655                        & 0.6418                         & 0.6501                      & 0.6129                  & 0.6713 & 0.7086 & 0.6605 & 0.6572 \\ \hline
+        give\_model\_10                   & 0.6813                        & 0.6824                         & 0.6909                      & 0.6439                  & 0.6200 & 0.7715 & 0.6535 & 0.7020 \\ \hline
+        give\_model\_10\_1                & 0.6485                        & 0.6655                         & 0.6322                      & 0.6405                  & 0.6573 & 0.7062 & 0.6445 & 0.6718 \\ \hline
+        give\_model\_10\_2                & 0.6632                        & 0.6813                         & 0.6219                      & 0.6622                  & 0.7785 & 0.6993 & 0.6915 & 0.6802 \\ \hline
+        give\_model\_10\_3                & 0.6779                        & 0.6576                         & 0.6463                      & 0.6184                  & 0.7412 & 0.7668 & 0.6905 & 0.6847 \\ \hline
+        give\_model\_10\_4                & 0.6870                        & 0.6677                         & 0.6681                      & 0.6537                  & 0.7039 & 0.6689 & 0.6855 & 0.6612 \\ \hline
+        give\_model\_10\_5                & 0.6926                        & 0.6813                         & 0.6780                      & 0.6496                  & 0.6969 & 0.7435 & 0.6873 & 0.6934 \\ \hline
+        give\_model\_10\_6                & 0.6813                        & 0.6553                         & 0.6689                      & 0.6152                  & 0.6783 & 0.7715 & 0.6736 & 0.6845 \\ \hline
+        give\_model\_20                   & 0.6711                        & 0.6700                         & 0.6431                      & 0.6751                  & 0.7226 & 0.6153 & 0.6805 & 0.6439 \\ \hline
+        give\_model\_30                   & 0.6779                        & 0.6497                         & 0.6698                      & 0.6064                  & 0.6620 & 0.7902 & 0.6658 & 0.6862 \\ \hline
+        give\_model\_40                   & 0.6836                        & 0.6474                         & 0.6769                      & 0.6338                  & 0.6643 & 0.6456 & 0.6705 & 0.6397 \\ \hline
+        give\_model\_41                   & 0.6542                        & 0.6508                         & 0.6242                      & 0.6162                  & 0.7202 & 0.7412 & 0.6688 & 0.6730 \\ \hline
+        give\_model\_50                   & 0.6836                        & 0.6768                         & 0.6712                      & 0.6682                  & 0.6806 & 0.6620 & 0.6759 & 0.6651 \\ \hline
+        give\_model\_50000                & 0.6779                        & 0.6757                         & 0.6538                      & 0.6748                  & 0.7132 & 0.6386 & 0.6822 & 0.6562 \\ \hline
+        give\_model\_50001                & 0.6711                        & 0.6937                         & 0.6526                      & 0.7219                  & 0.6876 & 0.5990 & 0.6696 & 0.6547 \\ \hline
+        give\_model\_60                   & 0.6790                        & 0.6508                         & 0.6593                      & 0.6102                  & 0.6993 & 0.7738 & 0.6787 & 0.6824 \\ \hline
+        give\_model\_61                   & 0.6824                        & 0.6757                         & 0.6674                      & 0.6961                  & 0.6876 & 0.5874 & 0.6773 & 0.6371 \\ \hline
+        give\_model\_8000\_cnn            & 0.6564                        & 0.6384                         & 0.6310                      & 0.6142                  & 0.7016 & 0.6829 & 0.6644 & 0.6467 \\ \hline
+        give\_model\_8001\_cnn            & 0.6542                        & 0.6429                         & 0.6413                      & 0.6263                  & 0.6503 & 0.6526 & 0.6458 & 0.6392 \\ \hline
+        give\_model\_8001\_cnn\_15        & 0.6271                        & 0.6429                         & 0.6092                      & 0.6287                  & 0.6433 & 0.6433 & 0.6258 & 0.6359 \\ \hline
+        give\_model\_8001\_cnn\_15\_pool  & 0.6372                        & 0.6474                         & 0.6310                      & 0.6258                  & 0.6060 & 0.6783 & 0.6183 & 0.6510 \\ \hline
+        give\_model\_8001\_cnn\_15\_pool2 & 0.6598                        & 0.6542                         & 0.6428                      & 0.6382                  & 0.6713 & 0.6620 & 0.6567 & 0.6498 \\ \hline
+        give\_model\_8001\_cnn\_2\_layers & 0.6485                        & 0.6519                         & 0.6213                      & 0.6257                  & 0.7039 & 0.7016 & 0.6601 & 0.6615 \\ \hline
+        give\_model\_8001\_cnn\_3\_layers & 0.6644                        & 0.6644                         & 0.6392                      & 0.6434                  & 0.7062 & 0.6899 & 0.6710 & 0.6659 \\ \hline
+        give\_model\_8001\_cnn\_5         & 0.6451                        & 0.6395                         & 0.6220                      & 0.6211                  & 0.6829 & 0.6573 & 0.6511 & 0.6387 \\ \hline
+        give\_model\_8001\_cnn\_7         & 0.6372                        & 0.6485                         & 0.6168                      & 0.6288                  & 0.6643 & 0.6713 & 0.6397 & 0.6493 \\ \hline
+        give\_model\_8001\_cnn\_9         & 0.6485                        & 0.6485                         & 0.6277                      & 0.6299                  & 0.6759 & 0.6666 & 0.6509 & 0.6477 \\ \hline
+        give\_model\_8002\_cnn            & 0.6451                        & 0.6542                         & 0.6321                      & 0.6363                  & 0.6410 & 0.6689 & 0.6365 & 0.6522 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+//tabelka 25 -> zbior2 000/ zbior20 000
+
+//tabelka 300-> zbior2 000/ zbior20 000
+
+//tabelka 1024-> zbior2 000/ zbior20 000
+
+W oparciu o wyniki zamieszczone w powyższych tabelkach można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach embeddingu jest już niepotrzebna.
+
+Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy embedding pozwala na zachowanie większej liczby informacji na temat słowa.
+
+
+Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy w pełni połączone. Natomiast sieci wykorzystujące CNN oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach typu LSTM oraz CNN. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o częściach mowy, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
+
+\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\
+%todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
+\subsection{Uczenie modelu na zbiorze B i testowanie jakoś klasyfikacji na zbiorze A }
+
+W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy. Wyniki zawierają tabele poniżej.
+
+%todo:
+\colorbox{yellow}{todo:}\\
+//tabela dla różnych embedingów pokazująca, że CNN mają najlepszą zdolnośc do generalizacji
+
+%todo:
+\colorbox{yellow}{todo:}\\
+//Wymyślić wnioski dla teakiej sytuacji
 
 
 \subsection{Uczenie i testowanie modelu na fragmencie zbioru dużego B tak by był równoliczny ze zbiorem małym A}
 
-W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent. Wyniki zawierają tabele poniżej. 
+W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent. Wyniki zawierają tabele poniżej.
 
 %todo:
-\colorbox{yellow}{todo:}\\ 
-//tabela dla roznych embedingow pokazujaca, że CNN jest o 5 procent gorsze od LSTM 
+\colorbox{yellow}{todo:}\\
+//tabela dla roznych embedingow pokazujaca, że CNN jest o 5 procent gorsze od LSTM
 
-W oparciu o uzyskane wyniki można zauważyć: 
+W oparciu o uzyskane wyniki można zauważyć:
 
 \begin{itemize}
     \item Wyższą średnią jakoś klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}
     \item Lepszą jakość klasyfikacji dla sieci opartych o warstwy typu LSTM
 \end{itemize}
- 
 
-Wyższa jakoś klasyfikacji może wskazywać na to, że zbiór oznaczony jako \textbf{A} posiada dużo bardziej zróżnicowane dane, przy czym zbiór posiada zbyt małą liczbą próbek by sieć, w procesie nauki, odpowiednio je wychwyciła. Problem ten może być najprawdopodobniej wyeliminowany poprzez dostarczenie większej liczby próbek danych o zróżnicowanym charakterze. 
 
-Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wnioskami płynącymi z innych publikacji badających podobne zagadnienia. Trudności z obserwacji tej zależności w poprzednich eksperymentach mogła wynikać między innymi z: 
+Wyższa jakoś klasyfikacji może wskazywać na to, że zbiór oznaczony jako \textbf{A} posiada dużo bardziej zróżnicowane dane, przy czym zbiór posiada zbyt małą liczbą próbek by sieć, w procesie nauki, odpowiednio je wychwyciła. Problem ten może być najprawdopodobniej wyeliminowany poprzez dostarczenie większej liczby próbek danych o zróżnicowanym charakterze.
+
+Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wnioskami płynącymi z innych publikacji badających podobne zagadnienia. Trudności z obserwacji tej zależności w poprzednich eksperymentach mogła wynikać między innymi z:
 
 
 \begin{itemize}
 
-    \item Dla zbioru A: 
-    \begin{itemize}
-        \item Małej liczby próbek 
-        \item Dużej różnorodności prezentowanej ironii w próbkach
-    \end{itemize}        
+    \item Dla zbioru A:
+          \begin{itemize}
+              \item Małej liczby próbek
+              \item Dużej różnorodności prezentowanej ironii w próbkach
+          \end{itemize}
 
-    \item Dla zbioru B: 
-    \begin{itemize}
-        \item Małej różnorodności prezentowanej ironii w próbkach 
-        \item Na tyle duża liczba próbek, by sieci o teoretycznie gorszych zdolnościach do rozwiązywania danego zadania klasyfikacji mogły wychwycić cechy tekstu pozwalające, przy odpowiednio długim procesie uczenia, na poprawną klasyfikację.
-    \end{itemize} 
+    \item Dla zbioru B:
+          \begin{itemize}
+              \item Małej różnorodności prezentowanej ironii w próbkach
+              \item Na tyle duża liczba próbek, by sieci o teoretycznie gorszych zdolnościach do rozwiązywania danego zadania klasyfikacji mogły wychwycić cechy tekstu pozwalające, przy odpowiednio długim procesie uczenia, na poprawną klasyfikację.
+          \end{itemize}
 
 \end{itemize}
 
 
- 
 
 
 
- 
+
