@@ -24,18 +24,6 @@ Conv1D(n,k) ->
                 & Flatten                       \\
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
-    $cnn\_8$    & Conv1D(300,5)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_9$    & Conv1D(300,7)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_10$   & Conv1D(300,9)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
     $cnn\_3$    & Conv1D(300,15)                \\
                 & Flatten                       \\
                 & Dense(300)                    \\
@@ -50,7 +38,6 @@ Conv1D(n,k) ->
                 & Flatten                       \\
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
-    %give_model_8001_cnn_2_layers
     $cnn\_6$    & Conv1D(300,3)                 \\
                 & MaxPooling1D(2)               \\
                 & Conv1D(300,3)                 \\
@@ -59,7 +46,6 @@ Conv1D(n,k) ->
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
 
-    %$give_model_8001_cnn_3_layers$ 
     $cnn\_7$    & Conv1D(300,3)                 \\
                 & MaxPooling1D(2)               \\
                 & Conv1D(300,3)                 \\
@@ -69,6 +55,19 @@ Conv1D(n,k) ->
                 & Flatten                       \\
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
+    $cnn\_8$    & Conv1D(300,5)                 \\
+                & Flatten                       \\
+                & Dense(300)                    \\
+                & Dense(1)                      \\ \hline
+    $cnn\_9$    & Conv1D(300,7)                 \\
+                & Flatten                       \\
+                & Dense(300)                    \\
+                & Dense(1)                      \\ \hline
+    $cnn\_10$   & Conv1D(300,9)                 \\
+                & Flatten                       \\
+                & Dense(300)                    \\
+                & Dense(1)                      \\ \hline
+
 
     $cnn\_11$   & Conv1D(500,3)                 \\
                 & Flatten                       \\
@@ -137,7 +136,14 @@ Conv1D(n,k) ->
                 & Dropout(0.2)                  \\
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
-
+    $lstm\_11$  & CuDNNLSTM(300)                \\
+                & Dropout(0.2)                  \\
+                & CuDNNLSTM(300)                \\
+                & Dropout(0.2)                  \\
+                & CuDNNLSTM(300)                \\
+                & Dropout(0.2)                  \\
+                & Dense(300)                    \\
+                & Dense(1)                      \\ \hline
     $lstm\_12$  & Bidirectional(CuDNNLSTM(300)) \\
                 & Dropout(0.2)                  \\
                 & Bidirectional(CuDNNLSTM(300)) \\
@@ -145,19 +151,21 @@ Conv1D(n,k) ->
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
                 & Dropout(0.2)                  \\
-
-    $lstm\_15$  & Bidirectional(CuDNNLSTM(300)) \\
+    $lstm\_13$  & Bidirectional(CuDNNLSTM(300)) \\
                 & Dropout(0.2)                  \\
                 & Bidirectional(CuDNNLSTM(300)) \\
                 & Dropout(0.2)                  \\
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
 
-    $lstm\_11$  & CuDNNLSTM(300)                \\
+    $lstm\_14$  & Bidirectional(CuDNNLSTM(500)) \\
                 & Dropout(0.2)                  \\
-                & CuDNNLSTM(300)                \\
+                & Dense(500)                    \\
+                & Dense(1)                      \\ \hline
+
+    $lstm\_15$  & Bidirectional(CuDNNLSTM(300)) \\
                 & Dropout(0.2)                  \\
-                & CuDNNLSTM(300)                \\
+                & Bidirectional(CuDNNLSTM(300)) \\
                 & Dropout(0.2)                  \\
                 & Dense(300)                    \\
                 & Dense(1)                      \\ \hline
@@ -169,19 +177,9 @@ Conv1D(n,k) ->
                 & Bidirectional(CuDNNLSTM(300)) \\
                 & Dropout(0.2)                  \\
                 & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-
-    $lstm\_13$  & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-
-    $lstm\_14$  & Bidirectional(CuDNNLSTM(500)) \\
-                & Dropout(0.2)                  \\
-                & Dense(500)                    \\
                 & Dense(1)                      %\\ \hline
+
+
 
     \label{table:sieci}
 \end{longtable}
