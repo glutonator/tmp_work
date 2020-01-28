@@ -1,0 +1,61 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Metryki}
+
+Jakość klasyfikacji można monitorować przy wykorzystaniu różnych metryk. Najbardziej popularną metryką jest dokładność (ang. accuraccy), czyli stosunek poprawnie zakwalifikowanych przez model obserwacji, do całkowitej liczby obserwacji w zbiorze. Nie jest to jednak miara idealna, nie bierze ona pod uwagę między innymi tego czy badany zbiór jest zbilansowany. W przypadku zbioru niezbilansowanego możliwe jest uzyskanie bardzo dobrej dokładności nawet przy zakwalifikowaniu wszystkich obserwacji do tylko jednej klasy. W celu wyeliminowania tego problemu wykorzystuje się inne metryki, takie jak precyzja i czułość.
+
+
+
+Powyższe metryki wykorzystują następujące pojęcia pomocnicze:
+\begin{itemize}
+    \item true positive (TP) - liczba pozytywnych obserwacji zaklasyfikowanych jako pozytywne
+    \item true negative (TN) - liczba negatywnych obserwacji zaklasyfikowanych jako negatywne
+    \item false positive (FP) - liczba negatywnych obserwacji zaklasyfikowanych jako pozytywne
+    \item false negative (FN) - liczba pozytywnych obserwacji zaklasyfikowanych jako negatywne
+\end{itemize}
+
+
+W oparciu o te pojęcia pomocnicze można sformułować następujące zależności:
+
+% $$
+%     dokładność = \frac{\ liczba\ poprawnie\ zakwalifikowanych\ obserwacji\ }{\ całkowita\ liczba\ obserwacji\ }
+% $$
+
+$$
+    precyzja = \frac{TP}{TP + FP}
+$$
+
+$$
+    czułość = \frac{TP}{TP + FN}
+$$
+
+
+%https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall 
+
+%https://blog.exsilio.com/all/accuracy-precision-recall-f1-score-interpretation-of-performance-measures/ 
+
+%https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9 
+
+W oparciu o wzory można zauważyć, że precyzja zawiera w sobie informację jaka część obserwacji zakwalifikowanych jako pozytywne była zakwalifikowana poprawnie. Natomiast czułość zawiera informację na temat tego jaka część pozytywnych obserwacji została zakwalifikowana poprawnie.
+
+Precyzja i czułość są ze sobą współzależne, w przypadku, gdy wskazania jednej z metryk się poprawiają, to wskazania drugiej metryki spadają. Aby monitować optymalne wskazania obu metryk powstała metryka F1, jest ona opisana poniższym wzorem:
+
+$$
+    F1 = 2 \cdot \frac{precyzja \cdot czułość}{precyzja + czułość}
+$$
+
+
+
+
+% $\lim_{n \to \infty}
+%     \sum_{k=1}^n \frac{1}{k^2}
+%     = \frac{\pi^2}{6}$
+% \\ \\
+% $$
+%     \lim_{n \to \infty}
+%     \sum_{k=1}^n \frac{1}{k^2}
+%     = \frac{\pi^2}{6}
+% $$
+
+
+
+
