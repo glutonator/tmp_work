@@ -1,183 +1,201 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
 \section{Eksperymenty}
 
+Opis oznaczeń zastosowanych w tabli:
+//todo: odnisienie do tablei
 
-Conv1D(n,k) ->
-- n -> liczba neuronów
-- k -> wielkość filtru
+Conv(n,k) - wartwa konwolucyjna, gdzie n - liczba neruonów, k - szerokość zastosowanego filtru
+
+todo: zastąpić LSTM jako LSTM
+todo: zastpic Bi-LSTM(50)) jako Bi-LSTM
+
+\begin{table}[!h] \label{tab:tabela2} \centering
+    \caption{Tabela przedstawiająca efekt preprocessingu.}
+    \begin{tabular} {| l | l |} \hline
+        Conv(n,k)     & wartwa konwolucyjna,  gdzie n - liczba neruonów, k - szerokość zastosowanego filtru \\ \hline
+        Flatten       & XXX                                                                                 \\ \hline
+        MaxPooling(f) & XXX                                                                                 \\ \hline
+        Dense(n)      & XXX                                                                                 \\ \hline
+        LSTM(n)       & XXX                                                                                 \\ \hline
+        Bi-LSTM(n)    & XXX                                                                                 \\ \hline
+        Dropout(d)    & XXX                                                                                 \\ \hline
+    \end{tabular}
+\end{table}
+
+% Conv(n,k) ->
+% - n -> liczba neuronów
+% - k -> wielkość filtru
 
 \begin{longtable}{| c | m{0.58\linewidth} | r | m{0.1\linewidth} |}
-    \caption{Lista sieci}                       \\
+    \caption{Lista sieci}                   \\
     \hline
-    Nazwa sieci & \multicolumn{1}{c|}{Sieć}     \\ \hline\hline \endfirsthead
+    Nazwa sieci & \multicolumn{1}{c|}{Sieć} \\ \hline\hline \endfirsthead
 
     \endfoot
     \hline \endlastfoot
 
 
 
-    $cnn\_1$    & Conv1D(50,3)                  \\
-                & Flatten                       \\
-                & Dense(50)                     \\
-                & Dense(1)                      \\ \hline
-    $cnn\_2$    & Conv1D(300,3)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_3$    & Conv1D(300,15)                \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_4$    & Conv1D(300,15)                \\
-                & MaxPooling1D(2)               \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_5$    & Conv1D(300,15)                \\
-                & MaxPooling1D(8)               \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_6$    & Conv1D(300,3)                 \\
-                & MaxPooling1D(2)               \\
-                & Conv1D(300,3)                 \\
-                & MaxPooling1D(2)               \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
+    $cnn\_1$    & Conv(50,3)                \\
+                & Flatten                   \\
+                & Dense(50)                 \\
+                & Dense(1)                  \\ \hline
+    $cnn\_2$    & Conv(300,3)               \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_3$    & Conv(300,15)              \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_4$    & Conv(300,15)              \\
+                & MaxPooling(2)             \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_5$    & Conv(300,15)              \\
+                & MaxPooling(8)             \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_6$    & Conv(300,3)               \\
+                & MaxPooling(2)             \\
+                & Conv(300,3)               \\
+                & MaxPooling(2)             \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
 
-    $cnn\_7$    & Conv1D(300,3)                 \\
-                & MaxPooling1D(2)               \\
-                & Conv1D(300,3)                 \\
-                & MaxPooling1D(2)               \\
-                & Conv1D(300,3)                 \\
-                & MaxPooling1D(2)               \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_8$    & Conv1D(300,5)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_9$    & Conv1D(300,7)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $cnn\_10$   & Conv1D(300,9)                 \\
-                & Flatten                       \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
+    $cnn\_7$    & Conv(300,3)               \\
+                & MaxPooling(2)             \\
+                & Conv(300,3)               \\
+                & MaxPooling(2)             \\
+                & Conv(300,3)               \\
+                & MaxPooling(2)             \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_8$    & Conv(300,5)               \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_9$    & Conv(300,7)               \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $cnn\_10$   & Conv(300,9)               \\
+                & Flatten                   \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
 
 
-    $cnn\_11$   & Conv1D(500,3)                 \\
-                & Flatten                       \\
-                & Dense(500)                    \\
-                & Dense(1)                      \\ \hline
+    $cnn\_11$   & Conv(500,3)               \\
+                & Flatten                   \\
+                & Dense(500)                \\
+                & Dense(1)                  \\ \hline
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-    $dense\_1$  & Dense(20)                     \\
-                & Flatten                       \\
-                & Dense(1)                      \\ \hline
+    $dense\_1$  & Dense(20)                 \\
+                & Flatten                   \\
+                & Dense(1)                  \\ \hline
 
+    $dense\_2$  & Dense(20)                 \\
+                & Dense(20)                 \\
+                & Flatten                   \\
+                & Dense(1)                  \\ \hline
 
+    $dense\_3$  & Dense(200)                \\
+                & Dense(200)                \\
+                & Flatten                   \\
+                & Dense(1)                  \\ \hline
 
-    $dense\_2$  & Dense(20)                     \\
-                & Dense(20)                     \\
-                & Flatten                       \\
-                & Dense(1)                      \\ \hline
-
-    $dense\_3$  & Dense(200)                    \\
-                & Dense(200)                    \\
-                & Flatten                       \\
-                & Dense(1)                      \\ \hline
-
-    $dense\_4$  & Dense(200)                    \\
-                & Dropout(0.2)                  \\
-                & Dense(200)                    \\
-                & Dropout(0.2)                  \\
-                & Flatten                       \\
-                & Dense(1)                      \\ \hline
+    $dense\_4$  & Dense(200)                \\
+                & Dropout(0.2)              \\
+                & Dense(200)                \\
+                & Dropout(0.2)              \\
+                & Flatten                   \\
+                & Dense(1)                  \\ \hline
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    $lstm\_1$   & CuDNNLSTM(50)                 \\
-                & Dense(5)                      \\
-                & Dense(1)                      \\ \hline
+    $lstm\_1$   & LSTM(50)                  \\
+                & Dense(5)                  \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_2$   & CuDNNLSTM(50)                 \\
-                & Dense(50)                     \\
-                & Dense(1)                      \\ \hline
+    $lstm\_2$   & LSTM(50)                  \\
+                & Dense(50)                 \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_3$   & CuDNNLSTM(30)                 \\
-                & Dense(30)                     \\
-                & Dense(1)                      \\ \hline
-    $lstm\_4$   & CuDNNLSTM(30)                 \\
-                & Dense(1)                      \\ \hline
-    $lstm\_5$   & CuDNNLSTM(30)                 \\
-                & Dense(1)                      \\ \hline
-    $lstm\_6$   & Bidirectional(CuDNNLSTM(50))  \\
-                & Dense(1)                      \\ \hline
-    $lstm\_7$   & Bidirectional(CuDNNLSTM(25))  \\
-                & Dense(1)                      \\ \hline
+    $lstm\_3$   & LSTM(30)                  \\
+                & Dense(30)                 \\
+                & Dense(1)                  \\ \hline
+    $lstm\_4$   & LSTM(30)                  \\
+                & Dense(1)                  \\ \hline
+    $lstm\_5$   & LSTM(30)                  \\
+                & Dense(1)                  \\ \hline
+    $lstm\_6$   & Bi-LSTM(50))              \\
+                & Dense(1)                  \\ \hline
+    $lstm\_7$   & Bi-LSTM(25))              \\
+                & Dense(1)                  \\ \hline
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-    $lstm\_8$   & CuDNNLSTM(300)                \\
-                & CuDNNLSTM(300)                \\
-                & Dense(1)                      \\ \hline
+    $lstm\_8$   & LSTM(300)                 \\
+                & LSTM(300)                 \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_9$   & CuDNNLSTM(300)                \\
-                & CuDNNLSTM(300)                \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
+    $lstm\_9$   & LSTM(300)                 \\
+                & LSTM(300)                 \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_10$  & CuDNNLSTM(300)                \\
-                & Dropout(0.2)                  \\
-                & CuDNNLSTM(300)                \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $lstm\_11$  & CuDNNLSTM(300)                \\
-                & Dropout(0.2)                  \\
-                & CuDNNLSTM(300)                \\
-                & Dropout(0.2)                  \\
-                & CuDNNLSTM(300)                \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-    $lstm\_12$  & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
-                & Dropout(0.2)                  \\
-    $lstm\_13$  & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
+    $lstm\_10$  & LSTM(300)                 \\
+                & Dropout(0.2)              \\
+                & LSTM(300)                 \\
+                & Dropout(0.2)              \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $lstm\_11$  & LSTM(300)                 \\
+                & Dropout(0.2)              \\
+                & LSTM(300)                 \\
+                & Dropout(0.2)              \\
+                & LSTM(300)                 \\
+                & Dropout(0.2)              \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+    $lstm\_12$  & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
+                & Dropout(0.2)              \\
+    $lstm\_13$  & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_14$  & Bidirectional(CuDNNLSTM(500)) \\
-                & Dropout(0.2)                  \\
-                & Dense(500)                    \\
-                & Dense(1)                      \\ \hline
+    $lstm\_14$  & Bi-LSTM(500)              \\
+                & Dropout(0.2)              \\
+                & Dense(500)                \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_15$  & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      \\ \hline
+    $lstm\_15$  & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Dense(300)                \\
+                & Dense(1)                  \\ \hline
 
-    $lstm\_16$  & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Bidirectional(CuDNNLSTM(300)) \\
-                & Dropout(0.2)                  \\
-                & Dense(300)                    \\
-                & Dense(1)                      %\\ \hline
+    $lstm\_16$  & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Bi-LSTM(300)              \\
+                & Dropout(0.2)              \\
+                & Dense(300)                \\
+                & Dense(1)                  %\\ \hline
 
 
 
