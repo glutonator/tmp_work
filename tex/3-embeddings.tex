@@ -52,7 +52,7 @@ Metoda ta nie została wykorzystana w pracy, jednak jest ona kluczowy do zrzumie
 
 
 
-Tworzenie embeddingu w oparciu o model typu CBOW polega na trenowaniu prostej sieci neuronowej. Sieć ta składa się z warstwy wejściowej, jednej warstwy ukrytej (w pełni połączonej) oraz warstwy wyjściowej. Trening modelu polega na podawaniu na wejście słów mieszczących się w ramach pewnego założonego okna, przewidując słowo będące w środku tego okna. Jako okno rozumie się tutaj stałą liczbę słów przed i po aktualnie przewidywanym słowie. Słowa, by mogły być przewidywane przez model, są wcześniej konwertowane do przestrzeni wektorowej poprzez wykorzystanie one-hot encodingu. Proces uczenia polega na systematycznym przesuwaniu okna o jedno słowo i trenowanie wag w warstwie ukrytej. Po zakończonym procesie uczenia należy usunąć ostatnią warstwę wyjściową, a wagi z warstwy ukrytej pozwalają na uzyskanie embeddingu słów.  
+Tworzenie embeddingu w oparciu o model typu CBOW polega na trenowaniu prostej sieci neuronowej. Sieć ta składa się z warstwy wejściowej, jednej warstwy ukrytej (w gęstej) oraz warstwy wyjściowej. Trening modelu polega na podawaniu na wejście słów mieszczących się w ramach pewnego założonego okna, przewidując słowo będące w środku tego okna. Jako okno rozumie się tutaj stałą liczbę słów przed i po aktualnie przewidywanym słowie. Słowa, by mogły być przewidywane przez model, są wcześniej konwertowane do przestrzeni wektorowej poprzez wykorzystanie one-hot encodingu. Proces uczenia polega na systematycznym przesuwaniu okna o jedno słowo i trenowanie wag w warstwie ukrytej. Po zakończonym procesie uczenia należy usunąć ostatnią warstwę wyjściową, a wagi z warstwy ukrytej pozwalają na uzyskanie embeddingu słów.  
 
 Odmiana ‘skip grams’ jest analogiczna do metody CBOW, tylko zamiast przewidywania jednego słowa w kontekście jego otoczenia, przewidywane jest otoczenie w kontekście słowa. 
 
@@ -94,7 +94,7 @@ Przetwarzanie zdania wejściowego odbywa się zgodnie z następującymi krokami:
 
 \begin{itemize}
     \item Zdanie jest dzielone na słowa 
-    \item Każde słowo, przy wykorzystaniu sieci pomocniczej opartej o CNN, ma przypisywany embedding. Embedding ten jest określany poprzez agregację wektorowej reprezentacji pojedynczych znaków występujących w ramach słowa. Tak uzyskany embedding jest pierwszym elementem finalnego embeddingu (oznaczony jako $E_1$)
+    \item Każde słowo, przy wykorzystaniu sieci pomocniczej typu CNN(opierającej się o warswy konwolucyjne), ma przypisywany embedding. Embedding ten jest określany poprzez agregację wektorowej reprezentacji pojedynczych znaków występujących w ramach słowa. Tak uzyskany embedding jest pierwszym elementem finalnego embeddingu (oznaczony jako $E_1$)
     \item Uzyskany wektor jest podawany na wejście pierwszej warstwy Bi-LSTM. Warstwa ta pozwala na analizę zdania zarówno od początku do końca, jak i od końca do początku. 
     \item  Stany ukryte z pierwszej warstwy dla każdego słowa są agregowane w jeden wektor i stanowią drugi element finalnego embeddingu (oznaczony jako $E_2$) 
     \item Następnie dane o stanie ukrytym pierwszej warstwy są przekazywane na drugą warstwę Bi-LSTM 
