@@ -5,7 +5,7 @@
 
 //dlaczego takie sieci został ywybran, dlaczeg otakimi paramterami steruję -> na co powinny one wpływać
 
-W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach.
+%W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach.
 
 % \colorbox{yellow}{highlight}\\
 
@@ -64,7 +64,8 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 
 Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Wykorzsytane embeddingi to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Poniżej przedstawiono tabele z wynikami obliczeń.
+% Poniżej przedstawiono tabele z wynikami obliczeń.
+Wyniki uzyskane przez modele na danych testowych zbioru A zostały umiszczone w tabelach \ref{tab:wyniki_glove_A}, \ref{tab:wyniki_fasttext_A}, \ref{tab:wyniki_elmo_A} , a dla zbioru B w tabelach \ref{tab:wyniki_glove_B}, \ref{tab:wyniki_fasttext_B}, \ref{tab:wyniki_elmo_B}.
 
 %todo:
 \colorbox{yellow}{todo:}\\
@@ -73,9 +74,9 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
 %todo:
 \colorbox{yellow}{todo: poprawić nawy i dodać poróœnanie wartośći w tabelkach}\\
 
-\begin{table}[p] \label{tab:wyniki_glove_A} \centering
+\begin{table}[p] \centering
     \caption{Embedding Glove o długości 25, zbiór A}
-
+    \label{tab:wyniki_glove_A}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
                  & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
         X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
@@ -115,8 +116,9 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
 \end{table}
 
 
-\begin{table}[p] \label{tab:wyniki_fastext_A} \centering
+\begin{table}[p] \centering
     \caption{Embedding FastText o długości 300, zbiór A}
+    \label{tab:wyniki_fasttext_A}
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}    \hline
 
                  & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
@@ -157,8 +159,9 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
 \end{table}
 
 
-\begin{table}[p] \label{tab:wyniki_elmo_A} \centering
+\begin{table}[p]  \centering
     \caption{Embedding ELMo o długości 1024, zbiór A}
+    \label{tab:wyniki_elmo_A}
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}    \hline
                  & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
         X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
@@ -197,8 +200,9 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
     \end{tabular}
 \end{table}
 
-\begin{table}[p] \label{tab:wyniki_glove_B} \centering
+\begin{table}[p] \centering
     \caption{Embedding Glove o długości 25, zbiór B}
+    \label{tab:wyniki_glove_B}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
                  & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
         X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
@@ -238,8 +242,9 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
 \end{table}
 
 
-\begin{table}[p] \label{tab:wyniki_fastex_B} \centering
+\begin{table}[p]  \centering
     \caption{Embedding FastText o długości 300, zbiór B}
+    \label{tab:wyniki_fasttext_B}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
                  & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
         X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
@@ -279,8 +284,9 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
 \end{table}
 
 
-\begin{table}[p] \label{tab:wyniki_elmo_B} \centering
+\begin{table}[p] \centering
     \caption{Embedding ELMo o długości 1024, zbiór B}
+    \label{tab:wyniki_elmo_B}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
                  & \multicolumn{8}{c|}{metryki}                                                                                                                                   \\ \hline
         X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                         \\ \hline
@@ -323,20 +329,20 @@ Poniżej przedstawiono tabele z wynikami obliczeń.
 
 
 
-//tabelka 25 -> zbior2 000/ zbior20 000
+% //tabelka 25 -> zbior2 000/ zbior20 000
+% 
+% //tabelka 300-> zbior2 000/ zbior20 000
+% 
+% //tabelka 1024-> zbior2 000/ zbior20 000
 
-//tabelka 300-> zbior2 000/ zbior20 000
-
-//tabelka 1024-> zbior2 000/ zbior20 000
-
-W oparciu o wyniki zamieszczone w powyższych tabelkach można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach embeddingu jest już niepotrzebna.
+W oparciu o uzyskane wyniki można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach embeddingu jest już niepotrzebna.
 
 Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy embedding pozwala na zachowanie większej liczby informacji na temat słowa.
 
 
 Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy gęste. Natomiast sieci wykorzystujące warstwy konwolucyjne oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach konwolucyjnych oraz LSTM. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o częściach mowy, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
 
-\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\
+%\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\
 %todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
 \subsection{Uczenie modelu na zbiorze B i testowanie jakoś klasyfikacji na zbiorze A }
 
@@ -399,8 +405,9 @@ W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało
 \end{table}
 
 
-\begin{table}[p] \label{tab:wyniki_fastext_B_lim} \centering
-    \caption{Embedding FastText o długości 300, zbiór B, ograniczony do równolicznych klas po 2000 rekordów}
+\begin{table}[p]  \centering
+    \caption{Embedding FastText o długości 300, zbiór B, ograniczony do \label{tab:wyniki_fasttext_B_lim}
+    równolicznych klas po 2000 rekordów}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
                  & \multicolumn{4}{c|}{metryki}                               \\ \hline
         sieć     & accuracy                     & precision & recall & f1     \\ \hline
