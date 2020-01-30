@@ -11,14 +11,14 @@ W tym rozdziale przedstawiona jest dokładna lista wykorzystanych w pracy archit
     \caption{Opis oznaczeń wykorzsytanych w tabli \ref{table:architektury_sieci}}
     \label{tab:oznaczenia_warstw}
     \begin{tabular} {| l | l |} \hline
-        Oznaczenie    & Opis oznczaeń                                                  \\ \hline
-        Conv(n,k)     & wartwa konwolucyjna, gdzie                                     \\ & n - liczba zasosowanych filtrów, \\ & k - szerokość zastosowanego filtru \\ \hline
-        Flatten       & XXX                                                            \\ \hline
-        MaxPooling(f) & XXX                                                            \\ \hline
-        Dense(n)      & XXX                                                            \\ \hline
-        LSTM(n)       & wartwa LSTM, liczbie nueronów wynoszącej n                     \\ \hline
-        Bi-LSTM(n)    & wartwa Bi-LSTM, w której każda warstwa LSTM posiada n neuronów \\ \hline
-        Dropout(d)    & XXX                                                            \\ \hline
+        Oznaczenie    & Opis oznaczeń                                                          \\ \hline
+        Conv(n,k)     & wartwa konwolucyjna, gdzie                                             \\ & \textbf{n} - liczba zasosowanych filtrów, \\ & \textbf{k} - szerokość zastosowanego filtru \\ \hline
+        Flatten       & warstwa powodująca spłaszczenie sieci do postaci jednowymiarowej       \\ \hline
+        MaxPooling(f) & wartwa max poolingu o oknie wielkości \textbf{f}                                \\ & oraz skoku przesunięcia także wynoszacego \textbf{f}   \\ \hline
+        Dense(n)      & wartwa gęsta, o liczbie nueronów wynoszącej \textbf{n}                 \\ \hline
+        LSTM(n)       & wartwa LSTM, liczbie nueronów wynoszącej \textbf{n}                            \\ \hline
+        Bi-LSTM(n)    & wartwa Bi-LSTM, w której każda warstwa LSTM posiada \textbf{n} neuronów         \\ \hline
+        Dropout(d)    & parametr określający jak duża część połączeń zostanie  usunięta między \\ & kolejnymi wartwami, wartość paramtru \textbf{d} określa jaka część losowych \\ & połączeń będzie usunięta w trakcie jednego kroku uczenia, \\ & zawiera się w przedziale od 0 do 1                                                             \\ \hline
     \end{tabular}
 \end{table}
 
