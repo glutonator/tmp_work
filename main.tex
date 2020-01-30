@@ -24,20 +24,18 @@
 % Strona tytułowa
 %--------------------------------------
 \MasterThesis % dla pracy inżynierskiej mamy \EngineerThesis
-\instytut{XXXXXX}
-\kierunek{XXXXXX}
-\specjalnosc{XXXXXX}
+\instytut{Instytut Automatyki i Informatyki Stosowanej}
+\kierunek{Informatyka}
+\specjalnosc{Systemy Informacyjno-Decyzyjne}
 \title{
-    Niepotrzebnie długi i skomplikowany tytuł pracy \\
-    trudny do przeczytania, zrozumienia i wymówienia
+    Klasyfikacja tekstów ironicznych
 }
 \engtitle{ % Tytuł po angielsku do angielskiego streszczenia
-    Unnecessarily long and complicated thesis' title \\
-    difficult to read, understand and pronounce
+    Classification of ironic texts.
 }
-\author{\{Imię i Nazwisko\}}
-\album{XXXXXX}
-\promotor{XXXXXX}
+\author{Filip Lewczak}
+\album{259024}
+\promotor{dr inż. Mariusz Kamola}
 \date{\the\year}
 \maketitle
 
@@ -45,14 +43,14 @@
 % Streszczenie po polsku
 %--------------------------------------
 \cleardoublepage % Zaczynamy od nieparzystej strony
-\streszczenie \lipsum[1-3]
+\streszczenie  //TODO %\lipsum[1-3]
 \slowakluczowe XXX, XXX, XXX
 
 %--------------------------------------
 % Streszczenie po angielsku
 %--------------------------------------
 \newpage
-\abstract \kant[1-3]
+\abstract //TODO % \kant[1-3]
 \keywords XXX, XXX, XXX
 
 %--------------------------------------
@@ -89,13 +87,14 @@
 \input{tex/5-eksperymenty}
 \input{tex/6-sieci}
 
-\input{tex/91-wstep}
-\input{tex/92-de-finibus}
-\input{tex/93-code-listings}
+% \input{tex/91-wstep}
+% \input{tex/92-de-finibus}
+% \input{tex/93-code-listings}
 
 \newpage % Rozdziały zaczynamy od nowej strony
-\section{Summatio}          % Można też pisać rozdziały w jednym pliku.
-\lipsum[5-10]
+\section{Podsumowanie}          % Można też pisać rozdziały w jednym pliku.
+% \lipsum[5-10]
+//TODO
 
 %--------------------------------------------
 % Literatura
@@ -119,26 +118,26 @@
 % Makro \acronym dodaje skrót/symbol do listy,
 % zapewniając podstawowe formatowanie.
 % //AB
-\vspace{0.8cm}
-\acronymlist
-\acronym{EiTI}{Wydział Elektroniki i Technik Informacyjnych}
-\acronym{PW}{Politechnika Warszawska}
-\acronym{WEIRD}{ang. \emph{Western, Educated, Industrialized, Rich and Democratic}}
+% \vspace{0.8cm}
+% \acronymlist
+% \acronym{EiTI}{Wydział Elektroniki i Technik Informacyjnych}
+% \acronym{PW}{Politechnika Warszawska}
+% \acronym{WEIRD}{ang. \emph{Western, Educated, Industrialized, Rich and Democratic}}
 
 \listoffigures              % Spis obrazków.
 \vspace{1cm}                % vertical space
 \listoftables               % Spis tabel.
-\vspace{1cm}                % vertical space
-\listofappendices           % Spis załączników
+% \vspace{1cm}                % vertical space
+% \listofappendices           % Spis załączników
 
 % Załączniki
-\newpage
-\appendix{Nazwa załącznika 1}
-\lipsum[1-8]
+% \newpage
+% \appendix{Nazwa załącznika 1}
+% \lipsum[1-8]
 
-\newpage
-\appendix{Nazwa załącznika 2}
-\lipsum[1-4]
+% \newpage
+% \appendix{Nazwa załącznika 2}
+% \lipsum[1-4]
 
 % Używając powyższych spisów jako szablonu,
 % możesz tu dodać swój własny wykaz bądź listę,

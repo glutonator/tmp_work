@@ -1,6 +1,10 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
 \section{Eksperymenty}
 
+\colorbox{yellow}{todo: opisać to jakoś sensownie, punkt po punkcie co i dlaczego robię, bo teraz jest tak mega chatycznie, że nie da sie nic wywniskować}\\
+
+//dlaczego takie sieci został ywybran, dlaczeg otakimi paramterami steruję -> na co powinny one wpływać
+
 W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach.
 
 % \colorbox{yellow}{highlight}\\
@@ -58,22 +62,13 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 
 % Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Wykorzsytane embeddingi to: glove, fastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}). Natomiast dwa zbiory danych wejściowych są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budawanie modeli każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
+Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Wykorzsytane embeddingi to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 Poniżej przedstawiono tabele z wynikami obliczeń.
 
 %todo:
 \colorbox{yellow}{todo:}\\
 
-% \begin{table}[!h] \label{tab:wyniki_XXX} \centering
-%     \begin{tabular} {| c | c | r |} \hline
-%         Sieć  & Accuracy & Liczba \\ \hline\hline
-%               & Accuracy & Liczba \\ \hline\hline
-%         cell1 & cell2    & 60     \\ \hline
-%         cell4 & cell5    & 43     \\ \hline
-%         cell7 & cell8    & 20,45  \\ \hline
-%     \end{tabular}
-% \end{table}
 
 %todo:
 \colorbox{yellow}{todo: poprawić nawy i dodać poróœnanie wartośći w tabelkach}\\
