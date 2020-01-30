@@ -38,25 +38,27 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
           \end{itemize}
 \end{itemize}
 
-\subsection{POSTAGS}
-%todo:
-//todo: zmergować z dugim rozdiałem o postagach
+% \subsection{POSTAGS}
+% %todo:
+% //todo: zmergować z dugim rozdiałem o postagach
 
-Aby możliwe było wykorzystanie przez sieć neuronową informacji na temat typu części mowy danego słowa konieczne są następujące kroki:
+% Aby możliwe było wykorzystanie przez sieć neuronową informacji na temat typu części mowy danego słowa konieczne są następujące kroki:
 
-\begin{enumerate}
-    \item Rozpoznanie części mowy w kontekście zdania i przypisanie do niego odpowiedniego tagu,
-    \item Konwersja wykrytego tagu do liczbowej reprezentacji wektorowej,
-    \item Dołączenie utworzonego wektora do przetrenowanego wektora embedingów.
-\end{enumerate}
+% \begin{enumerate}
+%     \item Rozpoznanie części mowy w kontekście zdania i przypisanie do niego odpowiedniego tagu,
+%     \item Konwersja wykrytego tagu do liczbowej reprezentacji wektorowej,
+%     \item Dołączenie utworzonego wektora do przetrenowanego wektora embedingów.
+% \end{enumerate}
 
-\hfill \break % to dodaje pustą linie po czymść dziwnym -lista, tabela
-Do rozpoznania części mowy zostało wykorzystane narzędzie z pakietu NLTK, które pozwala na oznaczenie każdego słowa w zdaniu jednym z 46 tagów, każdy odpowiadający innej części mowy. Następnie wykryty tag został przetworzony do postaci “one-hot encoding” i dodany do istniejącego embedingu słowa, zwiększając tym samy jego rozmiar o długość 46.
+% \hfill \break % to dodaje pustą linie po czymść dziwnym -lista, tabela
+% Do rozpoznania części mowy zostało wykorzystane narzędzie z pakietu NLTK, które pozwala na oznaczenie każdego słowa w zdaniu jednym z 46 tagów, każdy odpowiadający innej części mowy. Następnie wykryty tag został przetworzony do postaci “one-hot encoding” i dodany do istniejącego embedingu słowa, zwiększając tym samy jego rozmiar o długość 46.
 
 
 \subsection{Wyniki}
 
-Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
+% Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
+
+Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Wykorzsytane embeddingi to: glove, fastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}). Natomiast dwa zbiory danych wejściowych są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budawanie modeli każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 Poniżej przedstawiono tabele z wynikami obliczeń.
 
