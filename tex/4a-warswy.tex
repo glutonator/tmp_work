@@ -12,13 +12,13 @@ Jest to najbardziej podstawowy typ warstwy, w której każdy neuron uzyskuje inf
 Często jedna warstwa gęsto połączona nie wystarcza by poprawnie rozwiązywać dane zadanie klasyfikacji, dlatego wykorzystuje się kilka takich warstw ze sobą połączonych tak, że wyjścia jednej warstwy są jednocześnie wejściami kolejnej warstwy. Należy jednak pamiętać, że funkcja aktywacji musi być wtedy funkcją nieliniową. Obecnie najczęściej wykorzystywaną funkcją aktywacji jest funkcja ReLU opisana poniższym wzorem: 
 
 %https://en.wikipedia.org/wiki/Activation_function
-$$f(x) = \left\{\begin{matrix}
-         & 0\ ,dla\ x \leq 0 \\
-         & x\ , dla\ x > 0
+$$f(x) = max(0,x) = \left\{\begin{matrix}
+         & 0,\ dla\ x \leq 0 \\
+         & x,\ dla\ x > 0
     \end{matrix}\right.
 $$
 
-\subsection{warstwa konwolucyjna}
+\subsection{Warstwa konwolucyjna}
 
 % https://towardsdatascience.com/text-classification-rnns-or-cnn-s-98c86a0dd361
 % https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53
@@ -29,10 +29,25 @@ Sieci używające warstw konwolucyjnych (takie sieci oznaczane są często jako 
 
 W przypadku analizy tekstu macierzą wejściową dla warstwy konwolucyjnej jest macierz o wymiarze AxB, gdzie A to liczba słów w zdaniu, a B to rozmiar embeddingu. Natomiast, ze względu na strukturę danych, sama ekstrakcja cech dokonywana przez filtr może przebiegać tylko w ramach wymiaru A, gdyż dane wzdłuż wymiaru B reprezentują unikalne cechy danego słowa i nie powinny być agregowane.
 
-%todo: opsiać max pooling ?
-//todo: opsiać max pooling ?
 
-\subsection{Max Pooling}
+\subsection{Pooling}
+
+%https://www.quora.com/What-is-pooling-in-a-convolutional-neural-network 
+
+%https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks 
+
+Zadaniem warstwy poolingu jest zmniejszenie wymiarowości macierzy uzyskanej z poprzedniej warstwy (bardzo często występuję tuż po warstwie konwolucyjnej). Można ten proces porównać do przeprowadzania operacji zmniejszania rozdzielczości obrazu. Operacja ta polega na systematycznym przesuwaniu stałego okna po macierzy wejściowej i dokonywania pewnej formy agregacji danych (wybór elementu o najwyższej wartości, wyliczenie średniej z wartości elementów) na elementach macierzy zawierających się w bieżącym oknie. Dzięki takiemu zabiegowi kolejne warstwy sieci mogą skupiać się na analizie i wykrywaniu bardziej skomplikowanych wzorców w oparciu o cechy uwypuklone przez warstwę poolingu. 
+
+ 
+
+Najbardziej popularną formą poolingu jest max pooling, który polega na wybieraniu elementu o najwyższej wartości spośród elementów w oknie. Na rysunku XXX przedstawiono przykład takiej operacji przy zastosowaniu okna o rozmiarze 2x2 i przesunięciu wynoszącym 2. 
+
+\begin{figure}[!h]
+    \label{fig:max_pooling}
+    \centering \includegraphics[width=0.75\linewidth]{max_pooling.png}
+    \caption{Wynik operacji max poolingu}
+\end{figure}
+
 
 \subsection{RNN}
 
