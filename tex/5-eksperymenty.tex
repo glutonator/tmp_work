@@ -92,7 +92,7 @@ Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w r
 %todo:
 % \colorbox{yellow}{todo:}\\
 % //Wymyślić wnioski dla teakiej sytuacji
-W oparciu o uzyskane miary jakość klasyfikacji można stwierdzić, że modele wyuczone na zbiorze B źle radzą sobie z klasyfikacją rekordów ze zbioru A. Dokładność na poziomie pięćdziesięciu paru procent wskazuje, że pomimo tego, że oba zbiory pochodzą z tego samego źródła to różnią się one na tyle bardzo swoją strukturą wewnętrzną, że żadna architektura nie może sobie poradzić z prawidłową klasyfikacją. Co potwierdza powszechnie znaną prawdę dotyczącą sieci neuronowych, że takie modele do procesu trenowania potrzebują bardzo dużej ilości danych o możliwie jak najbardziej zróżnicowanej strukturze. Wystarczy, że zbiór danych treningowych jest tylko pewnym wycinkiem dziedziny problemu, który sieć ma rozwiązać, by nauczyła się ona klasyfikacji złych cech.
+W oparciu o uzyskane miary jakości klasyfikacji można stwierdzić, że modele wyuczone na zbiorze B źle radzą sobie z klasyfikacją rekordów ze zbioru A. Dokładność na poziomie pięćdziesięciu paru procent wskazuje, iż pomimo tego, że oba zbiory pochodzą z tego samego źródła to różnią się one na tyle bardzo swoją strukturą wewnętrzną, że żadna architektura nie może sobie poradzić z prawidłową klasyfikacją. Co potwierdza powszechnie znaną prawdę dotyczącą sieci neuronowych, że takie modele do procesu trenowania potrzebują bardzo dużej ilości danych o możliwie jak najbardziej zróżnicowanej strukturze. Wystarczy, że zbiór danych treningowych jest tylko pewnym wycinkiem dziedziny problemu, by sieć podczas treningu nauczyła się klasyfikacji w opraciu o złe lub nieistotne cechy.
 
 
 \subsubsection{Eksperyment 3 - Uczenie i testowanie modelu na fragmencie zbioru B tak by był równoliczny ze zbiorem A}
@@ -102,35 +102,40 @@ W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało
 Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w rozdziale \ref{wyniki_eksperymentow_eks_3} w tabelach \ref{tab:wyniki_25_eks3}, \ref{tab:wyniki_300_eks3}, \ref{tab:wyniki_1024_eks3}.
 
 
+% //TODO: zminić, bo LSTM i CNN mają podobny poziom jakości 
 
-W oparciu o uzyskane wyniki można zauważyć:
+W opraciu o uzyskane wyniki można zauważyć, dużo wyższą jakość klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}. Świdczyć to może o bardzo małej różnorodności wśród danych wewnątrz zbioru \textbf{B}. Najprawdopodobniej wszystkie elementy tego zbioru reprezenntują ten sam najprostszy typ ironii bazujący na przeciwnej polaryzacji w ramach ironii werbalnej.
 
-\begin{itemize}
-    \item Wyższą średnią jakoś klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}
-    \item Lepszą jakość klasyfikacji dla sieci opartych o warstwy typu LSTM
-\end{itemize}
+Natomiast w kwestii porównania jakości klasyfikacji sieci CNN i sieci  opratych o wartwy LSTM, trudno jest dostrzec zauważalną różnicę w jakościach klasyfikacji przez sieci o najwyższych wynikach. Obie architektury sprawiają się równie dobrze w przypadku klasyfikacji na zbiorze B, nawet przy dość małej ilości danych. 
+
+% W oparciu o uzyskane wyniki można zauważyć:
+
+% \begin{itemize}
+%     \item Wyższą średnią jakoś klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}
+%     \item Lepszą jakość klasyfikacji dla sieci opartych o warstwy typu LSTM
+% \end{itemize}
 
 
-Wyższa jakoś klasyfikacji może wskazywać na to, że zbiór oznaczony jako \textbf{A} posiada dużo bardziej zróżnicowane dane, przy czym zbiór posiada zbyt małą liczbą próbek by sieć, w procesie nauki, odpowiednio je wychwyciła. Problem ten może być najprawdopodobniej wyeliminowany poprzez dostarczenie większej liczby próbek danych o zróżnicowanym charakterze.
+% Wyższa jakoś klasyfikacji może wskazywać na to, że zbiór oznaczony jako \textbf{A} posiada dużo bardziej zróżnicowane dane, przy czym zbiór posiada zbyt małą liczbą próbek by sieć, w procesie nauki, odpowiednio je wychwyciła. Problem ten może być najprawdopodobniej wyeliminowany poprzez dostarczenie większej liczby próbek danych o zróżnicowanym charakterze.
 
-Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wnioskami płynącymi z innych publikacji badających podobne zagadnienia. Trudności z obserwacji tej zależności w poprzednich eksperymentach mogła wynikać między innymi z:
+% Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wnioskami płynącymi z innych publikacji badających podobne zagadnienia. Trudności z obserwacji tej zależności w poprzednich eksperymentach mogła wynikać między innymi z:
 
 
-\begin{itemize}
+% \begin{itemize}
 
-    \item Dla zbioru A:
-          \begin{itemize}
-              \item Małej liczby próbek
-              \item Dużej różnorodności prezentowanej ironii w próbkach
-          \end{itemize}
+%     \item Dla zbioru A:
+%           \begin{itemize}
+%               \item Małej liczby próbek
+%               \item Dużej różnorodności prezentowanej ironii w próbkach
+%           \end{itemize}
 
-    \item Dla zbioru B:
-          \begin{itemize}
-              \item Małej różnorodności prezentowanej ironii w próbkach
-              \item Na tyle duża liczba próbek, by sieci o teoretycznie gorszych zdolnościach do rozwiązywania danego zadania klasyfikacji mogły wychwycić cechy tekstu pozwalające, przy odpowiednio długim procesie uczenia, na poprawną klasyfikację.
-          \end{itemize}
+%     \item Dla zbioru B:
+%           \begin{itemize}
+%               \item Małej różnorodności prezentowanej ironii w próbkach
+%               \item Na tyle duża liczba próbek, by sieci o teoretycznie gorszych zdolnościach do rozwiązywania danego zadania klasyfikacji mogły wychwycić cechy tekstu pozwalające, przy odpowiednio długim procesie uczenia, na poprawną klasyfikację.
+%           \end{itemize}
 
-\end{itemize}
+% \end{itemize}
 
 
 
