@@ -58,7 +58,12 @@ Najbardziej popularną formą poolingu jest max pooling, który polega na wybier
 
 Neuronowa sieć rekurencyjna (RNN) powstała z myślą o przewidywaniu kolejnych elementów sekwencji. Jako wejście przyjmuje kolejne elementy sekwencji, ale w przeciwieństwie do sieci typu feedforward posiada także swój wewnętrzny  stan, w ramach którego zawarta jest informacja o poprzednich wejściach. Sieć tego typu charakteryzuje się jednak bardzo istotną wadą, mianowicie boryka się ona z problem zanikającego gradientu. Jest on spowodowany naturą propagacji wstecznej i wiąże się z coraz mniejszym wpływem początkowych elementów sekwencji na wyjście modelu. Aby temu zaradzić zostały wprowadzone nowe architektury warstw, jedną z nich jest warstwa typu LSTM.
 
-\subsection{LSTM}
+
+
+
+\subsection{\label{lstm_subsection}LSTM}
+
+
 
 % https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
 
@@ -66,16 +71,11 @@ Warstwa typu LSTM składa się nuronów zawierających w sobie wiele pośrednich
 
 \begin{figure}[!h]
     \label{fig:lstm_diagram}
-    \centering \includegraphics[width=1\linewidth]{lstm_diagram.png}
-    \caption{Przepływ danych w jedynczym neuronie LSTM}
+    \centering \includegraphics[width=0.6\linewidth]{lstm_diagram.png}
+    \caption{Przepływ danych w pojedynczym neuronie LSTM}
 \end{figure}
 
 
-\begin{figure}[!h]
-    \label{fig:lstm_gates}
-    \centering \includegraphics[width=0.5\linewidth]{lstm_gates.png}
-    \caption{Przepływ danych w jedynczym neuronie LSTM}
-\end{figure}
 
 
 \subsubsection{Funkcje aktywacji}
@@ -98,6 +98,11 @@ W skład neuronu LSTM wchodzą następujące elementy:
     \item Output gate
 \end{itemize}
 
+\begin{figure}[!h]
+    \label{fig:lstm_gates}
+    \centering \includegraphics[width=0.5\linewidth]{lstm_gates.png}
+    \caption{Elementy wewnątrz neuronu LSTM}
+\end{figure}
 
 \paragraph{Forget gate}  \hfill
 %  \break

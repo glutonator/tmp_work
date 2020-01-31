@@ -1,9 +1,12 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
 \section{Eksperymenty}
 
-\colorbox{yellow}{todo: opisać to jakoś sensownie, punkt po punkcie co i dlaczego robię, bo teraz jest tak mega chatycznie, że nie da sie nic wywniskować}\\
+% \colorbox{yellow}{todo: opisać to jakoś sensownie, punkt po punkcie co i dlaczego robię, bo teraz jest tak mega chatycznie, że nie da sie nic wywniskować}\\
 
-//dlaczego takie sieci został ywybran, dlaczeg otakimi paramterami steruję -> na co powinny one wpływać
+% //dlaczego takie sieci został ywybran, dlaczeg otakimi paramterami steruję -> na co powinny one wpływać
+
+%Celem pracy było stworzenie modelu pozwalającego na detekcję ironii i sarkazmu w tekście. Przy czym praca, skupia się bardziej na analizie krótkich form wypowiedzi, składających się z nie więcej niż kilku zdań. Dłuższe formy wypowiedzi o charakterze ironicznym takie jak na przykład felietony wymagają innego typu analizy i nie są uwzględniane w ramach pracy. Ponadto w ramach badań podjęta jest analiza wpływu cech morfosyntaktycznych na jakość klasyfikacji modelu. Analiza ta wynika z chęci zweryfikowaniem tezy, że dodatkowe informacje na temat roli słowa w zdaniu pozwolą na ujednoznacznienie znaczenia słowa, co przełoży się na lepszą jakość analizy tekstu w tym konkretnym zadaniu klasyfikacji.
+
 
 %W ramach pracy została dokonana analiza wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji tekstów ironicznych. Na potrzeby języka angielskiego taka analiza sprowadza się głownie do analizy wpływu typu części mowy do jakiego należą poszczególne słowa i taka analiza zostanie podjęta w kolejnych krokach.
 
@@ -60,7 +63,7 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 
 \subsection{Wyniki analiza}
 
-\subsubsection{Eksperyment 1}
+\subsubsection{Eksperyment 1 - analiza wpływu POS tagów na jakoś klasyfikacji}
 % Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Wykorzsytane embeddingi to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
@@ -74,7 +77,7 @@ W oparciu o uzyskane wyniki można stwierdzić, że wraz z dołączeniem informa
 Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy embedding pozwala na zachowanie większej liczby informacji na temat słowa.
 
 
-Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy gęste. Natomiast sieci wykorzystujące warstwy konwolucyjne oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach konwolucyjnych oraz LSTM. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o częściach mowy, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
+Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy gęste. Natomiast sieci wykorzystujące warstwy konwolucyjne oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach konwolucyjnych oraz LSTM. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji o POS tagach, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
 
 %\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\
 %todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
@@ -134,19 +137,7 @@ Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wni
 
 
 
-\begin{table}[h] \centering
-    \caption{Embedding Glove o długości 25, zbiór A}
-    \label{tab:wyniki_glove_A}
-    \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
-    & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
-    X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
-    sieć     & N                             & P                              & N                           & P                       & N      & P      & N      & P      \\ \hline
-    dense\_1  & 0.6327 & \textbf{0.6372} & 0.6074 & \textbf{0.6210} & \textbf{0.6853} & 0.6456 & \textbf{0.6440} & 0.6331 \\ \hline
-    dense\_2  & \textbf{0.6022} & 0.5943 & 0.5790 & \textbf{0.5732} & \textbf{0.6573} & 0.6386 & \textbf{0.6157} & 0.6041 \\ \hline
-    cnn\_11   & \textbf{0.6395} & 0.6327 & 0.6227 & \textbf{0.6111} & \textbf{0.6503} & 0.6666 & \textbf{0.6362} & 0.6376 \\ \hline
-    \end{tabular}
-    \end{table}
-    
+
 
 
 
