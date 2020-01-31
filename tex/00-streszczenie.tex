@@ -1,0 +1,26 @@
+% \newpage % Rozdziały zaczynamy od nowej strony.
+% \section{Wstęp}
+% \subsection{Cel pracy}
+
+Praca dąży do zaproponowania modelu zdolnego do klasyfikacji tekstów o charakterze ironicznym. Aby to było możliwe, praca w pierwszej kolejności analizuje istniejące już podejścia do rozwiązania takiego zadania klasyfikacji. By następnie w oparciu o zdobytą wiedzę zaproponować kilka architektur sieci najlepiej nadających się do rozwiązania tego problemu. 
+
+Praca skupia się na analizie sieci CNN i sieci opartych na warstwach LSTM oraz na doborze konfiguracji hiper parametrów pozwalającej osiągnąć jak najlepszą dokładność klasyfikacji. Aby to było możliwe w pierwszej kolejności dokonywany jest preprocessing danych. W trakcie niego część elementów zbioru jest zastępowana bardziej generalnymi oznaczeniami, aby zminimalizować poziom szumu w zbiorze uczącym. Ponadto w trakcie tego kroku następuje konwersja emotikon i hasztagów do formy lepiej interpretowalnej przez modele językowe. W następnej kolejności praca skupia się na transformacji danych w formie słów do przestrzeni liczbowej, która może być interpretowana przez sieci neuronowe. W tym celu dokonana jest analiza istniejących sposobów uzyskiwania embeddingów i wybór kilku z nich, najlepiej pozwalających na oddanie cech słów w przestrzeni wektorowej. 
+
+Praca, oprócz zaproponowania modelu pozwalającego na detekcję ironii, skupia się także na analizie wpływu oznaczeń morfosyntaktycznych na jakość klasyfikacji. Stara się odpowiedzieć na pytanie, czy taka informacja jest istotna dla sieci w procesie nauki, czy wprowadza może tylko nie istotne szumy. 
+
+
+% Celem pracy było stworzenie modelu pozwalającego na detekcję ironii i sarkazmu w tekście. Przy czym praca, skupia się bardziej na analizie krótkich form wypowiedzi, składających się z nie więcej niż kilku zdań. Dłuższe formy wypowiedzi o charakterze ironicznym takie jak na przykład felietony wymagają innego typu analizy i nie są uwzględniane w ramach pracy. Ponadto w ramach badań podjęta jest analiza wpływu cech morfosyntaktycznych na jakość klasyfikacji modelu. Analiza ta wynika z chęci zweryfikowaniem tezy, że dodatkowe informacje na temat roli słowa w zdaniu pozwolą na ujednoznacznienie znaczenia słowa, co przełoży się na lepszą jakość analizy tekstu w tym konkretnym zadaniu klasyfikacji.
+
+% Poprzez cechy morfosyntaktyczne rozumiane są między innymi informację o tym:
+% \begin{itemize}
+%     \item Do jakiej części mowy należy słowo
+%     \item Czy słowo występuje w liczbie pojedynczej czy mnogiej
+%     \item W jakim przypadku występuje słowo
+%     \item W jakim czasie występuje słowo
+% \end{itemize}
+
+
+
+%https://www.dbc.wroc.pl/Content/23649/PDF/radziszewski_metody_PhD.pdf 
+
+
