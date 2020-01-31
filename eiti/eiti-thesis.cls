@@ -65,6 +65,8 @@
 \RequirePackage{xcolor}
 \RequirePackage{collcell}
 \RequirePackage{xfp}
+\usepackage{colortbl}
+
 
 
 %--------------------------------------

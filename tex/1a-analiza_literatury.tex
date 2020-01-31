@@ -1,23 +1,46 @@
 % \newpage % Rozdziały zaczynamy od nowej strony.
 \subsection{Analiza literatury}
 
+Zagadnienie klasyfikacji ironii jest dość popularnym problemem wśród badaczy z zajmujących się analizą języka naturalnego ze względu na konieczność wychwycenia nie tylko dosłownego znaczenia danej wypowiedzi, ale także detekcję i analizy ewentualnego podtekstu.
+
+% //analiza sentymentu = analiza wydzwięku emeocjonalnego
+
+Pierwsze prace z tej dziedziny opierały się na analizie sentymentu poszczególnych słów. Opierały się na przeświadczeniu, że jeśli wypowiedź utrzymuje stały charakter emocjonalny w postaci pozytywnego lub negatywnego wydźwięku    nie zawiera ono w sobie ironii. Natomiast jeśli pojawiały się fragmenty o przeciwnej polaryzacji, to zdanie z dużym prawdopodobieństwem można było klasyfikować jako ironiczne. Takie metody skupiały się przede wszsytkim na kryteriach ilościowych, nie uwględniając większej ważności słów kluczowych. Z tego powodu były dość zawodne.
+
+% Metody te jednak były dość zawodne ze względu na brak uwzględniania znaczenia poszczególnych słów, pozwalające na …//todo
+
+% //Odnieśc się ->  Sarcasm as Contrast between a Positive Sentiment and Negative Situation
+
+% //todo: opisać systemy regułowe
 
 
-Zagadnienie klasyfikacji ironii jest dość popularnym problemem wśród badaczy z zajmujących się analizą języka naturalnego ze względu na konieczność wychwycenia nie tylko dosłownego znaczenia danej wypowiedzi, ale także detekcję i analizy ewentualnego podtekstu.  
+Inne podejście, zaprezentowane w pracy \cite{Riloff2013} opierało się na spostrzeżeniach, że w zdaniach sarkastycznych słowa o pozytywnym wydźwięku kontrastują z sytuacjami nacechowanymi negatywnie. W oparciu o tą tezę badacze zaproponowali algorytm systematycznie uczący się dwóch grup sformułowań:
 
-//analiza sentymentu = analiza wydzwięku emeocjonalnego 
+\begin{itemize}
+    \item słów o pozytywnym wydźwięku (oznaczony jako PS)
+    \item sformułowań świadczących o sytuacjach nacechowanych negatywnie (oznaczony jako NS)
+\end{itemize}
 
-Pierwsze prace z tej dziedziny opierały się na analizie sentymentu poszczególnych słów. Opierały się na przeświadczeniu, że jeśli wypowiedź utrzymuje stały charakter emocjonalny w postaci pozytywnego lub negatywnego wdzięku nie zawiera ono w sobie ironii. Natomiast jeśli pojawiały się fragmenty o przeciwnej polaryzacji, to zdanie z dużym prawdopodobieństwem można było klasyfikować jako ironiczne. Metody te jednak były dość zawodne ze względu na brak uwzględniania znaczenia poszczególnych słów, pozwalające na …//todo 
 
-//Odnieśc się ->  Sarcasm as Contrast between a Positive Sentiment and Negative Situation 
+Algorytm rozpoczyna swoje działanie od tylko jednego słowa ‘love’ w zbiorze słów PS. Następnie dokonywane są następujące kroki:
+\begin{enumerate}
+    \item Wyszukiwanie w zbiorze danych rekordów zawierających słowo ze zbioru PS
+    \item Dla każdego znalezionego rekordu w otoczeniu słowa ze zbioru PS wyznaczany jest 1-gram,2-gram oraz 3-gram.
+    \item Ze stworzonych n-gramow wybierany jest ten, który występuje najczęściej dla rekordów sarkastycznych w otoczeniu słów ze zbioru PS i jest dodawany do zbioru NS
+    \item W następnym korku następuje, wyszukiwanie w zbiorze danych rekordów zawierających słowo ze zbioru NS
+    \item Dla każdego znalezionego rekordu w otoczeniu słowa ze zbioru NS wyznaczany jest 1-gram,2-gram oraz 3-gram.
+    \item Ze stworzonych n-gramow wybierany jest ten, który występuje najczęściej dla rekordów sarkastycznych w otoczeniu słów ze zbioru NS i jest dodawany do zbioru PS
+    \item Powrót do kroku 1, aż do momentu, gdy zbiory PS i NS są wystarczająco liczne.
+\end{enumerate}
 
-//todo: opisać systemy regułowe 
 
- 
 
-Ze względu na obserwowaną lepszą skuteczność klasyfikacji, późniejsze prace skupiały się przede wszystkim na wykorzystaniu sieci neuronowych do zagadnienia rozpoznawania ironii.  
 
-Kluczowym elementem w przypadku wykorzystania sieci neuronowych jest preprocessing danych. Dlatego prace z tej dziedziny skupiały się w pierwszej kolejności na usunięciu lub zastąpieniu specjalnymi oznaczeniami takich informacji jak linki do zewnętrznych portali oraz oznaczenie użytkownika. Ponadto tekst często był normalizowany poprzez wykorzystanie lematyzacji i stemmingu co miało na celu zmniejszenie liczby unikalnych słów. Kolejnym istotnym elementem w ramach przetwarzania testu wykorzystującego sieci neuronowe był sposób konwersji słów do przestrzeni liczbowej. W publikacjach autorzy wykorzystywali różne metody, między innymi powszechnie znany word2vec, czy też zyskujący coraz większa popularność ELMo. Tak przetworzone dane były wprowadzane do sieci zarówno opartych o warstwy konwolucyjne, jak i warstwy typu LSTM. Jakość klasyfikacji dla różnych architekrur opartych o te warstwy była dość podobna z nieznaczną przewagą sieci opartych na warstwach LSTM. 
+Dzięki takiemu podejście możliwe jest zidentyfikowanie najczęściej pojawiających się kombinacji wskazujących na występowanie sarkazmu i w oparciu o nie dokonać predykcji czy dana wypowiedź ma charakter sarkastyczny. Istotną wadą takiego podejścia jest dość wąskie okno w ramach dokonywana jest analiza zdania, a także brak uwzględniania kulturowego znaczenia poszczególnych słów.
 
- 
+Ze względu na obserwowaną lepszą skuteczność klasyfikacji, późniejsze prace skupiały się przede wszystkim na wykorzystaniu sieci neuronowych do zagadnienia rozpoznawania ironii.
+
+Kluczowym elementem w przypadku wykorzystania sieci neuronowych jest preprocessing danych. Dlatego prace \cite{Baziotis2018}  \cite{Huang2017}  \cite{Ilic2018} z tej dziedziny skupiały się w pierwszej kolejności na usunięciu lub zastąpieniu specjalnymi oznaczeniami takich informacji jak linki do zewnętrznych portali oraz oznaczenie użytkownika. Ponadto tekst często był normalizowany poprzez wykorzystanie lematyzacji i stemmingu co miało na celu zmniejszenie liczby unikalnych słów. Kolejnym istotnym elementem w ramach przetwarzania testu wykorzystującego sieci neuronowe był sposób konwersji słów do przestrzeni liczbowej. W publikacjach autorzy wykorzystywali różne metody, między innymi powszechnie znany word2vec, czy też zyskujący coraz większa popularność ELMo. Tak przetworzone dane były wprowadzane do sieci zarówno opartych o warstwy konwolucyjne, jak i warstwy typu LSTM. Jakość klasyfikacji dla różnych architekrur opartych o te warstwy była dość podobna z nieznaczną przewagą sieci opartych na warstwach LSTM.
+
+
 

@@ -134,6 +134,20 @@ Lepsza jakość klasyfikacji przez sieci oparte o warstwy LSTM jest zgodny z wni
 
 
 
+\begin{table}[h] \centering
+    \caption{Embedding Glove o długości 25, zbiór A}
+    \label{tab:wyniki_glove_A}
+    \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
+    & \multicolumn{8}{c|}{metryki}                                                                                                                               \\ \hline
+    X        & \multicolumn{2}{c|}{accuracy} & \multicolumn{2}{c|}{precision} & \multicolumn{2}{c|}{recall} & \multicolumn{2}{c|}{f1}                                     \\ \hline
+    sieć     & N                             & P                              & N                           & P                       & N      & P      & N      & P      \\ \hline
+    dense\_1  & 0.6327 & \textbf{0.6372} & 0.6074 & \textbf{0.6210} & \textbf{0.6853} & 0.6456 & \textbf{0.6440} & 0.6331 \\ \hline
+    dense\_2  & \textbf{0.6022} & 0.5943 & 0.5790 & \textbf{0.5732} & \textbf{0.6573} & 0.6386 & \textbf{0.6157} & 0.6041 \\ \hline
+    cnn\_11   & \textbf{0.6395} & 0.6327 & 0.6227 & \textbf{0.6111} & \textbf{0.6503} & 0.6666 & \textbf{0.6362} & 0.6376 \\ \hline
+    \end{tabular}
+    \end{table}
+    
+
 
 
 
