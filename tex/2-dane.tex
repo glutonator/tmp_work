@@ -7,9 +7,9 @@
 % //todo: opisać te kategrię ironii z uwzględniem kategorii z wczesniejszego rodziału
 % // to z biegunowości i bez to są dwa typy ironii verbalnej -> tylko jedno z nich jest trudniejsze z punktu widzenia zagadanienai kalsyfikacji
 
-W ramach pracy zostały wykorzystane dwa zbiory danych. Pierwszy zbiór danych (w pracy oznaczony jako zbiór A) został udostępniony w ramach inicjatywy SemEval. Inicjatywa ta ma na celu rozwój szeroko pojętej analizy i przetwarzania języka naturalnego. Zbiór ten składa się 4618 próbek oznaczonych tagiem o klasyfikującym rekord jako ironiczny lub nie. Dane pochodzą z Twittera i reprezentują trzy różne typy ironii:
+W ramach pracy zostały wykorzystane dwa zbiory danych. Pierwszy zbiór danych (w pracy oznaczony jako zbiór A) został udostępniony w ramach inicjatywy SemEval. Inicjatywa ta ma na celu rozwój szeroko pojętej analizy i przetwarzania języka naturalnego. Zbiór ten składa się 4618 próbek oznaczonych tagiem klasyfikującym rekord jako ironiczny lub nie. Dane pochodzą z Twittera i reprezentują trzy różne typy ironii:
 \begin{itemize}
-    \item Słowną werbalną stworzoną poprzez wykorzystaniu przeciwnej biegunowości słów (polarity contrast):
+    \item Słowną werbalną stworzoną poprzez wykorzystanie przeciwnej biegunowości słów (polarity contrast):
           \begin{itemize}
               \item Przykład: I love waking up with migraines \#not :'(
           \end{itemize}
@@ -19,7 +19,7 @@ W ramach pracy zostały wykorzystane dwa zbiory danych. Pierwszy zbiór danych (
               \item Przykład: Human brains disappear every day. Some of them have never even appeared. \#brain \#humanbrain \#Sarcasm
           \end{itemize}
 
-    \item Ironia sytuacyjna:
+    \item Ironię sytuacyjną:
           \begin{itemize}
               \item Przykład: Most of us didn't focus in the \#ADHD lecture. \#irony
           \end{itemize}
@@ -38,7 +38,7 @@ Drugi zbiór (w pracy oznaczony jako zbiór B) także pochodzi z Twittera i zost
 
 Każdy rekord w ramach zbioru danych posiadał następujące informacje:
 \begin{itemize}
-    \item datą opublikowania
+    \item datę opublikowania
     \item nazwę użytkownika
     \item unikalny ID Tweetu
 \end{itemize}
@@ -49,7 +49,7 @@ Każdy rekord w ramach zbioru danych posiadał następujące informacje:
 
 % //todo: lista paramterów
 
-Ze względu na to, że wiadomość zawarta w ramach Tweetu nie była podana wprost, tylko sprecyzowany był jej unikalny ID, konieczne było dokonanie dodatkowego mapowania między rekordami, a postami wykorzystując udostępnione przez Tweeter API. Podczas procesu mapowania nie udało się uzyskać wszystkich treści postów, część z nich była nie osiągalna ze względu na różne czynniki losowe takie jak usuniecie konta użytkownika, zablokowanie Tweetu ze względu na naruszenie regulaminu portalu oraz usunięcie Tweetu przez użytkownika. Dlatego uzyskany zbiór postów był mniejszy od 30 tysięcy.  
+Ze względu na to, że wiadomość zawarta w ramach Tweetu nie była podana wprost, tylko sprecyzowany był jej unikalny ID, konieczne było dokonanie dodatkowego mapowania między rekordami, a postami wykorzystując udostępnione przez Tweeter API. Podczas procesu mapowania nie udało się uzyskać wszystkich treści postów, część z nich była nie osiągalna ze względu na różne czynniki losowe takie jak usuniecie konta użytkownika, zablokowanie Tweetu ze względu na naruszenie regulaminu portalu oraz usunięcie Tweetu przez użytkownika. Dlatego uzyskany zbiór postów był mniejszy niż bazowe 30 tysięcy.  
 Na potrzeby pracy zostały wykorzystane 2 zbiory z wcześniej wymienionych:
 \begin{itemize}
     \item Zmieszany zbiór ironiczny i sarkastyczny -> zbiór posiadał 22402 próbek
