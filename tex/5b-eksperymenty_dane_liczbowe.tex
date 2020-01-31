@@ -1,14 +1,13 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
 \subsection{Wyniki eksperymentów} \label{wyniki_eksperymentow}
 
-W ramach tego rozdziału umieszczone są dane dotyczące jakości klasyfikacji poszczególnych modeli w ramach wykonanych eksperymentów.
+W ramach tego rozdziału umieszczone są dane dotyczące jakości klasyfikacji poszczególnych modeli w ramach wykonanych eksperymentów. Dla eksperymentu pierwszego dla każdej metryki zostało dokonane porównanie wartości dla modelu trenowego z inforamcją o POS tagach (kolumna oznaczona jako P) z modelem trenowanym bez inforamcji o POS tagach (kolumna oznaczona jako N). Dla każdej grupy pomiarów kolorem zielonym została zaznaczona największa wartość danej metrki.
 
-\subsubsection{Wyniki dla eksperymentu 1 - zbiór A}
+\newpage
+\subsubsection{\label{wyniki_eksperymentow_eks_1}Wyniki dla eksperymentu 1 - zbiór A}
 
-%todo:
-\colorbox{yellow}{todo: dodać poróœnanie wartośći w tabelkach}
 
-\begin{table}[h] \centering
+\begin{table}[hp] \centering
     \caption{Embedding Glove o długości 25, zbiór A}
     \label{tab:wyniki_glove_A}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
@@ -190,7 +189,7 @@ W ramach tego rozdziału umieszczone są dane dotyczące jakości klasyfikacji p
 
 
 \begin{table}[p]  \centering
-    \caption{Embedding FastText o długości 300, zbiór B}
+    \caption{\label{wyniki_eksperymentow_eks_1b}Embedding FastText o długości 300, zbiór B}
     \label{tab:wyniki_fasttext_B}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
                  & \multicolumn{8}{c|}{metryki}                                                                                                                                                                                                                                                \\ \hline
@@ -276,60 +275,181 @@ W ramach tego rozdziału umieszczone są dane dotyczące jakości klasyfikacji p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage % Rozdziały zaczynamy od nowej strony.
-\subsubsection{Wyniki dla eksperymentu 2}
+\subsubsection{\label{wyniki_eksperymentow_eks_2}Wyniki dla eksperymentu 2}
 
 
 %todo:
-\colorbox{yellow}{todo:}\\
-//tablea gdzie jest jakość na poziomie 50-55 procent
+% \colorbox{yellow}{todo:}\\
+% //tablea gdzie jest jakość na poziomie 50-55 procent
 
 
+\begin{table}[h] \centering
+    \caption{Embedding Glove o długości 25, zbiór B jako zbiór treningowy, zbiór A jako zbiór testowy }
+    \label{tab:wyniki_25_eks2}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+                 & \multicolumn{4}{c|}{metryki}                                 \\ \hline
+        sieć     & accuracy                     & precisionaa & recall & f1     \\ \hline
+        dense\_1 & 0.559                        & 0.5359      & 0.8785 & 0.6657 \\ \hline
+        dense\_2 & 0.554                        & 0.5328      & 0.877  & 0.6628 \\ \hline
+        dense\_3 & 0.5545                       & 0.5333      & 0.8715 & 0.6617 \\ \hline
+        dense\_4 & 0.5572                       & 0.5352      & 0.8685 & 0.6623 \\ \hline
+        lstm\_1  & 0.5307                       & 0.5165      & 0.9585 & 0.6713 \\ \hline
+        lstm\_2  & 0.52                         & 0.5106      & 0.9575 & 0.6660 \\ \hline
+        lstm\_3  & 0.5405                       & 0.5227      & 0.93   & 0.6693 \\ \hline
+        lstm\_4  & 0.5372                       & 0.5213      & 0.911  & 0.6631 \\ \hline
+        lstm\_5  & 0.5362                       & 0.5201      & 0.9375 & 0.6690 \\ \hline
+        lstm\_6  & 0.548                        & 0.5272      & 0.929  & 0.6727 \\ \hline
+        lstm\_7  & 0.5362                       & 0.5197      & 0.954  & 0.6728 \\ \hline
+        lstm\_8  & 0.527                        & 0.5144      & 0.9585 & 0.6695 \\ \hline
+        lstm\_9  & 0.521                        & 0.5111      & 0.9615 & 0.6674 \\ \hline
+        lstm\_10 & 0.5257                       & 0.5137      & 0.959  & 0.6691 \\ \hline
+        lstm\_11 & 0.535                        & 0.5192      & 0.945  & 0.6702 \\ \hline
+        lstm\_12 & 0.5317                       & 0.5175      & 0.9385 & 0.6671 \\ \hline
+        lstm\_13 & 0.5297                       & 0.5161      & 0.9495 & 0.6687 \\ \hline
+        lstm\_14 & 0.5195                       & 0.5103      & 0.9655 & 0.6677 \\ \hline
+        lstm\_15 & 0.5335                       & 0.5184      & 0.94   & 0.6683 \\ \hline
+        lstm\_16 & 0.5325                       & 0.5176      & 0.9515 & 0.6705 \\ \hline
+        cnn\_1   & 0.5407                       & 0.5243      & 0.877  & 0.6563 \\ \hline
+        cnn\_2   & 0.5372                       & 0.5218      & 0.8885 & 0.6575 \\ \hline
+        cnn\_3   & 0.5392                       & 0.5233      & 0.878  & 0.6558 \\ \hline
+        cnn\_4   & 0.538                        & 0.5222      & 0.8905 & 0.6584 \\ \hline
+        cnn\_5   & 0.541                        & 0.5245      & 0.875  & 0.6559 \\ \hline
+        cnn\_6   & 0.519                        & 0.5099      & 0.9755 & 0.6697 \\ \hline
+        cnn\_7   & 0.5145                       & 0.5074      & 0.9845 & 0.6697 \\ \hline
+        cnn\_8   & 0.5407                       & 0.5240      & 0.889  & 0.6593 \\ \hline
+        cnn\_9   & 0.5375                       & 0.5224      & 0.872  & 0.6534 \\ \hline
+        cnn\_10  & 0.533                        & 0.5200      & 0.8575 & 0.6474 \\ \hline
+        cnn\_11  & 0.5412                       & 0.5241      & 0.8945 & 0.6610 \\ \hline
+    \end{tabular}
+\end{table}
 
-%todo:
-\colorbox{yellow}{todo:}\\
-//tabela dla roznych embedingow pokazujaca, że wartwa konwolucyjna jest o 5 procent gorsze od LSTM
+
+\begin{table}[] \centering
+    \caption{Embedding FastText o długości 300, zbiór B jako zbiór treningowy, zbiór A jako zbiór testowy }
+    \label{tab:wyniki_300_eks2}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+                 & \multicolumn{4}{c|}{metryki}                                 \\ \hline
+        sieć     & accuracy                     & precisionaa & recall & f1     \\ \hline
+        dense\_1 & 0.5407                       & 0.5228      & 0.9305 & 0.6695 \\ \hline
+        dense\_2 & 0.5412                       & 0.5239      & 0.9025 & 0.6629 \\ \hline
+        dense\_3 & 0.5382                       & 0.5218      & 0.914  & 0.6643 \\ \hline
+        dense\_4 & 0.541                        & 0.5234      & 0.9145 & 0.6658 \\ \hline
+        lstm\_1  & 0.5095                       & 0.5049      & 0.9765 & 0.6656 \\ \hline
+        lstm\_2  & 0.515                        & 0.5078      & 0.9745 & 0.6676 \\ \hline
+        lstm\_3  & 0.5272                       & 0.5144      & 0.969  & 0.6720 \\ \hline
+        lstm\_4  & 0.514                        & 0.5072      & 0.9855 & 0.6697 \\ \hline
+        lstm\_5  & 0.5152                       & 0.5079      & 0.97   & 0.6667 \\ \hline
+        lstm\_6  & 0.5152                       & 0.5079      & 0.9775 & 0.6684 \\ \hline
+        lstm\_7  & 0.5187                       & 0.5098      & 0.971  & 0.6686 \\ \hline
+        lstm\_8  & 0.5082                       & 0.5042      & 0.976  & 0.6649 \\ \hline
+        lstm\_9  & 0.5065                       & 0.5033      & 0.981  & 0.6653 \\ \hline
+        lstm\_10 & 0.509                        & 0.5046      & 0.984  & 0.6671 \\ \hline
+        lstm\_11 & 0.504                        & 0.5020      & 0.9885 & 0.6658 \\ \hline
+        lstm\_12 & 0.5032                       & 0.5016      & 0.992  & 0.6663 \\ \hline
+        lstm\_13 & 0.5107                       & 0.5055      & 0.9825 & 0.6675 \\ \hline
+        lstm\_14 & 0.505                        & 0.5025      & 0.9915 & 0.6670 \\ \hline
+        lstm\_15 & 0.5065                       & 0.5033      & 0.99   & 0.6673 \\ \hline
+        lstm\_16 & 0.5035                       & 0.5017      & 0.9935 & 0.6667 \\ \hline
+        cnn\_1   & 0.5275                       & 0.5146      & 0.963  & 0.6708 \\ \hline
+        cnn\_2   & 0.5257                       & 0.5137      & 0.964  & 0.6702 \\ \hline
+        cnn\_3   & 0.5362                       & 0.5198      & 0.9515 & 0.6723 \\ \hline
+        cnn\_4   & 0.5395                       & 0.5213      & 0.9655 & 0.6770 \\ \hline
+        cnn\_5   & 0.5345                       & 0.5185      & 0.9625 & 0.6740 \\ \hline
+        cnn\_6   & 0.5095                       & 0.5048      & 0.989  & 0.6684 \\ \hline
+        cnn\_7   & 0.5032                       & 0.5016      & 0.993  & 0.6665 \\ \hline
+        cnn\_8   & 0.5252                       & 0.5134      & 0.962  & 0.6695 \\ \hline
+        cnn\_9   & 0.533                        & 0.5179      & 0.954  & 0.6713 \\ \hline
+        cnn\_10  & 0.5345                       & 0.5186      & 0.959  & 0.6732 \\ \hline
+        cnn\_11  & 0.5162                       & 0.5084      & 0.9825 & 0.6700 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[] \centering
+    \caption{Embedding ELMo o długości 1024, zbiór B jako zbiór treningowy, zbiór A jako zbiór testowy }
+    \label{tab:wyniki_1024_eks2}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+                 & \multicolumn{4}{c|}{metryki}                                 \\ \hline
+        sieć     & accuracy                     & precisionaa & recall & f1     \\ \hline
+        dense\_1 & 0.5328                       & 0.5194      & 0.9244 & 0.6687 \\ \hline
+        dense\_2 & 0.5374                       & 0.5212      & 0.9025 & 0.6626 \\ \hline
+        dense\_3 & 0.5345                       & 0.5203      & 0.9049 & 0.6637 \\ \hline
+        dense\_4 & 0.536                        & 0.5210      & 0.9088 & 0.6653 \\ \hline
+        lstm\_1  & 0.5002                       & 0.4990      & 0.9707 & 0.6650 \\ \hline
+        lstm\_2  & 0.512                        & 0.5043      & 0.9682 & 0.6672 \\ \hline
+        lstm\_3  & 0.5200                       & 0.5076      & 0.9621 & 0.6715 \\ \hline
+        lstm\_4  & 0.512                        & 0.5021      & 0.9826 & 0.6693 \\ \hline
+        lstm\_5  & 0.5108                       & 0.4988      & 0.965  & 0.6661 \\ \hline
+        lstm\_6  & 0.5108                       & 0.5074      & 0.9767 & 0.6677 \\ \hline
+        lstm\_7  & 0.5166                       & 0.5090      & 0.9676 & 0.6682 \\ \hline
+        lstm\_8  & 0.5008                       & 0.4998      & 0.9696 & 0.6645 \\ \hline
+        lstm\_9  & 0.506                        & 0.4954      & 0.9768 & 0.6647 \\ \hline
+        lstm\_10 & 0.5014                       & 0.4995      & 0.9803 & 0.6663 \\ \hline
+        lstm\_11 & 0.4986                       & 0.4968      & 0.9863 & 0.6655 \\ \hline
+        lstm\_12 & 0.5001                       & 0.5014      & 0.9886 & 0.6659 \\ \hline
+        lstm\_13 & 0.5097                       & 0.5031      & 0.9776 & 0.6673 \\ \hline
+        lstm\_14 & 0.4992                       & 0.4983      & 0.9907 & 0.6664 \\ \hline
+        lstm\_15 & 0.5013                       & 0.4946      & 0.9835 & 0.6671 \\ \hline
+        lstm\_16 & 0.4956                       & 0.4929      & 0.9887 & 0.6659 \\ \hline
+        cnn\_1   & 0.5212                       & 0.5092      & 0.9575 & 0.6704 \\ \hline
+        cnn\_2   & 0.5190                       & 0.5104      & 0.9626 & 0.6696 \\ \hline
+        cnn\_3   & 0.5265                       & 0.5196      & 0.9428 & 0.6715 \\ \hline
+        cnn\_4   & 0.5351                       & 0.5193      & 0.9618 & 0.6768 \\ \hline
+        cnn\_5   & 0.5263                       & 0.5145      & 0.9574 & 0.6738 \\ \hline
+        cnn\_6   & 0.5029                       & 0.4968      & 0.9862 & 0.6676 \\ \hline
+        cnn\_7   & 0.4942                       & 0.4965      & 0.988  & 0.6665 \\ \hline
+        cnn\_8   & 0.5184                       & 0.5044      & 0.9592 & 0.6693 \\ \hline
+        cnn\_9   & 0.5276                       & 0.5124      & 0.9488 & 0.6710 \\ \hline
+        cnn\_10  & 0.5288                       & 0.5112      & 0.953  & 0.6727 \\ \hline
+        cnn\_11  & 0.5152                       & 0.5013      & 0.975  & 0.6695 \\ \hline
+    \end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage % Rozdziały zaczynamy od nowej strony.
-\subsubsection{Wyniki dla eksperymentu 3}
+\subsubsection{\label{wyniki_eksperymentow_eks_3}Wyniki dla eksperymentu 3}
 
 
 \begin{table}[h] \label{tab:wyniki_glove_B_lim} \centering
     \caption{Embedding Glove o długości 25, zbiór B, ograniczony do równolicznych klas po 2000 rekordów}
+    \label{tab:wyniki_25_eks3}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
-                 & \multicolumn{4}{c|}{metryki}                               \\ \hline
-        sieć     & accuracy                     & precision & recall & f1     \\ \hline
-        dense\_1 & 0.8275                       & 0.7985    & 0.8492 & 0.8230 \\ \hline
-        dense\_2 & 0.8275                       & 0.7970    & 0.8518 & 0.8235 \\ \hline
-        dense\_3 & 0.8175                       & 0.7944    & 0.8280 & 0.8108 \\ \hline
-        dense\_4 & 0.8325                       & 0.7890    & 0.8809 & 0.8325 \\ \hline
-        lstm\_1  & 0.8937                       & 0.8727    & 0.9074 & 0.8897 \\ \hline
-        lstm\_2  & 0.9337                       & 0.9452    & 0.9126 & 0.9286 \\ \hline
-        lstm\_3  & 0.9412                       & 0.9460    & 0.9285 & 0.9372 \\ \hline
-        lstm\_4  & 0.9375                       & 0.9852    & 0.8809 & 0.9301 \\ \hline
-        lstm\_5  & 0.9437                       & 0.9561    & 0.9232 & 0.9394 \\ \hline
-        lstm\_6  & 0.9287                       & 0.9302    & 0.9179 & 0.9241 \\ \hline
-        lstm\_7  & 0.8975                       & 0.9       & 0.8809 & 0.8903 \\ \hline
-        lstm\_8  & 0.9475                       & 0.9516    & 0.9365 & 0.944  \\ \hline
-        lstm\_9  & 0.9625                       & 0.9578    & 0.9629 & 0.9604 \\ \hline
-        lstm\_10 & 0.9675                       & 0.9607    & 0.9708 & 0.9657 \\ \hline
-        lstm\_11 & 0.9525                       & 0.9336    & 0.9682 & 0.9506 \\ \hline
-        lstm\_12 & 0.95                         & 0.9642    & 0.9285 & 0.9460 \\ \hline
-        lstm\_13 & 0.9662                       & 0.9705    & 0.9576 & 0.9640 \\ \hline
-        lstm\_14 & 0.9737                       & 0.9709    & 0.9735 & 0.9722 \\ \hline
-        lstm\_15 & 0.95                         & 0.9424    & 0.9523 & 0.9473 \\ \hline
-        lstm\_16 & 0.9387                       & 0.9340    & 0.9365 & 0.9352 \\ \hline
-        cnn\_1   & 0.8725                       & 0.8770    & 0.8492 & 0.8629 \\ \hline
-        cnn\_2   & 0.8737                       & 0.8597    & 0.8756 & 0.8676 \\ \hline
-        cnn\_3   & 0.8637                       & 0.8493    & 0.8650 & 0.8571 \\ \hline
-        cnn\_4   & 0.8937                       & 0.8948    & 0.8783 & 0.8865 \\ \hline
-        cnn\_5   & 0.9275                       & 0.9301    & 0.9153 & 0.9226 \\ \hline
-        cnn\_6   & 0.965                        & 0.9704    & 0.9550 & 0.9626 \\ \hline
-        cnn\_7   & 0.9862                       & 0.9893    & 0.9814 & 0.9853 \\ \hline
-        cnn\_8   & 0.8875                       & 0.8730    & 0.8915 & 0.8821 \\ \hline
-        cnn\_9   & 0.8825                       & 0.8776    & 0.8730 & 0.8753 \\ \hline
-        cnn\_10  & 0.8737                       & 0.8488    & 0.8915 & 0.8696 \\ \hline
-        cnn\_11  & 0.8887                       & 0.8714    & 0.8968 & 0.8839 \\ \hline
+                 & \multicolumn{4}{c|}{metryki}                                                                                        \\ \hline
+        sieć     & accuracy                     & precision                  & recall                     & f1                         \\ \hline
+        dense\_1 & 0.8275                       & 0.7985                     & 0.8492                     & 0.8230                     \\ \hline
+        dense\_2 & 0.8275                       & 0.7970                     & 0.8518                     & 0.8235                     \\ \hline
+        dense\_3 & 0.8175                       & 0.7944                     & 0.8280                     & 0.8108                     \\ \hline
+        dense\_4 & 0.8325                       & 0.7890                     & 0.8809                     & 0.8325                     \\ \hline
+        lstm\_1  & 0.8937                       & 0.8727                     & 0.9074                     & 0.8897                     \\ \hline
+        lstm\_2  & 0.9337                       & 0.9452                     & 0.9126                     & 0.9286                     \\ \hline
+        lstm\_3  & 0.9412                       & 0.9460                     & 0.9285                     & 0.9372                     \\ \hline
+        lstm\_4  & 0.9375                       & 0.9852                     & 0.8809                     & 0.9301                     \\ \hline
+        lstm\_5  & 0.9437                       & 0.9561                     & 0.9232                     & 0.9394                     \\ \hline
+        lstm\_6  & 0.9287                       & 0.9302                     & 0.9179                     & 0.9241                     \\ \hline
+        lstm\_7  & 0.8975                       & 0.9                        & 0.8809                     & 0.8903                     \\ \hline
+        lstm\_8  & 0.9475                       & 0.9516                     & 0.9365                     & 0.944                      \\ \hline
+        lstm\_9  & 0.9625                       & 0.9578                     & 0.9629                     & 0.9604                     \\ \hline
+        lstm\_10 & 0.9675                       & 0.9607                     & 0.9708                     & 0.9657                     \\ \hline
+        lstm\_11 & 0.9525                       & 0.9336                     & 0.9682                     & 0.9506                     \\ \hline
+        lstm\_12 & 0.95                         & 0.9642                     & 0.9285                     & 0.9460                     \\ \hline
+        lstm\_13 & 0.9662                       & 0.9705                     & 0.9576                     & 0.9640                     \\ \hline
+        lstm\_14 & 0.9737                       & 0.9709                     & 0.9735                     & 0.9722                     \\ \hline
+        lstm\_15 & 0.95                         & 0.9424                     & 0.9523                     & 0.9473                     \\ \hline
+        lstm\_16 & 0.9387                       & 0.9340                     & 0.9365                     & 0.9352                     \\ \hline
+        cnn\_1   & 0.8725                       & 0.8770                     & 0.8492                     & 0.8629                     \\ \hline
+        cnn\_2   & 0.8737                       & 0.8597                     & 0.8756                     & 0.8676                     \\ \hline
+        cnn\_3   & 0.8637                       & 0.8493                     & 0.8650                     & 0.8571                     \\ \hline
+        cnn\_4   & 0.8937                       & 0.8948                     & 0.8783                     & 0.8865                     \\ \hline
+        cnn\_5   & 0.9275                       & 0.9301                     & 0.9153                     & 0.9226                     \\ \hline
+        cnn\_6   & 0.965                        & 0.9704                     & 0.9550                     & 0.9626                     \\ \hline
+        cnn\_7   & \cellcolor{green!50}0.9862   & \cellcolor{green!50}0.9893 & \cellcolor{green!50}0.9814 & \cellcolor{green!50}0.9853 \\ \hline
+        cnn\_8   & 0.8875                       & 0.8730                     & 0.8915                     & 0.8821                     \\ \hline
+        cnn\_9   & 0.8825                       & 0.8776                     & 0.8730                     & 0.8753                     \\ \hline
+        cnn\_10  & 0.8737                       & 0.8488                     & 0.8915                     & 0.8696                     \\ \hline
+        cnn\_11  & 0.8887                       & 0.8714                     & 0.8968                     & 0.8839                     \\ \hline
     \end{tabular}
 \end{table}
 
@@ -337,80 +457,82 @@ W ramach tego rozdziału umieszczone są dane dotyczące jakości klasyfikacji p
 \begin{table}[p]  \centering
     \caption{Embedding FastText o długości 300, zbiór B, ograniczony do \label{tab:wyniki_fasttext_B_lim}
         równolicznych klas po 2000 rekordów}
-    \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
-                 & \multicolumn{4}{c|}{metryki}                               \\ \hline
-        sieć     & accuracy                     & precision & recall & f1     \\ \hline
-        dense\_1 & 0.9062                       & 0.8796    & 0.9285 & 0.9034 \\ \hline
-        dense\_2 & 0.8975                       & 0.8609    & 0.9338 & 0.8959 \\ \hline
-        dense\_3 & 0.8975                       & 0.8609    & 0.9338 & 0.8959 \\ \hline
-        dense\_4 & 0.9162                       & 0.8877    & 0.9417 & 0.9139 \\ \hline
-        lstm\_1  & 0.8737                       & 0.8524    & 0.8862 & 0.8690 \\ \hline
-        lstm\_2  & 0.9687                       & 0.9916    & 0.9417 & 0.9660 \\ \hline
-        lstm\_3  & 0.965                        & 0.9781    & 0.9470 & 0.9623 \\ \hline
-        lstm\_4  & 0.9737                       & 0.9890    & 0.9550 & 0.9717 \\ \hline
-        lstm\_5  & 0.9637                       & 0.9754    & 0.9470 & 0.9610 \\ \hline
-        lstm\_6  & 0.9475                       & 0.9468    & 0.9417 & 0.9442 \\ \hline
-        lstm\_7  & 0.9625                       & 0.9702    & 0.9497 & 0.9598 \\ \hline
-        lstm\_8  & 0.9775                       & 0.9838    & 0.9682 & 0.976  \\ \hline
-        lstm\_9  & 0.9812                       & 0.9865    & 0.9735 & 0.9800 \\ \hline
-        lstm\_10 & 0.9862                       & 0.9972    & 0.9735 & 0.9852 \\ \hline
-        lstm\_11 & 0.9787                       & 0.9865    & 0.9682 & 0.9773 \\ \hline
-        lstm\_12 & 0.9712                       & 0.9889    & 0.9497 & 0.9689 \\ \hline
-        lstm\_13 & 0.9887                       & 0.9973    & 0.9788 & 0.9879 \\ \hline
-        lstm\_14 & 0.9862                       & 0.9867    & 0.9841 & 0.9854 \\ \hline
-        lstm\_15 & 0.9862                       & 0.9946    & 0.9761 & 0.9853 \\ \hline
-        lstm\_16 & 0.98                         & 0.9813    & 0.9761 & 0.9787 \\ \hline
-        cnn\_1   & 0.9612                       & 0.9676    & 0.9497 & 0.9586 \\ \hline
-        cnn\_2   & 0.9612                       & 0.9651    & 0.9523 & 0.9587 \\ \hline
-        cnn\_3   & 0.9437                       & 0.9393    & 0.9417 & 0.9405 \\ \hline
-        cnn\_4   & 0.9425                       & 0.9300    & 0.9497 & 0.9397 \\ \hline
-        cnn\_5   & 0.9537                       & 0.9595    & 0.9417 & 0.9506 \\ \hline
-        cnn\_6   & 0.99                         & 0.9973    & 0.9814 & 0.9893 \\ \hline
-        cnn\_7   & 0.99                         & 0.9973    & 0.9814 & 0.9893 \\ \hline
-        cnn\_8   & 0.9575                       & 0.9623    & 0.9470 & 0.9546 \\ \hline
-        cnn\_9   & 0.9462                       & 0.9419    & 0.9444 & 0.9431 \\ \hline
-        cnn\_10  & 0.9437                       & 0.944     & 0.9365 & 0.9402 \\ \hline
-        cnn\_11  & 0.9587                       & 0.9700    & 0.9417 & 0.9557 \\ \hline
+        \label{tab:wyniki_300_eks3}
+        \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
+                 & \multicolumn{4}{c|}{metryki}                                                                                        \\ \hline
+        sieć     & accuracy                     & precision                  & recall                     & f1                         \\ \hline
+        dense\_1 & 0.9062                       & 0.8796                     & 0.9285                     & 0.9034                     \\ \hline
+        dense\_2 & 0.8975                       & 0.8609                     & 0.9338                     & 0.8959                     \\ \hline
+        dense\_3 & 0.8975                       & 0.8609                     & 0.9338                     & 0.8959                     \\ \hline
+        dense\_4 & 0.9162                       & 0.8877                     & 0.9417                     & 0.9139                     \\ \hline
+        lstm\_1  & 0.8737                       & 0.8524                     & 0.8862                     & 0.8690                     \\ \hline
+        lstm\_2  & 0.9687                       & 0.9916                     & 0.9417                     & 0.9660                     \\ \hline
+        lstm\_3  & 0.965                        & 0.9781                     & 0.9470                     & 0.9623                     \\ \hline
+        lstm\_4  & 0.9737                       & 0.9890                     & 0.9550                     & 0.9717                     \\ \hline
+        lstm\_5  & 0.9637                       & 0.9754                     & 0.9470                     & 0.9610                     \\ \hline
+        lstm\_6  & 0.9475                       & 0.9468                     & 0.9417                     & 0.9442                     \\ \hline
+        lstm\_7  & 0.9625                       & 0.9702                     & 0.9497                     & 0.9598                     \\ \hline
+        lstm\_8  & 0.9775                       & 0.9838                     & 0.9682                     & 0.976                      \\ \hline
+        lstm\_9  & 0.9812                       & 0.9865                     & 0.9735                     & 0.9800                     \\ \hline
+        lstm\_10 & 0.9862                       & 0.9972                     & 0.9735                     & 0.9852                     \\ \hline
+        lstm\_11 & 0.9787                       & 0.9865                     & 0.9682                     & 0.9773                     \\ \hline
+        lstm\_12 & 0.9712                       & 0.9889                     & 0.9497                     & 0.9689                     \\ \hline
+        lstm\_13 & 0.9887                       & \cellcolor{green!50}0.9973 & 0.9788                     & 0.9879                     \\ \hline
+        lstm\_14 & 0.9862                       & 0.9867                     & \cellcolor{green!50}0.9841 & 0.9854                     \\ \hline
+        lstm\_15 & 0.9862                       & 0.9946                     & 0.9761                     & 0.9853                     \\ \hline
+        lstm\_16 & 0.98                         & 0.9813                     & 0.9761                     & 0.9787                     \\ \hline
+        cnn\_1   & 0.9612                       & 0.9676                     & 0.9497                     & 0.9586                     \\ \hline
+        cnn\_2   & 0.9612                       & 0.9651                     & 0.9523                     & 0.9587                     \\ \hline
+        cnn\_3   & 0.9437                       & 0.9393                     & 0.9417                     & 0.9405                     \\ \hline
+        cnn\_4   & 0.9425                       & 0.9300                     & 0.9497                     & 0.9397                     \\ \hline
+        cnn\_5   & 0.9537                       & 0.9595                     & 0.9417                     & 0.9506                     \\ \hline
+        cnn\_6   & \cellcolor{green!50}0.99     & 0.9973                     & 0.9814                     & \cellcolor{green!50}0.9893 \\ \hline
+        cnn\_7   & \cellcolor{green!50}0.99     & 0.9973                     & 0.9814                     & 0.9893                     \\ \hline
+        cnn\_8   & 0.9575                       & 0.9623                     & 0.9470                     & 0.9546                     \\ \hline
+        cnn\_9   & 0.9462                       & 0.9419                     & 0.9444                     & 0.9431                     \\ \hline
+        cnn\_10  & 0.9437                       & 0.944                      & 0.9365                     & 0.9402                     \\ \hline
+        cnn\_11  & 0.9587                       & 0.9700                     & 0.9417                     & 0.9557                     \\ \hline
     \end{tabular}
 \end{table}
 
 
 \begin{table}[p] \label{tab:wyniki_elmo_B_lim} \centering
     \caption{Embedding ELMo o długości 1024, zbiór B, ograniczony do równolicznych klas po 2000 rekordów}
+    \label{tab:wyniki_1024_eks3}
     \begin{tabular} {|c|c|c|c|c|c|c|c|c| }    \hline
-                 & \multicolumn{4}{c|}{metryki}                               \\ \hline
-        sieć     & accuracy                     & precision & recall & f1     \\ \hline
-        dense\_1 & 0.9212                       & 0.9133    & 0.9206 & 0.9169 \\ \hline
-        dense\_2 & 0.9225                       & 0.9136    & 0.9232 & 0.9184 \\ \hline
-        dense\_3 & 0.8912                       & 0.8759    & 0.8968 & 0.8862 \\ \hline
-        dense\_4 & 0.9112                       & 0.9050    & 0.9074 & 0.9062 \\ \hline
-        lstm\_1  & 0.9812                       & 0.9814    & 0.9788 & 0.9801 \\ \hline
-        lstm\_2  & 0.9812                       & 0.9865    & 0.9735 & 0.9800 \\ \hline
-        lstm\_3  & 0.9737                       & 0.9685    & 0.9761 & 0.9723 \\ \hline
-        lstm\_4  & 0.955                        & 0.9476    & 0.9576 & 0.9526 \\ \hline
-        lstm\_5  & 0.9562                       & 0.9454    & 0.9629 & 0.9541 \\ \hline
-        lstm\_6  & 0.975                        & 0.9637    & 0.9841 & 0.9738 \\ \hline
-        lstm\_7  & 0.97                         & 0.9682    & 0.9682 & 0.9682 \\ \hline
-        lstm\_8  & 0.9862                       & 0.9841    & 0.9867 & 0.9854 \\ \hline
-        lstm\_9  & 0.9887                       & 0.9946    & 0.9814 & 0.9880 \\ \hline
-        lstm\_10 & 0.9862                       & 0.9919    & 0.9788 & 0.9853 \\ \hline
-        lstm\_11 & 0.9912                       & 0.9973    & 0.9841 & 0.9906 \\ \hline
-        lstm\_12 & 0.985                        & 0.9972    & 0.9708 & 0.9839 \\ \hline
-        lstm\_13 & 0.9837                       & 0.9866    & 0.9788 & 0.9827 \\ \hline
-        lstm\_14 & 0.9875                       & 0.9919    & 0.9814 & 0.9867 \\ \hline
-        lstm\_15 & 0.9687                       & 0.9632    & 0.9708 & 0.9670 \\ \hline
-        lstm\_16 & 0.9837                       & 0.9790    & 0.9867 & 0.9828 \\ \hline
-        cnn\_1   & 0.96                         & 0.9726    & 0.9417 & 0.9569 \\ \hline
-        cnn\_2   & 0.9675                       & 0.9680    & 0.9629 & 0.9655 \\ \hline
-        cnn\_3   & 0.9287                       & 0.9190    & 0.9312 & 0.9250 \\ \hline
-        cnn\_4   & 0.9187                       & 0.9195    & 0.9074 & 0.9134 \\ \hline
-        cnn\_5   & 0.9425                       & 0.9368    & 0.9417 & 0.9393 \\ \hline
-        cnn\_6   & 0.9925                       & 1         & 0.9841 & 0.992  \\ \hline
-        cnn\_7   & 0.99                         & 1         & 0.9788 & 0.9893 \\ \hline
-        cnn\_8   & 0.9437                       & 0.9370    & 0.9444 & 0.9407 \\ \hline
-        cnn\_9   & 0.9512                       & 0.9402    & 0.9576 & 0.9488 \\ \hline
-        cnn\_10  & 0.9362                       & 0.9430    & 0.9206 & 0.9317 \\ \hline
-        cnn\_11  & 0.985                        & 0.9945    & 0.9735 & 0.9839 \\ \hline
+                 & \multicolumn{4}{c|}{metryki}                                                                                  \\ \hline
+        sieć     & accuracy                     & precision             & recall                     & f1                        \\ \hline
+        dense\_1 & 0.9212                       & 0.9133                & 0.9206                     & 0.9169                    \\ \hline
+        dense\_2 & 0.9225                       & 0.9136                & 0.9232                     & 0.9184                    \\ \hline
+        dense\_3 & 0.8912                       & 0.8759                & 0.8968                     & 0.8862                    \\ \hline
+        dense\_4 & 0.9112                       & 0.9050                & 0.9074                     & 0.9062                    \\ \hline
+        lstm\_1  & 0.9812                       & 0.9814                & 0.9788                     & 0.9801                    \\ \hline
+        lstm\_2  & 0.9812                       & 0.9865                & 0.9735                     & 0.9800                    \\ \hline
+        lstm\_3  & 0.9737                       & 0.9685                & 0.9761                     & 0.9723                    \\ \hline
+        lstm\_4  & 0.955                        & 0.9476                & 0.9576                     & 0.9526                    \\ \hline
+        lstm\_5  & 0.9562                       & 0.9454                & 0.9629                     & 0.9541                    \\ \hline
+        lstm\_6  & 0.975                        & 0.9637                & 0.9841                     & 0.9738                    \\ \hline
+        lstm\_7  & 0.97                         & 0.9682                & 0.9682                     & 0.9682                    \\ \hline
+        lstm\_8  & 0.9862                       & 0.9841                & \cellcolor{green!50}0.9867 & 0.9854                    \\ \hline
+        lstm\_9  & 0.9887                       & 0.9946                & 0.9814                     & 0.9880                    \\ \hline
+        lstm\_10 & 0.9862                       & 0.9919                & 0.9788                     & 0.9853                    \\ \hline
+        lstm\_11 & 0.9912                       & 0.9973                & 0.9841                     & 0.9906                    \\ \hline
+        lstm\_12 & 0.985                        & 0.9972                & 0.9708                     & 0.9839                    \\ \hline
+        lstm\_13 & 0.9837                       & 0.9866                & 0.9788                     & 0.9827                    \\ \hline
+        lstm\_14 & 0.9875                       & 0.9919                & 0.9814                     & 0.9867                    \\ \hline
+        lstm\_15 & 0.9687                       & 0.9632                & 0.9708                     & 0.9670                    \\ \hline
+        lstm\_16 & 0.9837                       & 0.9790                & 0.9867                     & 0.9828                    \\ \hline
+        cnn\_1   & 0.96                         & 0.9726                & 0.9417                     & 0.9569                    \\ \hline
+        cnn\_2   & 0.9675                       & 0.9680                & 0.9629                     & 0.9655                    \\ \hline
+        cnn\_3   & 0.9287                       & 0.9190                & 0.9312                     & 0.9250                    \\ \hline
+        cnn\_4   & 0.9187                       & 0.9195                & 0.9074                     & 0.9134                    \\ \hline
+        cnn\_5   & 0.9425                       & 0.9368                & 0.9417                     & 0.9393                    \\ \hline
+        cnn\_6   & \cellcolor{green!50}0.9925   & \cellcolor{green!50}1 & 0.9841                     & \cellcolor{green!50}0.992 \\ \hline
+        cnn\_7   & 0.99                         & \cellcolor{green!50}1 & 0.9788                     & 0.9893                    \\ \hline
+        cnn\_8   & 0.9437                       & 0.9370                & 0.9444                     & 0.9407                    \\ \hline
+        cnn\_9   & 0.9512                       & 0.9402                & 0.9576                     & 0.9488                    \\ \hline
+        cnn\_10  & 0.9362                       & 0.9430                & 0.9206                     & 0.9317                    \\ \hline
+        cnn\_11  & 0.985                        & 0.9945                & 0.9735                     & 0.9839                    \\ \hline
     \end{tabular}
 \end{table}
 
