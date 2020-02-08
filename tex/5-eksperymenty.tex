@@ -1,5 +1,5 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
-\section{Eksperymenty}
+\section{Wykonane badania}
 
 % \colorbox{yellow}{todo: opisać to jakoś sensownie, punkt po punkcie co i dlaczego robię, bo teraz jest tak mega chatycznie, że nie da sie nic wywniskować}\\
 
@@ -66,15 +66,15 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 \subsubsection{Eksperyment 1 - Analiza wpływu cech morfosyntaktycznych na jakoś klasyfikacji}
 % Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Aby w pełni zweryfikować wpływ cech morfosyntaktycznych na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Wykorzsytane embeddingi to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
+Aby w pełni zweryfikować wpływ cech morfosyntaktycznych na jakość klasyfikacji zostały wykorzystane trzy różne reprezentacje wektorowe słów oraz dwa różne zbiory danych wejściowych. Wykorzsytane reprezentacje wektorowe to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 % Poniżej przedstawiono tabele z wynikami obliczeń.
 Wyniki uzyskane przez modele na danych testowych zbioru A zostały umieszczone w rozdziale \ref{wyniki_eksperymentow_eks_1} i \ref{wyniki_eksperymentow_eks_1b} w tabelach \ref{tab:wyniki_glove_A}, \ref{tab:wyniki_fasttext_A}, \ref{tab:wyniki_elmo_A} , a dla zbioru B w tabelach \ref{tab:wyniki_glove_B}, \ref{tab:wyniki_fasttext_B}, \ref{tab:wyniki_elmo_B}.
 
 
-W oparciu o uzyskane wyniki można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach embeddingu jest już niepotrzebna.
+W oparciu o uzyskane wyniki można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach reprezentacji wektorowej jest już niepotrzebna.
 
-Ponadto można zaważyć, że wraz ze wzrostem rozmiaru embedingów poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy embedding pozwala na zachowanie większej liczby informacji na temat słowa.
+Ponadto można zaważyć, że wraz ze wzrostem rozmiaru reprezentacji wektorowej poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy wektor pozwala na zachowanie większej liczby informacji na temat słowa.
 
 
 Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy gęste. Natomiast sieci wykorzystujące warstwy konwolucyjne oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach konwolucyjnych oraz LSTM. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji na temat cech morfosyntaktycznych, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
