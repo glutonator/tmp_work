@@ -119,10 +119,14 @@ Przetwarzanie zdania wejściowego odbywa się zgodnie z następującymi krokami:
 
 
 %todo: opisać czym są postagi
-\subsection{Uwzględnienie POS tagów w ramach embeddingu}
+% \subsection{Uwzględnienie POS tagów w ramach embeddingu}
+% \subsection{Uwzględnienie, w ramach reprezentacji wektorowej słowa, informacji na temat części mowy, do której słowo należy, wzbogaconej o informację na temat cech morfologicznych słowa. }
+\subsection{Uwzględnienie cech morfosyntaktycznych w ramach reprezentacji wektorowej słowa}
 
 
-POS tag (Part-of-speach tag) zawiera informacje na temat cech morfosyntatycznych słowa \cite{postags_def}.Najbardziej podstawową kategorią są powszechnie znane części mowy, takie jak czasownik, rzeczownik, przymiotnik. Jednak nie jest to jedyna informacja zawarta w ramach takiego tagu, przechowuje on bowiem także informację o czasie w jakim jest użyty czasownik, w której liczbie jest wykorzystany rzeczownik i wiele innych.
+% POS tag (Part-of-speach tag) zawiera informacje na temat cech morfosyntatycznych słowa \cite{postags_def}. 
+
+Etykieta morfosyntaktyczna (z ang. Part-of-speach tag) posiada w sobie zbiór inforamcji na temat cech morfosyntaktycznych słowa \cite{postags_def}. Najbardziej podstawową informacją w niej zawartą jest część mowy do której należy słowo, przykładem części mowy możę być między innymi czasownik, rzeczownik oraz przymiotnik. Jednak nie jest to jedyna informacja zawarta w ramach tej etykiety, przechowuje on bowiem także informację o czasie w jakim jest użyty czasownik, w której liczbie jest wykorzystany rzeczownik i wiele innych.
 
 %todo:
 % \colorbox{yellow}{todo:}\\
@@ -132,7 +136,7 @@ POS tag (Part-of-speach tag) zawiera informacje na temat cech morfosyntatycznych
 
 % https://pythonprogramming.net/natural-language-toolkit-nltk-part-speech-tagging/
 
-Aby umieścić informacje na temat części mowy tak by była ona możliwa do interpretacji w ramach embeddingu konieczne jest konwertowanie jej do postaci wektorowej. Ze względu na brak dużego podobieństwa między poszczególnymi częściami mowy zdecydowano się na zakodowanie tej informacji w formie one-hot encoding. Tak utworzony wektor był doklejany do istniejącego już embeddingu uzyskanego innymi metodami tworząc wektor dłuższy o 46 elementów.
+Aby umieścić informacje na temat cech morfosyntaktycznych słowa tak by były one możliwe do interpretacji w ramach reprezentacji wektorowej słowa konieczne jest konwertowanie jej do postaci liczbowej. Ze względu na brak dużego podobieństwa między poszczególnymi częściami mowy zdecydowano się na zakodowanie tej informacji w formie one-hot encoding. Tak utworzony wektor był doklejany do istniejącej już reprezentacji wektorowej słowa uzyskanego innymi metodami tworząc wektor dłuższy o 46 elementów.
 
 %todo:
 % //todo: dodać rysunek to obrazujący
@@ -143,5 +147,5 @@ Aby umieścić informacje na temat części mowy tak by była ona możliwa do in
 \begin{figure}[!h]
     \label{fig:post_tag}
     \centering \includegraphics[width=1\linewidth]{post_tag_embedings.png}
-    \caption{Przykład embeddingu wraz z zakodowaną informacją o POS tagu}
+    \caption{Przykład embeddingu wraz z zakodowaną informacją na temat cech  morfosyntaktycznych}
 \end{figure}
