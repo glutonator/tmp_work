@@ -66,6 +66,8 @@
 \RequirePackage{collcell}
 \RequirePackage{xfp}
 \usepackage{colortbl}
+\usepackage{tabularx}
+
 
 
 

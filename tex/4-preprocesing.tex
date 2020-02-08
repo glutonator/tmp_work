@@ -1,9 +1,9 @@
-\newpage % Rozdziały zaczynamy od nowej strony.
-\section{Preprocessing}
+% \newpage % Rozdziały zaczynamy od nowej strony.
+\subsection{Wstępna obróbka danych}
 
 Aby zapewnić jak najlepszą jakość klasyfikacji konieczne jest obrobienie danych do postaci pozbawionej zbędnych szumów. Na potrzeby tej pracy zostały podjęte następujące kroki obróbki danych:
 
-%MOżna napisać czyimi pracami się sugerowałem pisząc preprocessing
+%MOżna napisać czyimi pracami się sugerowałem pisząc wstępną obróbkę danych
 
 \begin{enumerate}
     \item Zastąpienie linków tagiem “<url>”.
@@ -19,19 +19,20 @@ Aby zapewnić jak najlepszą jakość klasyfikacji konieczne jest obrobienie dan
 \end{enumerate}
 
 \begin{table}[!h] \label{tab:tabela2} \centering
-    \caption{Tabela przedstawiająca efekt preprocessingu.}
+    \caption{Tabela przedstawiająca efekt wstępnej obróbki danych.}
     \begin{tabular} {| c | c | c |} \hline
-        Numer operacji preprocessingu & Przed konwersją                                          & Po konwersji                   \\ \hline\hline
-        1                             & www.google.pl                                            & <url>                          \\ \hline
-        2                             & \textbackslash n \quad \textbackslash r \textbackslash n &                                \\ \hline
-        3                             & @mike                                                    & <username>                     \\ \hline
-        4                             & :face\_screaming\_in\_fear:                              & <emote> face screaming in fear \\ \hline
-        5                             & \#trueFriend                                             & <hashtag> true Friend          \\ \hline
-        6                             & 14:58                                                    & <time>                         \\ \hline
-        7                             & 1234                                                     & <number>                       \\ \hline
-        8                             & | ...                                                    & .                              \\ \hline
-        9                             & Kazimierz Wielki                                         & kazimierz wielki               \\ \hline
-        10                            & I'll \quad | \quad He's                                  & I will \quad | \quad He has    \\ \hline
+        Numer operacji dokonanej w ramach & Przed konwersją                                          & Po konwersji                   \\
+        wstępnej obróbki danych           &                                                          &                                \\ \hline\hline
+        1                                 & www.google.pl                                            & <url>                          \\ \hline
+        2                                 & \textbackslash n \quad \textbackslash r \textbackslash n &                                \\ \hline
+        3                                 & @mike                                                    & <username>                     \\ \hline
+        4                                 & :face\_screaming\_in\_fear:                              & <emote> face screaming in fear \\ \hline
+        5                                 & \#trueFriend                                             & <hashtag> true Friend          \\ \hline
+        6                                 & 14:58                                                    & <time>                         \\ \hline
+        7                                 & 1234                                                     & <number>                       \\ \hline
+        8                                 & | ...                                                    & .                              \\ \hline
+        9                                 & Kazimierz Wielki                                         & kazimierz wielki               \\ \hline
+        10                                & I'll \quad | \quad He's                                  & I will \quad | \quad He has    \\ \hline
     \end{tabular}
 \end{table}
 
@@ -40,5 +41,13 @@ Aby zapewnić jak najlepszą jakość klasyfikacji konieczne jest obrobienie dan
 % być może warto opisać o tych formach skróconych, że to model dodakowy wychwytuje
 % można teżnapisać czemu nie wykorzystuję stremingu i lematyzacji
 %
+
+
+% \begin{tabular}{|l|l|}
+%     \hline
+%     Aaaaaaaaaa & yyy \\
+%     xxxxx      & B   \\  \hline
+%     D          & E   \\    \hline
+% \end{tabular}
 
 
