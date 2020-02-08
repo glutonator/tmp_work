@@ -69,7 +69,7 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 Aby w pełni zweryfikować wpływ cech morfosyntaktycznych na jakość klasyfikacji zostały wykorzystane trzy różne reprezentacje wektorowe słów oraz dwa różne zbiory danych wejściowych. Wykorzsytane reprezentacje wektorowe to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 % Poniżej przedstawiono tabele z wynikami obliczeń.
-Wyniki uzyskane przez modele na danych testowych zbioru A zostały umieszczone w rozdziale \ref{wyniki_eksperymentow_eks_1} i \ref{wyniki_eksperymentow_eks_1b} w tabelach \ref{tab:wyniki_glove_A}, \ref{tab:wyniki_fasttext_A}, \ref{tab:wyniki_elmo_A} , a dla zbioru B w tabelach \ref{tab:wyniki_glove_B}, \ref{tab:wyniki_fasttext_B}, \ref{tab:wyniki_elmo_B}.
+Wyniki uzyskane przez modele na danych testowych zbioru A zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_1} i \ref{wyniki_eksperymentow_eks_1b} w tabelach \ref{tab:wyniki_glove_A}, \ref{tab:wyniki_fasttext_A}, \ref{tab:wyniki_elmo_A} , a dla zbioru B w tabelach \ref{tab:wyniki_glove_B}, \ref{tab:wyniki_fasttext_B}, \ref{tab:wyniki_elmo_B}.
 
 
 W oparciu o uzyskane wyniki można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach reprezentacji wektorowej jest już niepotrzebna.
@@ -86,7 +86,7 @@ Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o róż
 
 W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy.
 
-Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w rozdziale \ref{wyniki_eksperymentow_eks_2} w tabelach \ref{tab:wyniki_25_eks2}, \ref{tab:wyniki_300_eks2}, \ref{tab:wyniki_1024_eks2}.
+Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_2} w tabelach \ref{tab:wyniki_25_eks2}, \ref{tab:wyniki_300_eks2}, \ref{tab:wyniki_1024_eks2}.
 
 
 %todo:
@@ -99,7 +99,7 @@ W oparciu o uzyskane miary jakości klasyfikacji można stwierdzić, że modele 
 
 W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w rozdziale \ref{wyniki_eksperymentow_eks_3} w tabelach \ref{tab:wyniki_25_eks3}, \ref{tab:wyniki_300_eks3}, \ref{tab:wyniki_1024_eks3}.
+Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_3} w tabelach \ref{tab:wyniki_25_eks3}, \ref{tab:wyniki_300_eks3}, \ref{tab:wyniki_1024_eks3}.
 
 
 % //TODO: zminić, bo LSTM i CNN mają podobny poziom jakości 

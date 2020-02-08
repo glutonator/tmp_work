@@ -7,9 +7,9 @@
 
 %https://www.fuw.edu.pl/~jarekz/SIECI/wyklad3.pdf 
 
-Jest to najbardziej podstawowy typ warstwy, w której każdy neuron uzyskuje informacje ze wszystkich wejść. Następnie agreguje te dane, przy uwzględnieniu wag odpowiadającym wejściom i przy wykorzystaniu swojej funkcji aktywacji wylicza wartość wyjściową neuronu. 
+Jest to najbardziej podstawowy typ warstwy, w której każdy neuron uzyskuje informacje ze wszystkich wejść. Następnie agreguje te dane, przy uwzględnieniu wag odpowiadającym wejściom i przy wykorzystaniu swojej funkcji aktywacji wylicza wartość wyjściową neuronu\cite{dense_1}. 
 
-Często jedna warstwa gęsto połączona nie wystarcza by poprawnie rozwiązywać dane zadanie klasyfikacji, dlatego wykorzystuje się kilka takich warstw ze sobą połączonych tak, że wyjścia jednej warstwy są jednocześnie wejściami kolejnej warstwy. Należy jednak pamiętać, że funkcja aktywacji musi być wtedy funkcją nieliniową. Obecnie najczęściej wykorzystywaną funkcją aktywacji jest funkcja ReLU opisana poniższym wzorem: 
+Często jedna warstwa gęsto połączona nie wystarcza by poprawnie rozwiązywać dane zadanie klasyfikacji, dlatego wykorzystuje się kilka takich warstw ze sobą połączonych tak, że wyjścia jednej warstwy są jednocześnie wejściami kolejnej warstwy. Należy jednak pamiętać, że funkcja aktywacji musi być wtedy funkcją nieliniową\cite{dense_2}. Obecnie najczęściej wykorzystywaną funkcją aktywacji jest funkcja ReLU opisana poniższym wzorem\cite{acct_func}: 
 
 %https://en.wikipedia.org/wiki/Activation_function
 $$f(x) = max(0,x) = \left\{\begin{matrix}
@@ -25,9 +25,9 @@ $$
 
 % http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/
 
-Sieci używające warstw konwolucyjnych (takie sieci oznaczane są często jako CNN) z reguły wykorzystywane są w ramach analizy obrazu. Działają one w oparciu o różne filtry przemieszczające się systematycznie po macierzy obrazu. Dany obraz może być jednocześnie analizowany przez wiele filtrów przemieszczających się z różnym skokiem. Pozwala to na naukę rozpoznawania różnych cech obrazu umożliwiających zagadnienia klasyfikacji. Kolejne warstwy konwolucyjne można ze sobą łączyć pozwalając na rozpoznawanie coraz bardziej zaawansowanych cech obrazu.
+Sieci używające warstw konwolucyjnych (takie sieci oznaczane są często jako CNN) z reguły wykorzystywane są w ramach analizy obrazu. Działają one w oparciu o różne filtry przemieszczające się systematycznie po macierzy obrazu. Dany obraz może być jednocześnie analizowany przez wiele filtrów przemieszczających się z różnym skokiem. Pozwala to na naukę rozpoznawania różnych cech obrazu umożliwiających zagadnienia klasyfikacji. Kolejne warstwy konwolucyjne można ze sobą łączyć pozwalając na rozpoznawanie coraz bardziej zaawansowanych cech obrazu\cite{cnn_1} \cite{cnn_2}.
 
-W przypadku analizy tekstu macierzą wejściową dla warstwy konwolucyjnej jest macierz o wymiarze AxB, gdzie A to liczba słów w zdaniu, a B to rozmiar reprezentacji wektorowej słowa. Natomiast, ze względu na strukturę danych, sama ekstrakcja cech dokonywana przez filtr może przebiegać tylko w ramach wymiaru A, gdyż dane wzdłuż wymiaru B reprezentują unikalne cechy danego słowa i nie powinny być agregowane.
+W przypadku analizy tekstu macierzą wejściową dla warstwy konwolucyjnej jest macierz o wymiarze AxB, gdzie A to liczba słów w zdaniu, a B to rozmiar reprezentacji wektorowej słowa. Natomiast, ze względu na strukturę danych, sama ekstrakcja cech dokonywana przez filtr może przebiegać tylko w ramach wymiaru A, gdyż dane wzdłuż wymiaru B reprezentują unikalne cechy danego słowa i nie powinny być agregowane\cite{cnn_3}.
 
 
 \subsection{Pooling}
@@ -36,16 +36,16 @@ W przypadku analizy tekstu macierzą wejściową dla warstwy konwolucyjnej jest 
 
 %https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks 
 
-Zadaniem warstwy poolingu jest zmniejszenie wymiarowości macierzy uzyskanej z poprzedniej warstwy (bardzo często występuję tuż po warstwie konwolucyjnej). Można ten proces porównać do przeprowadzania operacji zmniejszania rozdzielczości obrazu. Operacja ta polega na systematycznym przesuwaniu stałego okna po macierzy wejściowej i dokonywania pewnej formy agregacji danych (wybór elementu o najwyższej wartości, wyliczenie średniej z wartości elementów) na elementach macierzy zawierających się w bieżącym oknie. Dzięki takiemu zabiegowi kolejne warstwy sieci mogą skupiać się na analizie i wykrywaniu bardziej skomplikowanych wzorców w oparciu o cechy uwypuklone przez warstwę poolingu. 
+Zadaniem warstwy poolingu jest zmniejszenie wymiarowości macierzy uzyskanej z poprzedniej warstwy (bardzo często występuję tuż po warstwie konwolucyjnej). Można ten proces porównać do przeprowadzania operacji zmniejszania rozdzielczości obrazu. Operacja ta polega na systematycznym przesuwaniu stałego okna po macierzy wejściowej i dokonywania pewnej formy agregacji danych (wybór elementu o najwyższej wartości, wyliczenie średniej z wartości elementów) na elementach macierzy zawierających się w bieżącym oknie. Dzięki takiemu zabiegowi kolejne warstwy sieci mogą skupiać się na analizie i wykrywaniu bardziej skomplikowanych wzorców w oparciu o cechy uwypuklone przez warstwę poolingu. \cite{pooling_1} \cite{pooling_2}
 
  
 
-Najbardziej popularną formą poolingu jest max pooling, który polega na wybieraniu elementu o najwyższej wartości spośród elementów w oknie. Na rysunku XXX przedstawiono przykład takiej operacji przy zastosowaniu okna o rozmiarze 2x2 i przesunięciu wynoszącym 2. 
+Najbardziej popularną formą poolingu jest max pooling, który polega na wybieraniu elementu o najwyższej wartości spośród elementów w oknie. Na rysunku \ref{fig:max_pooling} przedstawiono przykład takiej operacji przy zastosowaniu okna o rozmiarze 2x2 i przesunięciu wynoszącym 2. 
 
 \begin{figure}[!h]
-    \label{fig:max_pooling}
     \centering \includegraphics[width=0.75\linewidth]{max_pooling.png}
     \caption{Wynik operacji max poolingu}
+    \label{fig:max_pooling}
 \end{figure}
 
 
@@ -56,7 +56,7 @@ Najbardziej popularną formą poolingu jest max pooling, który polega na wybier
 % https://towardsdatascience.com/illustrated-guide-to-recurrent-neural-networks-79e5eb8049c9 
 
 
-Neuronowa sieć rekurencyjna (RNN) powstała z myślą o przewidywaniu kolejnych elementów sekwencji. Jako wejście przyjmuje kolejne elementy sekwencji, ale w przeciwieństwie do sieci typu feedforward posiada także swój wewnętrzny  stan, w ramach którego zawarta jest informacja o poprzednich wejściach. Sieć tego typu charakteryzuje się jednak bardzo istotną wadą, mianowicie boryka się ona z problem zanikającego gradientu. Jest on spowodowany naturą propagacji wstecznej i wiąże się z coraz mniejszym wpływem początkowych elementów sekwencji na wyjście modelu. Aby temu zaradzić zostały wprowadzone nowe architektury warstw, jedną z nich jest warstwa typu LSTM.
+Neuronowa sieć rekurencyjna (RNN) powstała z myślą o przewidywaniu kolejnych elementów sekwencji. Jako wejście przyjmuje kolejne elementy sekwencji, ale w przeciwieństwie do sieci typu feedforward posiada także swój wewnętrzny  stan, w ramach którego zawarta jest informacja o poprzednich wejściach. Sieć tego typu charakteryzuje się jednak bardzo istotną wadą, mianowicie boryka się ona z problem zanikającego gradientu. Jest on spowodowany naturą propagacji wstecznej i wiąże się z coraz mniejszym wpływem początkowych elementów sekwencji na wyjście modelu. Aby temu zaradzić zostały wprowadzone nowe architektury warstw, jedną z nich jest warstwa typu LSTM. \cite{RNN_1} \cite{RNN_2}
 
 
 
@@ -67,7 +67,7 @@ Neuronowa sieć rekurencyjna (RNN) powstała z myślą o przewidywaniu kolejnych
 
 % https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
 
-Warstwa typu LSTM składa się nuronów zawierających w sobie wiele pośrednich operacji. Poniżej zostaną omówione najważniejsze z nich.
+Warstwa typu LSTM składa się nuronów zawierających w sobie wiele pośrednich operacji. Poniżej zostaną omówione najważniejsze z nich\cite{LSTM_1}.
 
 \begin{figure}[!h]
     \label{fig:lstm_diagram}
@@ -131,7 +131,7 @@ Zadaniem tej bramy jest określenie jak powinien wyglądać stan ukryty przekazy
 
 %https://medium.com/@raghavaggarwal0089/bi-lstm-bc3d68da8bd0 
 
-Warstwa składa się z dwóch tak samo zbudowanych warstw LSTM. Jedna z warstw przetwarza ciąg danych wejściowych od początku do końca, a druga od końca do początku. Pozwala to na naukę zależności między elementami w dwóch kierunkach, co przekłada się na większą liczbę informacji na temat sekwencji, co pozwala na szybsze i dokładniejsze trenowanie modelu.
+Warstwa składa się z dwóch tak samo zbudowanych warstw LSTM. Jedna z warstw przetwarza ciąg danych wejściowych od początku do końca, a druga od końca do początku. Pozwala to na naukę zależności między elementami w dwóch kierunkach, co przekłada się na większą liczbę informacji na temat sekwencji, co pozwala na szybsze i dokładniejsze trenowanie modelu\cite{BI_LSTM_1}.
 
 
 
