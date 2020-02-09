@@ -66,13 +66,47 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 \subsubsection{Eksperyment 1 - Analiza wpływu cech morfosyntaktycznych na jakoś klasyfikacji}
 % Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Aby w pełni zweryfikować wpływ cech morfosyntaktycznych na jakość klasyfikacji zostały wykorzystane trzy różne reprezentacje wektorowe słów oraz dwa różne zbiory danych wejściowych. Wykorzsytane reprezentacje wektorowe to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
+Aby w pełni zweryfikować wpływ cech morfosyntaktycznych na jakość klasyfikacji zostały wykorzystane trzy różne reprezentacje wektorowe słów oraz dwa różne zbiory danych wejściowych. Wykorzystane reprezentacje wektorowe to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 % Poniżej przedstawiono tabele z wynikami obliczeń.
 Wyniki uzyskane przez modele na danych testowych zbioru A zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_1} i \ref{wyniki_eksperymentow_eks_1b} w tabelach \ref{tab:wyniki_glove_A}, \ref{tab:wyniki_fasttext_A}, \ref{tab:wyniki_elmo_A} , a dla zbioru B w tabelach \ref{tab:wyniki_glove_B}, \ref{tab:wyniki_fasttext_B}, \ref{tab:wyniki_elmo_B}.
 
 
-W oparciu o uzyskane wyniki można stwierdzić, że wraz z dołączeniem informacji o częściach mowy nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że rodzaj części mowy nie jest kluczowy do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach reprezentacji wektorowej jest już niepotrzebna.
+% //TODO: szczegółowa analiza
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Analizując poszczególne metryki dla trzech typów sieci (opartych na warstwach gęstych, konwolucyjnych oraz LSTM) można wyciągnąć następujące wnioski.  \hfill \break \hfill \break
+\noindent Dla sieci opartych na warstwach gęstych: 
+\begin{itemize}
+    \item Większa liczba neuronów poprawia skuteczność klasyfikacji, do pewnego krytycznego progu, dla którego występuje przeuczenie
+    \item Większa liczba warstw poprawia skuteczność klasyfikacji, do pewnego krytycznego progu, dla którego występuje przeuczenie
+    \item Przy zbyt dużej liczbie neuronów i warstw następuje przeuczenie, które może zostać zniwelowane poprzez wykorzystanie dropoutu
+\end{itemize}
+
+ 
+\noindent Dla sieci opartych na warstwach konwolucyjnych: 
+
+\begin{itemize}
+    \item Większa liczba neuronów poprawia skuteczność klasyfikacji, do pewnego krytycznego progu, dla którego występuje przeuczenie
+    \item Większa liczba warstw poprawia skuteczność klasyfikacji i dla niektórych przypadków pozwala osiągnąć dokładność bliską stu procent
+    \item Warstwa max poolingu pozwala poprawienie skuteczności klasyfikacji dzięki usunięciu mniej ważnych informacji i uwypuklenie istotnych cech
+    \item Rozmiar okna warstwy konwolucyjnej wpływa na skuteczność klasyfikacji, im okno jest mniejsze (minimalna wielkość okna to 3) tym skuteczność sieci jest wyższa
+\end{itemize}
+
+\noindent Dla sieci opartych na warstwach LSTM: 
+\begin{itemize}
+    \item Większa liczba neuronów poprawia skuteczność klasyfikacji, do pewnego krytycznego progu, dla którego występuje przeuczenie
+    \item Większa liczba warstw poprawia skuteczność klasyfikacji, dla dwóch warstw jakość klasyfikacji jest najwyższa, dla trzech warstw można obserwować już przeuczenie sieci
+    \item Przy zbyt dużej liczbie neuronów i warstw następuje przeuczenie, które może zostać zniwelowane poprzez wykorzystanie dropoutu
+    \item Wykorzystanie warstw Bi-LSTM, zamiast pojedynczych warstw LSTM pozwala na poprawę jakości klasyfikacji przy takiej samej liczbie neuronów w warstwie
+\end{itemize}
+
+\hfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\noindent W oparciu o uzyskane wyniki można także stwierdzić, że wraz z dołączeniem informacji o cechach morfosyntaktycznych nie obserwuje się widocznej poprawy jakości klasyfikacji, czasem występuje nawet jej pogorszenie. Jednym z powodów takiego zachowania może być fakt, że informacje dotyczące cech morfosyntaktycznych nie są kluczowe do rozpoznania ironicznego charakteru tekstu. Możne to być też spowodowane tym, że sieci wychwytują niezbędne dla nich informacje na temat roli konkretnego słowa w zdaniu w oparciu o uzyskiwany kontekst i dodatkowa informacja w ramach reprezentacji wektorowej jest już niepotrzebna.
 
 Ponadto można zaważyć, że wraz ze wzrostem rozmiaru reprezentacji wektorowej poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy wektor pozwala na zachowanie większej liczby informacji na temat słowa.
 
@@ -104,9 +138,9 @@ Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w d
 
 % //TODO: zminić, bo LSTM i CNN mają podobny poziom jakości 
 
-W opraciu o uzyskane wyniki można zauważyć, dużo wyższą jakość klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}. Świdczyć to może o bardzo małej różnorodności wśród danych wewnątrz zbioru \textbf{B}. Najprawdopodobniej wszystkie elementy tego zbioru reprezenntują ten sam najprostszy typ ironii bazujący na przeciwnej polaryzacji w ramach ironii werbalnej.
+W opraciu o uzyskane wyniki można zauważyć, dużo wyższą dokładność klasyfikacji w porównaniu do zbioru oznaczonego jako \textbf{A}. Świdczyć to może o bardzo małej różnorodności wśród danych wewnątrz zbioru \textbf{B}. Najprawdopodobniej wszystkie elementy tego zbioru reprezenntują ten sam najprostszy typ ironii bazujący na przeciwnej polaryzacji w ramach ironii werbalnej.
 
-Natomiast w kwestii porównania jakości klasyfikacji sieci CNN i sieci  opratych o wartwy LSTM, trudno jest dostrzec zauważalną różnicę w jakościach klasyfikacji przez sieci o najwyższych wynikach. Obie architektury sprawiają się równie dobrze w przypadku klasyfikacji na zbiorze B, nawet przy dość małej ilości danych. 
+Natomiast w kwestii porównania jakości klasyfikacji sieci CNN i sieci  opratych o wartwy LSTM, trudno jest dostrzec zauważalną różnicę w jakościach klasyfikacji przez sieci o najwyższej skuteczności. Obie architektury sprawiają się równie dobrze w przypadku klasyfikacji na zbiorze B, nawet przy dość małej ilości danych. 
 
 % W oparciu o uzyskane wyniki można zauważyć:
 
