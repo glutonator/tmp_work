@@ -63,7 +63,7 @@ W ramach różnych architektur testowany był wpływ kilku hiperparametrów na j
 
 \subsection{Wyniki analiza}
 
-\subsubsection{Eksperyment 1 - Analiza wpływu cech morfosyntaktycznych na jakoś klasyfikacji}
+\subsubsection{Badanie 1 - Analiza wpływu cech morfosyntaktycznych na jakoś klasyfikacji}
 % Aby w pełni zweryfikować wpływ części mowy (POS tagów) na jakość klasyfikacji zostały wykorzystane trzy różne embeddingi oraz dwa różne zbiory danych wejściowych. Embeddingi różnią się one między innymi długością oraz metodą ich uzyskiwania. A zbiory danych różnią się licznością i stopniem zaszumienia. Każdy ze zbiorów danych został podzielony na trzy zbiory treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
 Aby w pełni zweryfikować wpływ cech morfosyntaktycznych na jakość klasyfikacji zostały wykorzystane trzy różne reprezentacje wektorowe słów oraz dwa różne zbiory danych wejściowych. Wykorzystane reprezentacje wektorowe to: Glove, FastText oraz ELMo, a ich dokładniejszy opis znajduje się w rozdziale \ref{embeddings}. Natomiast dwa zbiory danych wejściowych (oznaczonych jako A oraz B) są opisane w rozdziale \ref{dane_wejsciowe}. Na potrzeby budowania modeli każdy ze zbiorów danych został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
@@ -111,16 +111,16 @@ Analizując poszczególne metryki dla trzech typów sieci (opartych na warstwach
 Ponadto można zaważyć, że wraz ze wzrostem rozmiaru reprezentacji wektorowej poprawia się jakość klasyfikacji, co jest zgodne z oczekiwaniami, jako że dłuższy wektor pozwala na zachowanie większej liczby informacji na temat słowa.
 
 
-Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy gęste. Natomiast sieci wykorzystujące warstwy konwolucyjne oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa eksperymenty mające porównać skuteczność klasyfikacji sieci opartych na warstwach konwolucyjnych oraz LSTM. Eksperymenty te są przeprowadzone na danych wejściowych pozbawionych informacji na temat cech morfosyntaktycznych, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
+Analizując uśrednione pomiary jakości klasyfikacji dla sieci opartych o różne typy warstw, można zauważyć, że najgorzej sprawują się sieci oparte o warstwy gęste. Natomiast sieci wykorzystujące warstwy konwolucyjne oraz LSTM posiadają podobną skuteczność klasyfikacji. Aby wykluczyć wpływ zaszumienia danych oraz przeuczenia sieci wykonano jeszcze dwa badania mające porównać skuteczność klasyfikacji sieci opartych na warstwach konwolucyjnych oraz LSTM. Badania te są przeprowadzone na danych wejściowych pozbawionych informacji na temat cech morfosyntaktycznych, gdyż z dotychczasowych pomiarów wynika, iż mają one pomijalny wpływ na jakość klasyfikacji.
 
 %\colorbox{yellow}{todo: todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A}\\
 %todo opisanie, że zbior duży to zbiór B, a mały zbiór to zbiór A
 
-\subsubsection{Eksperyment 2 - Uczenie modelu na zbiorze B i testowanie jakości klasyfikacji na zbiorze A }
+\subsubsection{Badanie 2 - Uczenie modelu na zbiorze B i testowanie jakości klasyfikacji na zbiorze A }
 
-W ramach tego eksperymentu zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy.
+W ramach tego badania zbiór danych oznaczonych jako \textbf{B} został podzielony na dwa zbiory: treningowy oraz w walidacyjny w proporcjach 80/20 procent. Natomiast zbiór oznaczony jako A został w całości wykorzystany jako zbiór testowy.
 
-Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_2} w tabelach \ref{tab:wyniki_25_eks2}, \ref{tab:wyniki_300_eks2}, \ref{tab:wyniki_1024_eks2}.
+Wyniki uzyskane przez modele w ramach tego badania zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_2} w tabelach \ref{tab:wyniki_25_eks2}, \ref{tab:wyniki_300_eks2}, \ref{tab:wyniki_1024_eks2}.
 
 
 %todo:
@@ -129,11 +129,11 @@ Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w d
 W oparciu o uzyskane miary jakości klasyfikacji można stwierdzić, że modele wyuczone na zbiorze B źle radzą sobie z klasyfikacją rekordów ze zbioru A. Dokładność na poziomie pięćdziesięciu paru procent wskazuje, iż pomimo tego, że oba zbiory pochodzą z tego samego źródła to różnią się one na tyle bardzo swoją strukturą wewnętrzną, że żadna architektura nie może sobie poradzić z prawidłową klasyfikacją. Co potwierdza powszechnie znaną prawdę dotyczącą sieci neuronowych, że takie modele do procesu trenowania potrzebują bardzo dużej ilości danych o możliwie jak najbardziej zróżnicowanej strukturze. Wystarczy, że zbiór danych treningowych jest tylko pewnym wycinkiem dziedziny problemu, by sieć podczas treningu nauczyła się klasyfikacji w opraciu o złe lub nieistotne cechy.
 
 
-\subsubsection{Eksperyment 3 - Uczenie i testowanie modelu na fragmencie zbioru B tak by był równoliczny ze zbiorem A}
+\subsubsection{Badanie 3 - Uczenie i testowanie modelu na fragmencie zbioru B tak by był równoliczny ze zbiorem A}
 
-W ramach tego eksperymentu ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
+W ramach tego badania ze zbioru danych oznaczonych jako \textbf{B} zostało wybranych w losowy sposób 2000 rekordów ironicznych i tyle samo nieironicznych, tak by licznością były porównywalne ze zbiorem oznaczonym jako \textbf{A}. Tak uzyskany zbiór został podzielony na trzy podzbiory: treningowy, walidacyjny oraz testowy w proporcjach 60/20/20 procent.
 
-Wyniki uzyskane przez modele w ramach tego eksperymentu zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_3} w tabelach \ref{tab:wyniki_25_eks3}, \ref{tab:wyniki_300_eks3}, \ref{tab:wyniki_1024_eks3}.
+Wyniki uzyskane przez modele w ramach tego badania zostały umieszczone w dodatku \ref{wyniki_eksperymentow_eks_3} w tabelach \ref{tab:wyniki_25_eks3}, \ref{tab:wyniki_300_eks3}, \ref{tab:wyniki_1024_eks3}.
 
 
 % //TODO: zminić, bo LSTM i CNN mają podobny poziom jakości 
