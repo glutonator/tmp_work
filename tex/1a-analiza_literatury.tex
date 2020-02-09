@@ -22,7 +22,7 @@ Inne podejście, zaprezentowane w pracy \cite{Riloff2013} opierało się na spos
 \end{itemize}
 
 
-Algorytm rozpoczyna swoje działanie od tylko jednego słowa ‘love’ w zbiorze słów PS. Następnie dokonywane są kolejne kroki:
+\noindent Algorytm rozpoczyna swoje działanie od tylko jednego słowa ‘love’ w zbiorze słów PS. Następnie dokonywane są kolejne kroki:
 \begin{enumerate}
     \item Wyszukiwanie w zbiorze danych rekordów zawierających słowo ze zbioru PS
     \item Dla każdego znalezionego rekordu w otoczeniu słowa ze zbioru PS wyznaczany jest 1-gram,2-gram oraz 3-gram.
@@ -33,10 +33,12 @@ Algorytm rozpoczyna swoje działanie od tylko jednego słowa ‘love’ w zbiorz
     \item Powrót do kroku 1, aż do momentu, gdy zbiory PS i NS będą wystarczająco liczne.
 \end{enumerate}
 
+\hfill 
 
 
+\noindent Dzięki takiemu podejście możliwe jest zidentyfikowanie najczęściej pojawiających się kombinacji wskazujących na występowanie sarkazmu i w oparciu o nie dokonać predykcji czy dana wypowiedź ma charakter sarkastyczny. Istotną wadą takiego podejścia jest dość wąskie okno w ramach dokonywana jest analiza zdania, a także brak uwzględniania kulturowego znaczenia poszczególnych słów.
 
-Dzięki takiemu podejście możliwe jest zidentyfikowanie najczęściej pojawiających się kombinacji wskazujących na występowanie sarkazmu i w oparciu o nie dokonać predykcji czy dana wypowiedź ma charakter sarkastyczny. Istotną wadą takiego podejścia jest dość wąskie okno w ramach dokonywana jest analiza zdania, a także brak uwzględniania kulturowego znaczenia poszczególnych słów.
+Inne podejśćie reprezentuje praca \cite{one_more_source_to_lit}. Bada ona wpływ różnych operacji dokonanych podczas wstępnej obróbki danych na jakość klasyfikacji tekstów ironicznych i sarkastycznych. Badacze wykorzystali w trakcie pracy dwa rodzaje metod pozwalających na utworzenie reprezentacji wektorowej słów i znaków, oba z nich bazują na zliczaniu współwystępowania słów w zbiorze danych. Do zadania klasyfikacji został wykorzystany między innym algorytm K najbliższych sąsiadów oraz SVM. Badacze uzyskali wartość metryki F1 na poziomie około 60 procent, co wskazuje na duże niedoskonałości zaproponowanych metod i skłania do poszukiwania innych, bardziej efektywnych algorytmów. 
 
 Ze względu na obserwowaną lepszą skuteczność klasyfikacji, późniejsze prace skupiały się przede wszystkim na wykorzystaniu sieci neuronowych do zagadnienia rozpoznawania ironii.
 

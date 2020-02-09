@@ -52,7 +52,7 @@ Metoda ta nie została wykorzystana w pracy, jednak jest ona kluczowy do zrzumie
 
 
 
-Tworzenie reprezentacji wektorowej słowa w oparciu o model typu CBOW polega na trenowaniu prostej sieci neuronowej. Sieć ta składa się z warstwy wejściowej, jednej warstwy ukrytej (warstwy gęstej) oraz warstwy wyjściowej. Trening modelu polega na podawaniu na wejście słów mieszczących się w ramach pewnego założonego okna, przewidując słowo będące w środku tego okna. Jako okno rozumie się tutaj stałą liczbę słów przed i po aktualnie przewidywanym słowem. Słowa, by mogły być przewidywane przez model, są wcześniej konwertowane do przestrzeni wektorowej poprzez wykorzystanie one-hot encodingu. Proces uczenia polega na systematycznym przesuwaniu okna o jedno słowo i trenowanie wag w warstwie ukrytej. Po zakończonym procesie uczenia należy usunąć ostatnią warstwę wyjściową, a wagi z warstwy ukrytej,wykorzystać do uzyskanie reprezentacji wektorowej słów.\cite{Mikolov2013}
+\noindent Tworzenie reprezentacji wektorowej słowa w oparciu o model typu CBOW polega na trenowaniu prostej sieci neuronowej. Sieć ta składa się z warstwy wejściowej, jednej warstwy ukrytej (warstwy gęstej) oraz warstwy wyjściowej. Trening modelu polega na podawaniu na wejście słów mieszczących się w ramach pewnego założonego okna, przewidując słowo będące w środku tego okna. Jako okno rozumie się tutaj stałą liczbę słów przed i po aktualnie przewidywanym słowem. Słowa, by mogły być przewidywane przez model, są wcześniej konwertowane do przestrzeni wektorowej poprzez wykorzystanie one-hot encodingu. Proces uczenia polega na systematycznym przesuwaniu okna o jedno słowo i trenowanie wag w warstwie ukrytej. Po zakończonym procesie uczenia należy usunąć ostatnią warstwę wyjściową, a wagi z warstwy ukrytej,wykorzystać do uzyskanie reprezentacji wektorowej słów.\cite{Mikolov2013}
 
 Odmiana ‘skip grams’ jest analogiczna do metody CBOW, tylko zamiast przewidywania jednego słowa w kontekście jego otoczenia, przewidywane jest otoczenie w kontekście słowa.
 
@@ -101,7 +101,7 @@ Ta metoda tworzenia wektorowej reprezentacji słów nie korzysta już z bezpośr
 
 
 
-Przetwarzanie zdania wejściowego odbywa się zgodnie z następującymi krokami:
+\noindent Przetwarzanie zdania wejściowego odbywa się zgodnie z następującymi krokami:
 
 \begin{itemize}
     \item Zdanie jest dzielone na słowa
@@ -143,9 +143,8 @@ Aby umieścić informacje na temat cech morfosyntaktycznych słowa tak by były 
 % \colorbox{yellow}{todo:}\\
 
 
-//todo: poprawić napisy na rysunku !!!!!
 \begin{figure}[!h]
     \label{fig:post_tag}
-    \centering \includegraphics[width=1\linewidth]{post_tag_embedings.png}
+    \centering \includegraphics[width=1\linewidth]{postag_2.png}
     \caption{Przykład reprezentacji wektorowej słowa wraz z zakodowaną informacją na temat cech  morfosyntaktycznych}
 \end{figure}
