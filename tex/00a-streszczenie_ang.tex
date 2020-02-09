@@ -1,0 +1,17 @@
+% \newpage % Rozdziały zaczynamy od nowej strony.
+% \section{Wstęp}
+% \subsection{Cel pracy}
+
+
+Issues in the field of natural text processing were once dominated by rule systems that deterministically solved the problems posed to them. Currently, for the same problems, artificial intelligence systems based on neural networks are increasingly being used. They allow you to capture relationships that are not always intuitive for a person, which sometimes allows a more effective solution to the problem posed. However, this feature can also lead to opposite results, among others in the case of a wrongly selected data set, so with this approach it is very important to thoroughly test the resulting model.
+
+The work focuses on the issue of processing natural text in terms of classifying it into one of two groups, one containing irony or sarcasm and the other one containing neither irony nor sarcasm. The second goal of the study was to analyze the impact of morphosyntactic features on the quality of text classification into one of the aforementioned groups.
+
+As part of the work, existing data sets were used, on which a preprocessing was performed to clean the set of irrelevant data. Then, the processed data was converted to vector representation using three different methods. As part of this step, information on the morphosyntactic characteristics of words was also included. The next step was to introduce such coded information into the neural network. As part of the work, several architectures based on convolution and LSTM layers were proposed.
+
+As part of the work, it was possible to construct models that would allow to solve the given classification task at a fairly good level. The accuracy of the classification varied significantly depending on the data set used. Which indicates that some types of irony and sarcasm may be less recognizable by the resulting models. In addition, there was no significant difference in the quality of classification between the most effective networks based on convolution layers and LSTM layers. Furthermore, the analysis of the influence of morphosyntactic features on the classification accuracy showed no significant improvement in the quality of the model's operation. This leads to the conclusion that such information is not relevant to the detection of irony or sarcasm.
+
+
+%https://www.dbc.wroc.pl/Content/23649/PDF/radziszewski_metody_PhD.pdf 
+
+
