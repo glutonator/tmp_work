@@ -1,5 +1,27 @@
 \newpage % Rozdziały zaczynamy od nowej strony.
-\section{Metryki}
+\section{Proces uczenia}
+
+
+
+\subsection{Funkcja straty}
+
+Proces uczenia sieci neuronowej wykorzystuje mechanizm wstecznej propagacji błędu, który pozwala na regulacje wag połączeń między neuronami tak by poprawiać uzyskiwane wyniki wartwy wyjściowej wraz z każdą kolejną iteracją. W ramach tego mechanizmu konieczne jest wyznaczenie uzyskiwanego przez sieć błędu zgodnie z pewna stałą metryką. W przypadku zagadnienia klasyfikacji binarnej, najpopularniejszą funkcją jest funkcja binarnej entropii krzyżowej (ang. binary cross entropy), i będzie ona także wykorzystywana w ramach tej pracy. Opisuje się ona poniższym wzorem: 
+
+$$
+CE = -\sum_{i=1}^{C'=2}t_{i} log (f(s_{i})) = -t_{1} log(f(s_{1})) - (1 - t_{1}) log(1 - f(s_{1})),
+$$
+
+
+\noindent gdzie: \\
+$s_1$ - uzyskany stan dla klasy pierwszej \\
+$t_1$ - oczekiwany stan dla klasy pierwszej (wartość 0)\\
+$1-s_1$ - uzyskany stan dla klasy drugiej \\
+$1-t_1$ - oczekiwany stan dla klasy drugiej (wartość 1) \\
+$f(s_i)=\frac{1}{1+e^{-s_i}}$ - funkcja sigmoidalna
+
+
+
+\section{Wykorzystane metryki}
 
 Jakość klasyfikacji można monitorować przy wykorzystaniu różnych metryk. Najbardziej popularną metryką jest dokładność (ang. accuraccy), czyli stosunek poprawnie zakwalifikowanych przez model obserwacji, do całkowitej liczby obserwacji w zbiorze. Nie jest to jednak miara idealna, nie bierze ona pod uwagę między innymi tego czy badany zbiór jest zbilansowany. W przypadku zbioru niezbilansowanego możliwe jest uzyskanie bardzo dobrej dokładności nawet przy zakwalifikowaniu wszystkich obserwacji do tylko jednej klasy. W celu wyeliminowania tego problemu wykorzystuje się inne metryki, takie jak precyzja i czułość \cite{metryki_3}.
 
@@ -43,18 +65,8 @@ $$
     F1 = 2 \cdot \frac{precyzja \cdot czułość}{precyzja + czułość}
 $$
 
+Podczas procesu analizy uzyskanych przez sieć wartości poszczególnych metryk, brane były pod uwagę przede wszystkim dwie z nich: dokładność oraz F1. Dokładność pozwalała na interpretację czy sieć zachowywała się lepiej niż model naiwny przypisujący wszystkim elementom zbioru testowego tą samą, jedna klasę (zbiór jest zbiorem zbilansowanym, o dwóch równolicznych klasach). Jeśli dokładność była na odpowiednio wysokim poziomie analizie podlegała metryka F1, co pozwalało na uwzględnienie wpływu “false positive” oraz “false negative” na jakość klasyfikacji modelu. 
 
-
-
-% $\lim_{n \to \infty}
-%     \sum_{k=1}^n \frac{1}{k^2}
-%     = \frac{\pi^2}{6}$
-% \\ \\
-% $$
-%     \lim_{n \to \infty}
-%     \sum_{k=1}^n \frac{1}{k^2}
-%     = \frac{\pi^2}{6}
-% $$
 
 
 
