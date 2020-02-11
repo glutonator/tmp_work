@@ -128,6 +128,53 @@ Ta metoda tworzenia wektorowej reprezentacji słów nie korzysta już z bezpośr
 
 Etykieta morfosyntaktyczna (z ang. Part-of-speach tag) posiada w sobie zbiór inforamcji na temat cech morfosyntaktycznych słowa \cite{postags_def}. Najbardziej podstawową informacją w niej zawartą jest część mowy do której należy słowo, przykładem części mowy możę być między innymi czasownik, rzeczownik oraz przymiotnik. Jednak nie jest to jedyna informacja zawarta w ramach tej etykiety, przechowuje on bowiem także informację o czasie w jakim jest użyty czasownik, w której liczbie jest wykorzystany rzeczownik i wiele innych.
 
+Szczegółowa lista najpopularniejszych klas opisujących cechy morfosyntaktyczne zawarta jest w tabeli \ref{tab:klasy_morf}.
+
+
+\begin{table}[!h] \centering
+    \caption{Tabela przedstawiająca wybrane cechy morfosyntaktyczne przypisane do słowa}
+    \label{tab:klasy_morf} 
+    \begin{tabular} {| l | l |} \hline
+        Oznaczenie klasy & Opis jakie cech morfosyntaktyczne odzwierciedla klasa   \\ \hline\hline
+        CC               & spójnik łączny (np. 'and')                              \\ \hline
+        CD               & liczba                                                  \\ \hline
+        % DT               & określnik                                               \\ \hline
+        % EX               & XXXXXX                  \\ \hline
+        FW               & słowo obce                                              \\ \hline
+        IN               & przyimek,spójnik podrzędny                              \\ \hline
+        JJ               & przymiotnik w stopniu równym                            \\ \hline
+        JJR              & przymiotnik w stopniu wyższym                           \\ \hline
+        JJS              & przymiotnik w stopniu najwyższym                        \\ \hline
+        % LS               & XXXXXX                           \\ \hline
+        MD               & czasownik modalny                                       \\ \hline
+        NN               & rzeczownik w liczbie pojedynczej                        \\ \hline
+        NNS              & rzeczownik w liczbie mnogiej                            \\ \hline
+        NNP              & rzeczownik w formie nazwy własnej w liczbie pojedynczej \\ \hline
+        NNPS             & rzeczownik w formie nazwy własnej w liczbie mnogiej     \\ \hline
+        % PDT              & XXXXXX                                                  \\ \hline
+        % POS              & XXXXXX                                                  \\ \hline
+        PRP              & zaimek osobowy                                          \\ \hline
+        PRP              & zaimek dzierżawczy                                      \\ \hline
+        RB               & przysłówek w stopniu równym                             \\ \hline
+        RBR              & przysłówek w stopniu wyższym                            \\ \hline
+        RBS              & przysłówek w stopniu najwyższym                         \\ \hline
+        % RP               & XXXXXX                                                  \\ \hline
+        % TO               & XXXXXX                                                  \\ \hline
+        % UH               & XXXXXX                                                  \\ \hline
+        VB               & czasownik w formie podstawowej                          \\ \hline
+        VBD              & czasownik w formie przeszłej                            \\ \hline
+        VBG              & czasownik w formie imiesłowa czasu teraźniejszego       \\ \hline
+        VBN              & czasownik w formie imiesłowa czasu przeszłego           \\ \hline
+        VBP              & czasownik w liczbie pojedynczej w formie nie 3-osobowej \\ \hline
+        VBZ              & czasownik w liczbie pojedynczej w formie 3-osobowej     \\ \hline
+        % WDT              & XXXXXX                                                  \\ \hline
+        % WP               & XXXXXX                                                  \\ \hline
+        % WP               & XXXXXX                                                  \\ \hline
+        % WRB              & XXXXXX                                                  \\ \hline
+    \end{tabular}
+\end{table}
+
+
 %todo:
 % \colorbox{yellow}{todo:}\\
 % //todo: można by dorzucić pełną listę, ale to może być problematyczne
@@ -136,7 +183,7 @@ Etykieta morfosyntaktyczna (z ang. Part-of-speach tag) posiada w sobie zbiór in
 
 % https://pythonprogramming.net/natural-language-toolkit-nltk-part-speech-tagging/
 
-Aby umieścić informacje na temat cech morfosyntaktycznych słowa tak by były one możliwe do interpretacji w ramach reprezentacji wektorowej słowa konieczne jest konwertowanie jej do postaci liczbowej. Ze względu na brak dużego podobieństwa między poszczególnymi częściami mowy zdecydowano się na zakodowanie tej informacji w formie one-hot encoding. Tak utworzony wektor był doklejany do istniejącej już reprezentacji wektorowej słowa uzyskanego innymi metodami tworząc wektor dłuższy o 46 elementów.
+Aby umieścić informacje na temat cech morfosyntaktycznych słowa (klasy reprezentującej cechy morfosyntaktyczne slowa) tak by były one możliwe do interpretacji w ramach reprezentacji wektorowej słowa konieczne jest konwertowanie jej do postaci liczbowej. Ze względu na brak dużego podobieństwa między poszczególnymi częściami mowy zdecydowano się na zakodowanie tej informacji w formie one-hot encoding. Tak utworzony wektor był doklejany do istniejącej już reprezentacji wektorowej słowa uzyskanego innymi metodami tworząc wektor dłuższy o 46 elementów.
 
 %todo:
 % //todo: dodać rysunek to obrazujący
